@@ -33,6 +33,16 @@ Total footprint with easel/frame legs: ~48"W × 36"D × 60"H
 - **Edge rails:** 1×6 lumber on all four sides, sandwiched between plywood and acrylic, forming the sealed playing field
 - **Tilt frame:** A-frame easel legs on the back, adjustable angle with a chain or strap
 
+### 1a. Support Frame (Modular / Reusable)
+- **Design for reuse:** Frame and board should break down for storage and reassemble cleanly year over year
+- **Rear support legs (×2):** 2×4 lumber, hinged at the top so they fold flat against the back panel for transport/storage
+- **Cross brace:** Horizontal 2×4 between rear legs at ~24" height for lateral stability
+- **Angle limiter:** Adjustable chain or turnbuckle between legs and back panel — sets tilt angle, prevents splaying
+- **Base feet:** Rubber-capped 2×4 feet on rear legs to prevent sliding on grass/concrete
+- **Handles (×2):** Heavy-duty gate handles (or rope handles) mounted on each side of the back panel for two-person carry
+- **Fasteners:** Use wing nuts and carriage bolts at all break-down joints — no tools needed for setup/teardown
+- **Optional:** Label each joint/connection point (A1, A2, etc.) so reassembly is foolproof in future years
+
 ### 2. Launcher System (×2)
 - **Type:** Spring-loaded pinball plunger
 - **Position:** Bottom-left and bottom-right of the playing field
@@ -46,7 +56,7 @@ Total footprint with easel/frame legs: ~48"W × 36"D × 60"H
 - **Blower:** Single electric blower (bouncy house style inflator, ~$30–40, 2.0 PSI / 450W)
 - **Distribution:** 2" flex hose from blower, Y-split to two player stations
 - **Nozzles:** ¾"–1" rigid pipe/tube, ~6" long
-- **Pivot mount:** Each nozzle mounted on a pivot bolt through the bottom edge rail, with stop bolts limiting to ~30° sweep
+- **Pivot mount:** Each nozzle mounted on a pivot bolt through the bottom edge rail, with stop bolts limiting to ~45° sweep
 - **Nozzle position:** Bottom-center area of each player's half, aimed upward into the field
 - **Flow control:** Consider a simple gate valve on each line for balance tuning
 
@@ -97,7 +107,10 @@ Total footprint with easel/frame legs: ~48"W × 36"D × 60"H
 | Bolts, nuts, washers (pivot mounts) | — | $10 |
 | Wood screws (assorted) | 1 box | $8 |
 | Hinges (for frame legs) | 2 | $8 |
-| Chain or strap (angle limiter) | 1 | $5 |
+| Chain or turnbuckle (angle limiter) | 1 | $8 |
+| Heavy-duty handles (side-mounted) | 2 | $12 |
+| Wing nuts + carriage bolts (tool-free joints) | 1 set | $15 |
+| Rubber feet caps | 4 | $6 |
 
 ### Air System
 | Item | Qty | Est. Cost |
@@ -115,7 +128,7 @@ Total footprint with easel/frame legs: ~48"W × 36"D × 60"H
 | Spray paint (board, scoring markers) | 3 cans | $15 |
 | Adhesive vinyl numbers (scoring) | 1 sheet | $5 |
 
-### **Estimated Total: $315–350**
+### **Estimated Total: $350–400**
 
 ---
 
@@ -126,7 +139,9 @@ Total footprint with easel/frame legs: ~48"W × 36"D × 60"H
 2. Cut edge rails from 1×6, attach to plywood edges with screws (forms the box)
 3. Drill peg holes in plywood — grid pattern, ~6" spacing, offset rows (plinko style)
 4. Insert and glue dowel pegs (3" long, protruding into playing field)
-5. Build A-frame legs, attach with hinges
+5. Build A-frame legs, attach with hinges (use carriage bolts + wing nuts at break-down joints)
+6. Mount side handles
+7. Label all modular connection points for future reassembly
 
 ### Phase 2: Scoring & Return (Day 2)
 1. Build and mount 4 scoring ledges inside the box
@@ -138,7 +153,7 @@ Total footprint with easel/frame legs: ~48"W × 36"D × 60"H
 ### Phase 3: Air System (Day 3)
 1. Mount nozzle pivots on bottom edge rail
 2. Run flex hose from blower through Y-split to nozzles
-3. Install rotation stops (30° range)
+3. Install rotation stops (45° range)
 4. Power on and tune — adjust nozzle diameter or gate valves until air moves the whiffle ball effectively at various field positions
 5. Test with multiple balls in play simultaneously
 
@@ -157,4 +172,4 @@ Total footprint with easel/frame legs: ~48"W × 36"D × 60"H
 - [ ] Power at the booth? (need outlet for blower)
 - [ ] Signage / branding for the booth
 - [ ] Prize structure (if any)
-- [ ] Transport plan — does it need to break down flat?
+- [x] Transport plan — modular design, wing nut joints, folds flat, side handles for carry
