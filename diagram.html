@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Air Plinko — Concept Diagram</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: 'Courier New', monospace; padding: 20px; }
+  h1 { text-align: center; color: #e94560; margin-bottom: 4px; font-size: 28px; }
+  .subtitle { text-align: center; color: #888; margin-bottom: 30px; font-size: 14px; }
+  .views { display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
+  .view { background: #16213e; border: 1px solid #333; border-radius: 8px; padding: 20px; }
+  .view h2 { color: #e94560; margin-bottom: 16px; font-size: 16px; text-align: center; }
+  canvas { display: block; }
+  .legend { margin-top: 30px; max-width: 700px; margin-left: auto; margin-right: auto; }
+  .legend h3 { color: #e94560; margin-bottom: 10px; }
+  .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 13px; }
+  .legend-swatch { width: 16px; height: 16px; border-radius: 3px; flex-shrink: 0; }
+  .specs { margin-top: 30px; max-width: 700px; margin-left: auto; margin-right: auto; background: #16213e; border: 1px solid #333; border-radius: 8px; padding: 20px; }
+  .specs h3 { color: #e94560; margin-bottom: 10px; }
+  .specs table { width: 100%; font-size: 13px; }
+  .specs td { padding: 3px 8px; }
+  .specs td:first-child { color: #888; }
+</style>
+</head>
+<body>
+
+<h1>AIR PLINKO</h1>
+<p class="subtitle">plinko × skee-ball × air hockey — festival booth concept</p>
+
+<div class="views">
+  <div class="view">
+    <h2>FRONT VIEW</h2>
+    <canvas id="front" width="400" height="520"></canvas>
+  </div>
+  <div class="view">
+    <h2>SIDE VIEW</h2>
+    <canvas id="side" width="200" height="520"></canvas>
+  </div>
+</div>
+
+<div class="legend">
+  <h3>LEGEND</h3>
+  <div class="legend-item"><div class="legend-swatch" style="background:#8B5E3C"></div> Plywood back panel</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:rgba(135,206,250,0.3); border:1px solid #87CEFA"></div> Acrylic front panel</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#a0a0a0"></div> Dowel pegs (structural + plinko obstacles)</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#FFD700"></div> Scoring ledges (10 / 25 / 50 / 100 pts)</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#e94560"></div> Player 1 — red ball + nozzle</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#4da6ff"></div> Player 2 — blue ball + nozzle</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#50C878"></div> Air blower + hoses</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#c0c0c0"></div> Pinball plunger launchers</div>
+</div>
+
+<div class="specs">
+  <h3>KEY SPECS</h3>
+  <table>
+    <tr><td>Playing field</td><td>48" W × 60" H × 5" D</td></tr>
+    <tr><td>Tilt</td><td>~15–20° from vertical</td></tr>
+    <tr><td>Nozzle sweep</td><td>~30° (1-axis, left-right)</td></tr>
+    <tr><td>Ball</td><td>Standard whiffle ball (2.75" dia)</td></tr>
+    <tr><td>Blower</td><td>~450W inflator, Y-split to 2 nozzles</td></tr>
+    <tr><td>Est. cost</td><td>~$315–350</td></tr>
+  </table>
+</div>
+
+<script>
+// ── FRONT VIEW ──
+const fc = document.getElementById('front').getContext('2d');
+const FW = 400, FH = 520;
+
+// Board outline
+fc.fillStyle = '#5C3A1E';
+fc.fillRect(30, 20, 340, 440);
+
+// Edge rails
+fc.strokeStyle = '#8B5E3C';
+fc.lineWidth = 6;
+fc.strokeRect(30, 20, 340, 440);
+
+// Peg grid (offset rows)
+fc.fillStyle = '#a0a0a0';
+const pegStartX = 65, pegStartY = 80, pegSpaceX = 45, pegSpaceY = 40;
+for (let row = 0; row < 8; row++) {
+  const offset = row % 2 === 0 ? 0 : pegSpaceX / 2;
+  const cols = row % 2 === 0 ? 7 : 6;
+  for (let col = 0; col < cols; col++) {
+    const x = pegStartX + offset + col * pegSpaceX;
+    const y = pegStartY + row * pegSpaceY;
+    fc.beginPath();
+    fc.arc(x, y, 4, 0, Math.PI * 2);
+    fc.fill();
+  }
+}
+
+// Scoring ledges
+function drawLedge(x, y, w, pts, color) {
+  fc.fillStyle = color || '#FFD700';
+  fc.fillRect(x, y, w, 4);
+  // lip
+  fc.fillRect(x, y, 3, 10);
+  fc.fillRect(x + w - 3, y, 3, 10);
+  // label
+  fc.fillStyle = '#FFD700';
+  fc.font = 'bold 11px Courier New';
+  fc.textAlign = 'center';
+  fc.fillText(pts + ' pts', x + w / 2, y - 6);
+}
+
+// 100 — top center, small
+drawLedge(175, 110, 50, 100);
+// 50 — upper sides
+drawLedge(80, 190, 60, 50);
+drawLedge(260, 190, 60, 50);
+// 25 — mid sides
+drawLedge(65, 290, 80, 25);
+drawLedge(255, 290, 80, 25);
+// 10 — wide bottom
+drawLedge(60, 380, 120, 10);
+drawLedge(220, 380, 120, 10);
+
+// Ball return trough
+fc.fillStyle = '#333';
+fc.fillRect(30, 460, 340, 16);
+fc.strokeStyle = '#555';
+fc.lineWidth = 1;
+fc.beginPath();
+fc.moveTo(200, 460);
+fc.lineTo(200, 476);
+fc.stroke();
+fc.fillStyle = '#666';
+fc.font = '10px Courier New';
+fc.textAlign = 'center';
+fc.fillText('← P1 RETURN', 115, 472);
+fc.fillText('P2 RETURN →', 285, 472);
+
+// Launchers
+function drawLauncher(x, color) {
+  // channel
+  fc.fillStyle = '#c0c0c0';
+  fc.fillRect(x - 6, 430, 12, 50);
+  // plunger knob
+  fc.fillStyle = color;
+  fc.beginPath();
+  fc.arc(x, 488, 8, 0, Math.PI * 2);
+  fc.fill();
+  // label
+  fc.fillStyle = '#888';
+  fc.font = '9px Courier New';
+  fc.textAlign = 'center';
+  fc.fillText('LAUNCH', x, 508);
+}
+drawLauncher(65, '#e94560');
+drawLauncher(335, '#4da6ff');
+
+// Air nozzles
+function drawNozzle(x, color) {
+  // pivot point
+  fc.fillStyle = '#444';
+  fc.beginPath();
+  fc.arc(x, 450, 5, 0, Math.PI * 2);
+  fc.fill();
+
+  // sweep arc
+  fc.strokeStyle = color;
+  fc.lineWidth = 1.5;
+  fc.setLineDash([4, 3]);
+  fc.beginPath();
+  fc.arc(x, 450, 40, -Math.PI * 0.58, -Math.PI * 0.42);
+  fc.stroke();
+  fc.setLineDash([]);
+
+  // nozzle (center position)
+  fc.strokeStyle = color;
+  fc.lineWidth = 3;
+  fc.beginPath();
+  fc.moveTo(x, 450);
+  fc.lineTo(x, 415);
+  fc.stroke();
+
+  // air stream
+  fc.strokeStyle = color;
+  fc.lineWidth = 1;
+  fc.setLineDash([2, 4]);
+  fc.globalAlpha = 0.5;
+  fc.beginPath();
+  fc.moveTo(x, 415);
+  fc.lineTo(x - 8, 350);
+  fc.moveTo(x, 415);
+  fc.lineTo(x, 345);
+  fc.moveTo(x, 415);
+  fc.lineTo(x + 8, 350);
+  fc.stroke();
+  fc.setLineDash([]);
+  fc.globalAlpha = 1;
+
+  // label
+  fc.fillStyle = color;
+  fc.font = '9px Courier New';
+  fc.textAlign = 'center';
+  fc.fillText('30° SWEEP', x, 500);
+}
+drawNozzle(150, '#e94560');
+drawNozzle(250, '#4da6ff');
+
+// Whiffle balls in play
+function drawBall(x, y, color) {
+  fc.fillStyle = color;
+  fc.globalAlpha = 0.9;
+  fc.beginPath();
+  fc.arc(x, y, 8, 0, Math.PI * 2);
+  fc.fill();
+  // holes pattern
+  fc.fillStyle = 'rgba(0,0,0,0.3)';
+  fc.beginPath(); fc.arc(x - 3, y - 2, 2, 0, Math.PI * 2); fc.fill();
+  fc.beginPath(); fc.arc(x + 2, y + 3, 2, 0, Math.PI * 2); fc.fill();
+  fc.globalAlpha = 1;
+}
+drawBall(130, 240, '#e94560');
+drawBall(280, 170, '#4da6ff');
+
+// Player labels
+fc.font = 'bold 13px Courier New';
+fc.textAlign = 'center';
+fc.fillStyle = '#e94560';
+fc.fillText('P1 (RED)', 100, 14);
+fc.fillStyle = '#4da6ff';
+fc.fillText('P2 (BLUE)', 300, 14);
+
+// Acrylic overlay indication
+fc.strokeStyle = 'rgba(135, 206, 250, 0.25)';
+fc.lineWidth = 2;
+fc.setLineDash([8, 4]);
+fc.strokeRect(32, 22, 336, 436);
+fc.setLineDash([]);
+fc.fillStyle = 'rgba(135,206,250,0.4)';
+fc.font = '9px Courier New';
+fc.textAlign = 'right';
+fc.fillText('ACRYLIC FRONT', 364, 36);
+
+
+// ── SIDE VIEW ──
+const sc = document.getElementById('side').getContext('2d');
+const SW = 200, SH = 520;
+
+// Ground line
+sc.strokeStyle = '#555';
+sc.lineWidth = 1;
+sc.beginPath();
+sc.moveTo(20, 470);
+sc.lineTo(180, 470);
+sc.stroke();
+
+// Back panel (tilted ~17°)
+const tilt = 17 * Math.PI / 180;
+const boardBottom = { x: 80, y: 468 };
+const boardTop = { x: boardBottom.x - Math.sin(tilt) * 400, y: boardBottom.y - Math.cos(tilt) * 400 };
+
+sc.strokeStyle = '#8B5E3C';
+sc.lineWidth = 6;
+sc.beginPath();
+sc.moveTo(boardBottom.x, boardBottom.y);
+sc.lineTo(boardTop.x, boardTop.y);
+sc.stroke();
+
+// Label
+sc.fillStyle = '#8B5E3C';
+sc.font = '9px Courier New';
+sc.save();
+sc.translate(boardBottom.x - 12, boardBottom.y - 100);
+sc.rotate(-tilt);
+sc.fillText('PLYWOOD', 0, 0);
+sc.restore();
+
+// Acrylic front (5" gap)
+const gap = 25; // scaled
+const acBottom = { x: boardBottom.x + gap * Math.cos(tilt), y: boardBottom.y - gap * Math.sin(tilt) };
+const acTop = { x: boardTop.x + gap * Math.cos(tilt), y: boardTop.y - gap * Math.sin(tilt) };
+
+sc.strokeStyle = 'rgba(135, 206, 250, 0.5)';
+sc.lineWidth = 3;
+sc.beginPath();
+sc.moveTo(acBottom.x, acBottom.y);
+sc.lineTo(acTop.x, acTop.y);
+sc.stroke();
+
+sc.fillStyle = 'rgba(135,206,250,0.4)';
+sc.font = '9px Courier New';
+sc.save();
+sc.translate(acBottom.x + 14, acBottom.y - 100);
+sc.rotate(-tilt);
+sc.fillText('ACRYLIC', 0, 0);
+sc.restore();
+
+// Gap dimension line
+const midY = (boardBottom.y + boardTop.y) / 2;
+const midX1 = (boardBottom.x + boardTop.x) / 2;
+const midX2 = midX1 + gap * Math.cos(tilt);
+const dimY = midY + 40;
+
+sc.strokeStyle = '#888';
+sc.lineWidth = 1;
+sc.beginPath();
+sc.moveTo(midX1, dimY);
+sc.lineTo(midX2, dimY);
+sc.stroke();
+sc.beginPath(); sc.moveTo(midX1, dimY - 4); sc.lineTo(midX1, dimY + 4); sc.stroke();
+sc.beginPath(); sc.moveTo(midX2, dimY - 4); sc.lineTo(midX2, dimY + 4); sc.stroke();
+sc.fillStyle = '#888';
+sc.font = '9px Courier New';
+sc.textAlign = 'center';
+sc.fillText('5"', (midX1 + midX2) / 2, dimY - 6);
+
+// Pegs (side view — dots between panels)
+sc.fillStyle = '#a0a0a0';
+const pegMidX = (boardBottom.x + acBottom.x) / 2;
+for (let i = 0; i < 6; i++) {
+  const t = (i + 1) / 7;
+  const px = boardBottom.x + (boardTop.x - boardBottom.x) * t + gap * Math.cos(tilt) / 2;
+  const py = boardBottom.y + (boardTop.y - boardBottom.y) * t + gap * Math.sin(tilt) / 2 * (i % 2 === 0 ? -1 : 1);
+  sc.beginPath();
+  sc.arc(px, py, 3, 0, Math.PI * 2);
+  sc.fill();
+}
+
+// A-frame legs
+sc.strokeStyle = '#666';
+sc.lineWidth = 3;
+// rear leg
+sc.beginPath();
+sc.moveTo(boardBottom.x - 60, boardBottom.y - 200);
+sc.lineTo(boardBottom.x + 20, 470);
+sc.stroke();
+// support strut
+sc.strokeStyle = '#555';
+sc.lineWidth = 2;
+sc.beginPath();
+sc.moveTo(boardBottom.x - 40, boardBottom.y - 120);
+sc.lineTo(boardBottom.x, boardBottom.y - 50);
+sc.stroke();
+
+// Angle arc
+sc.strokeStyle = '#e94560';
+sc.lineWidth = 1.5;
+sc.beginPath();
+sc.arc(boardBottom.x, boardBottom.y, 50, -Math.PI / 2, -Math.PI / 2 + tilt, false);
+sc.stroke();
+sc.fillStyle = '#e94560';
+sc.font = '10px Courier New';
+sc.textAlign = 'left';
+sc.fillText('~17°', boardBottom.x + 10, boardBottom.y - 50);
+
+// Blower (at base)
+sc.fillStyle = '#50C878';
+sc.beginPath();
+sc.ellipse(155, 460, 18, 12, 0, 0, Math.PI * 2);
+sc.fill();
+sc.fillStyle = '#1a1a2e';
+sc.font = 'bold 8px Courier New';
+sc.textAlign = 'center';
+sc.fillText('AIR', 155, 463);
+
+// Hose from blower to nozzle area
+sc.strokeStyle = '#50C878';
+sc.lineWidth = 2;
+sc.setLineDash([4, 3]);
+sc.beginPath();
+sc.moveTo(140, 455);
+sc.quadraticCurveTo(120, 440, acBottom.x - 5, acBottom.y - 10);
+sc.stroke();
+sc.setLineDash([]);
+
+// Nozzle
+sc.fillStyle = '#e94560';
+sc.fillRect(acBottom.x - 8, acBottom.y - 20, 4, 15);
+
+// Ball in play
+drawBallSide(72, 250, '#e94560');
+
+function drawBallSide(x, y, color) {
+  sc.fillStyle = color;
+  sc.globalAlpha = 0.9;
+  sc.beginPath();
+  sc.arc(x, y, 6, 0, Math.PI * 2);
+  sc.fill();
+  sc.globalAlpha = 1;
+}
+
+// Labels
+sc.fillStyle = '#888';
+sc.font = '10px Courier New';
+sc.textAlign = 'center';
+sc.fillText('SIDE PROFILE', 100, 500);
+sc.fillText('(tilted ~17° from vertical)', 100, 514);
+
+// Title for front view
+fc.fillStyle = '#888';
+fc.font = '10px Courier New';
+fc.textAlign = 'center';
+</script>
+
+</body>
+</html>
