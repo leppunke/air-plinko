@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tornado Alley — Concept Diagram</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #1a1a2e; color: #e0e0e0; font-family: 'Courier New', monospace; padding: 20px; }
+  h1 { text-align: center; color: #e94560; margin-bottom: 4px; font-size: 28px; letter-spacing: 4px; }
+  .subtitle { text-align: center; color: #888; margin-bottom: 30px; font-size: 14px; }
+  .views { display: flex; gap: 30px; justify-content: center; flex-wrap: wrap; }
+  .view { background: #16213e; border: 1px solid #333; border-radius: 8px; padding: 20px; }
+  .view h2 { color: #e94560; margin-bottom: 16px; font-size: 16px; text-align: center; }
+  canvas { display: block; }
+  .legend { margin-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto; }
+  .legend h3 { color: #e94560; margin-bottom: 10px; }
+  .legend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+  .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; font-size: 13px; }
+  .legend-swatch { width: 16px; height: 16px; border-radius: 3px; flex-shrink: 0; }
+  .specs { margin-top: 30px; max-width: 800px; margin-left: auto; margin-right: auto; background: #16213e; border: 1px solid #333; border-radius: 8px; padding: 20px; }
+  .specs h3 { color: #e94560; margin-bottom: 10px; }
+  .specs table { width: 100%; font-size: 13px; }
+  .specs td { padding: 3px 8px; }
+  .specs td:first-child { color: #888; }
+</style>
+</head>
+<body>
+
+<h1>TORNADO ALLEY</h1>
+<p class="subtitle">vortex cannons × plinko town × storm shelters — carnival booth concept</p>
+
+<div class="views">
+  <div class="view">
+    <h2>TOP-DOWN VIEW</h2>
+    <canvas id="top" width="520" height="380"></canvas>
+  </div>
+  <div class="view">
+    <h2>SIDE CROSS-SECTION</h2>
+    <canvas id="side" width="520" height="260"></canvas>
+  </div>
+</div>
+
+<div class="legend">
+  <h3>LEGEND</h3>
+  <div class="legend-grid">
+    <div class="legend-item"><div class="legend-swatch" style="background:#333"></div> Plywood tabletop (matte black, white road grid)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:rgba(135,206,250,0.3); border:1px solid #87CEFA"></div> Clear acrylic lid (hinged)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#8B4513"></div> 1×8 edge walls</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#e94560"></div> Player 1 — vortex cannons (red)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#4da6ff"></div> Player 2 — vortex cannons (blue)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#FFD700"></div> Storm shelters (scoring pockets)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#c0c0c0"></div> Town buildings (obstacles)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#50C878"></div> Trees & fences</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#FFE44D"></div> Whiffle balls</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#9b59b6"></div> Vortex air blast path</div>
+  </div>
+</div>
+
+<div class="specs">
+  <h3>KEY SPECS</h3>
+  <table>
+    <tr><td>Playing field</td><td>60" L × 36" W × 6" deep arena</td></tr>
+    <tr><td>Table height</td><td>30" (kid-friendly standing height)</td></tr>
+    <tr><td>Vortex ports</td><td>3 per player side, 4" diameter holes in edge wall</td></tr>
+    <tr><td>Cannons</td><td>5-gallon bucket + rubber membrane + 3" nozzle</td></tr>
+    <tr><td>Ball</td><td>Standard whiffle ball (2.75" dia), 6 in play</td></tr>
+    <tr><td>Timer</td><td>60-second round</td></tr>
+    <tr><td>Scoring</td><td>10 / 25 / 50 / 100 pts (storm shelters)</td></tr>
+    <tr><td>Est. cost</td><td>~$300–350</td></tr>
+  </table>
+</div>
+
+<script>
+// ── TOP-DOWN VIEW ──
+const tc = document.getElementById('top').getContext('2d');
+const TW = 520, TH = 380;
+
+// Table outline
+const tx = 40, ty = 30, tw = 440, th = 320;
+tc.fillStyle = '#1a1a1a';
+tc.fillRect(tx, ty, tw, th);
+
+// Edge walls
+tc.strokeStyle = '#8B4513';
+tc.lineWidth = 6;
+tc.strokeRect(tx, ty, tw, th);
+
+// Road grid (white lines)
+tc.strokeStyle = 'rgba(255,255,255,0.15)';
+tc.lineWidth = 2;
+// Main Street (horizontal center)
+tc.beginPath();
+tc.moveTo(tx, ty + th/2);
+tc.lineTo(tx + tw, ty + th/2);
+tc.stroke();
+// Cross streets
+for (let i = 1; i < 4; i++) {
+  tc.beginPath();
+  tc.moveTo(tx + tw * i/4, ty);
+  tc.lineTo(tx + tw * i/4, ty + th);
+  tc.stroke();
+}
+
+// Road labels
+tc.fillStyle = 'rgba(255,255,255,0.12)';
+tc.font = '9px Courier New';
+tc.textAlign = 'center';
+tc.fillText('MAIN STREET', tx + tw/2, ty + th/2 + 3);
+
+// ── Vortex ports ──
+function drawPort(x, y, color, label, side) {
+  // Port hole
+  tc.fillStyle = '#222';
+  tc.beginPath();
+  tc.arc(x, y, 10, 0, Math.PI * 2);
+  tc.fill();
+  tc.strokeStyle = color;
+  tc.lineWidth = 2.5;
+  tc.beginPath();
+  tc.arc(x, y, 10, 0, Math.PI * 2);
+  tc.stroke();
+  // Label
+  tc.fillStyle = color;
+  tc.font = '8px Courier New';
+  tc.textAlign = 'center';
+  if (side === 'left') {
+    tc.fillText(label, x - 22, y + 3);
+  } else {
+    tc.fillText(label, x + 22, y + 3);
+  }
+}
+
+// Player 1 ports (left side)
+drawPort(tx, ty + th*0.2, '#e94560', 'P1-A', 'left');
+drawPort(tx, ty + th*0.5, '#e94560', 'P1-B', 'left');
+drawPort(tx, ty + th*0.8, '#e94560', 'P1-C', 'left');
+
+// Player 2 ports (right side)
+drawPort(tx + tw, ty + th*0.2, '#4da6ff', 'P2-A', 'right');
+drawPort(tx + tw, ty + th*0.5, '#4da6ff', 'P2-B', 'right');
+drawPort(tx + tw, ty + th*0.8, '#4da6ff', 'P2-C', 'right');
+
+// ── Vortex blast visualization ──
+function drawBlast(startX, startY, endX, endY, color) {
+  tc.strokeStyle = color;
+  tc.lineWidth = 1.5;
+  tc.setLineDash([6, 4]);
+  tc.globalAlpha = 0.4;
+
+  // Expanding cone
+  const dx = endX - startX;
+  const dy = endY - startY;
+  const perpX = -dy * 0.15;
+  const perpY = dx * 0.15;
+
+  tc.beginPath();
+  tc.moveTo(startX, startY);
+  tc.lineTo(endX + perpX, endY + perpY);
+  tc.stroke();
+
+  tc.beginPath();
+  tc.moveTo(startX, startY);
+  tc.lineTo(endX - perpX, endY - perpY);
+  tc.stroke();
+
+  // Center line
+  tc.beginPath();
+  tc.moveTo(startX, startY);
+  tc.lineTo(endX, endY);
+  tc.stroke();
+
+  tc.setLineDash([]);
+  tc.globalAlpha = 1;
+}
+
+// Show one example blast from P1-B
+drawBlast(tx + 10, ty + th*0.5, tx + tw*0.6, ty + th*0.5, '#9b59b6');
+tc.fillStyle = '#9b59b6';
+tc.font = 'italic 8px Courier New';
+tc.textAlign = 'center';
+tc.globalAlpha = 0.6;
+tc.fillText('VORTEX BLAST', tx + tw*0.32, ty + th*0.5 - 12);
+tc.globalAlpha = 1;
+
+// ── Town Buildings ──
+function drawBuilding(x, y, w, h, color, label) {
+  tc.fillStyle = color;
+  tc.fillRect(x - w/2, y - h/2, w, h);
+  tc.strokeStyle = 'rgba(255,255,255,0.3)';
+  tc.lineWidth = 1;
+  tc.strokeRect(x - w/2, y - h/2, w, h);
+  tc.fillStyle = '#fff';
+  tc.font = '7px Courier New';
+  tc.textAlign = 'center';
+  tc.fillText(label, x, y + 3);
+}
+
+// Water Tower (center-ish, cylindrical)
+tc.fillStyle = '#a0a0a0';
+tc.beginPath();
+tc.arc(tx + tw*0.48, ty + th*0.42, 14, 0, Math.PI * 2);
+tc.fill();
+tc.strokeStyle = 'rgba(255,255,255,0.3)';
+tc.lineWidth = 1;
+tc.beginPath();
+tc.arc(tx + tw*0.48, ty + th*0.42, 14, 0, Math.PI * 2);
+tc.stroke();
+tc.fillStyle = '#fff';
+tc.font = '6px Courier New';
+tc.textAlign = 'center';
+tc.fillText('WATER', tx + tw*0.48, ty + th*0.42);
+tc.fillText('TOWER', tx + tw*0.48, ty + th*0.42 + 8);
+
+// General Store
+drawBuilding(tx + tw*0.3, ty + th*0.28, 36, 22, '#8B6914', 'STORE');
+
+// Church
+drawBuilding(tx + tw*0.65, ty + th*0.35, 22, 26, '#c0c0c0', 'CHURCH');
+// Steeple (triangle indicator)
+tc.fillStyle = '#c0c0c0';
+tc.beginPath();
+tc.moveTo(tx + tw*0.65, ty + th*0.35 - 18);
+tc.lineTo(tx + tw*0.65 - 6, ty + th*0.35 - 13);
+tc.lineTo(tx + tw*0.65 + 6, ty + th*0.35 - 13);
+tc.closePath();
+tc.fill();
+
+// Houses
+drawBuilding(tx + tw*0.22, ty + th*0.6, 16, 16, '#7a4a2a', 'H');
+drawBuilding(tx + tw*0.38, ty + th*0.68, 16, 16, '#7a4a2a', 'H');
+drawBuilding(tx + tw*0.62, ty + th*0.62, 16, 16, '#7a4a2a', 'H');
+drawBuilding(tx + tw*0.78, ty + th*0.28, 16, 16, '#7a4a2a', 'H');
+
+// Fences (thin green lines)
+tc.strokeStyle = '#50C878';
+tc.lineWidth = 2;
+function drawFence(x1, y1, x2, y2) {
+  tc.beginPath();
+  tc.moveTo(x1, y1);
+  tc.lineTo(x2, y2);
+  tc.stroke();
+}
+drawFence(tx + tw*0.18, ty + th*0.4, tx + tw*0.18, ty + th*0.55);
+drawFence(tx + tw*0.42, ty + th*0.55, tx + tw*0.55, ty + th*0.55);
+drawFence(tx + tw*0.72, ty + th*0.5, tx + tw*0.72, ty + th*0.65);
+drawFence(tx + tw*0.55, ty + th*0.22, tx + tw*0.55, ty + th*0.33);
+
+// Trees (small green circles)
+tc.fillStyle = '#50C878';
+function drawTree(x, y) {
+  tc.beginPath();
+  tc.arc(x, y, 6, 0, Math.PI * 2);
+  tc.fill();
+}
+drawTree(tx + tw*0.15, ty + th*0.22);
+drawTree(tx + tw*0.85, ty + th*0.72);
+drawTree(tx + tw*0.35, ty + th*0.82);
+drawTree(tx + tw*0.7, ty + th*0.18);
+
+// ── Storm Shelters (scoring pockets) ──
+function drawShelter(x, y, w, h, pts, flagColor) {
+  // Pocket
+  tc.fillStyle = '#FFD700';
+  tc.globalAlpha = 0.8;
+  tc.fillRect(x - w/2, y - h/2, w, h);
+  tc.globalAlpha = 1;
+  tc.strokeStyle = '#FFD700';
+  tc.lineWidth = 2;
+  tc.strokeRect(x - w/2, y - h/2, w, h);
+  // Flag pole
+  tc.strokeStyle = flagColor;
+  tc.lineWidth = 1.5;
+  tc.beginPath();
+  tc.moveTo(x, y - h/2);
+  tc.lineTo(x, y - h/2 - 12);
+  tc.stroke();
+  // Flag
+  tc.fillStyle = flagColor;
+  tc.beginPath();
+  tc.moveTo(x, y - h/2 - 12);
+  tc.lineTo(x + 8, y - h/2 - 9);
+  tc.lineTo(x, y - h/2 - 6);
+  tc.closePath();
+  tc.fill();
+  // Points label
+  tc.fillStyle = '#1a1a1a';
+  tc.font = 'bold 9px Courier New';
+  tc.textAlign = 'center';
+  tc.fillText(pts, x, y + 3);
+}
+
+// Town Hall — center, 100 pts, gold flag
+drawShelter(tx + tw*0.5, ty + th*0.5, 20, 18, '100', '#FFD700');
+
+// Church shelter — 50 pts, purple flag (behind church)
+drawShelter(tx + tw*0.65, ty + th*0.5, 22, 16, '50', '#9b59b6');
+
+// School shelters — 25 pts, blue flags
+drawShelter(tx + tw*0.3, ty + th*0.75, 26, 16, '25', '#4da6ff');
+drawShelter(tx + tw*0.7, ty + th*0.75, 26, 16, '25', '#4da6ff');
+
+// Barn shelters — 10 pts, green flags
+drawShelter(tx + tw*0.15, ty + th*0.85, 30, 16, '10', '#50C878');
+drawShelter(tx + tw*0.85, ty + th*0.15, 30, 16, '10', '#50C878');
+
+// ── Whiffle balls in center town square ──
+function drawBall(x, y) {
+  tc.fillStyle = '#FFE44D';
+  tc.globalAlpha = 0.9;
+  tc.beginPath();
+  tc.arc(x, y, 5, 0, Math.PI * 2);
+  tc.fill();
+  // wiffle holes
+  tc.fillStyle = 'rgba(0,0,0,0.3)';
+  tc.beginPath(); tc.arc(x - 2, y - 1, 1.2, 0, Math.PI * 2); tc.fill();
+  tc.beginPath(); tc.arc(x + 1, y + 2, 1.2, 0, Math.PI * 2); tc.fill();
+  tc.globalAlpha = 1;
+}
+
+// 6 balls clustered near center
+drawBall(tx + tw*0.46, ty + th*0.44);
+drawBall(tx + tw*0.52, ty + th*0.46);
+drawBall(tx + tw*0.49, ty + th*0.39);
+drawBall(tx + tw*0.44, ty + th*0.48);
+drawBall(tx + tw*0.54, ty + th*0.41);
+drawBall(tx + tw*0.50, ty + th*0.51);
+
+// Acrylic lid outline (dashed)
+tc.strokeStyle = 'rgba(135, 206, 250, 0.3)';
+tc.lineWidth = 2;
+tc.setLineDash([8, 4]);
+tc.strokeRect(tx + 3, ty + 3, tw - 6, th - 6);
+tc.setLineDash([]);
+tc.fillStyle = 'rgba(135,206,250,0.4)';
+tc.font = '9px Courier New';
+tc.textAlign = 'right';
+tc.fillText('ACRYLIC LID', tx + tw - 8, ty + 14);
+
+// Player labels
+tc.font = 'bold 14px Courier New';
+tc.textAlign = 'center';
+tc.fillStyle = '#e94560';
+tc.fillText('P1 (RED)', tx - 2, ty + th + 20);
+tc.fillStyle = '#4da6ff';
+tc.fillText('P2 (BLUE)', tx + tw + 2, ty + th + 20);
+
+// Dimensions
+tc.fillStyle = '#666';
+tc.font = '10px Courier New';
+tc.textAlign = 'center';
+tc.fillText('60"', tx + tw/2, ty - 10);
+tc.save();
+tc.translate(tx - 28, ty + th/2);
+tc.rotate(-Math.PI/2);
+tc.fillText('36"', 0, 0);
+tc.restore();
+
+// Hinge indicator on top edge
+tc.strokeStyle = '#FFD700';
+tc.lineWidth = 2;
+tc.setLineDash([3, 3]);
+tc.beginPath();
+tc.moveTo(tx + 20, ty);
+tc.lineTo(tx + tw - 20, ty);
+tc.stroke();
+tc.setLineDash([]);
+tc.fillStyle = '#FFD700';
+tc.font = '7px Courier New';
+tc.textAlign = 'center';
+tc.fillText('PIANO HINGE (lid opens this side)', tx + tw/2, ty - 2);
+
+
+// ── SIDE CROSS-SECTION ──
+const sc = document.getElementById('side').getContext('2d');
+const SW = 520, SHH = 260;
+
+// Ground line
+sc.strokeStyle = '#555';
+sc.lineWidth = 1;
+sc.beginPath();
+sc.moveTo(30, 210);
+sc.lineTo(490, 210);
+sc.stroke();
+
+// Table legs
+sc.strokeStyle = '#666';
+sc.lineWidth = 4;
+// Left legs
+sc.beginPath(); sc.moveTo(60, 120); sc.lineTo(50, 210); sc.stroke();
+sc.beginPath(); sc.moveTo(80, 120); sc.lineTo(90, 210); sc.stroke();
+// Right legs
+sc.beginPath(); sc.moveTo(430, 120); sc.lineTo(420, 210); sc.stroke();
+sc.beginPath(); sc.moveTo(450, 120); sc.lineTo(460, 210); sc.stroke();
+
+// Rubber feet
+sc.fillStyle = '#e94560';
+sc.fillRect(46, 208, 8, 4);
+sc.fillRect(86, 208, 8, 4);
+sc.fillRect(416, 208, 8, 4);
+sc.fillRect(456, 208, 8, 4);
+
+// Tabletop
+sc.fillStyle = '#2a2a2a';
+sc.fillRect(40, 112, 440, 10);
+sc.strokeStyle = '#8B4513';
+sc.lineWidth = 2;
+sc.strokeRect(40, 112, 440, 10);
+
+// Edge walls
+sc.fillStyle = '#8B4513';
+sc.fillRect(40, 72, 8, 40);   // left wall
+sc.fillRect(472, 72, 8, 40);  // right wall
+
+// Label edge walls
+sc.fillStyle = '#8B4513';
+sc.font = '7px Courier New';
+sc.textAlign = 'center';
+sc.fillText('1×8', 44, 68);
+sc.fillText('1×8', 476, 68);
+
+// Playing field floor
+sc.fillStyle = '#1a1a1a';
+sc.fillRect(48, 112, 424, 3);
+
+// Buildings on the field (side profile)
+function drawBuildingSide(x, w, h, color, label) {
+  sc.fillStyle = color;
+  sc.fillRect(x - w/2, 112 - h, w, h);
+  sc.strokeStyle = 'rgba(255,255,255,0.3)';
+  sc.lineWidth = 1;
+  sc.strokeRect(x - w/2, 112 - h, w, h);
+  sc.fillStyle = '#fff';
+  sc.font = '6px Courier New';
+  sc.textAlign = 'center';
+  sc.fillText(label, x, 112 - h/2 + 2);
+}
+
+drawBuildingSide(180, 30, 22, '#8B6914', 'STORE');
+drawBuildingSide(260, 14, 30, '#c0c0c0', 'CHURCH');
+// Church steeple
+sc.fillStyle = '#c0c0c0';
+sc.beginPath();
+sc.moveTo(260, 112 - 30);
+sc.lineTo(254, 112 - 24);
+sc.lineTo(266, 112 - 24);
+sc.closePath();
+sc.fill();
+
+drawBuildingSide(330, 20, 18, '#7a4a2a', 'HOUSE');
+
+// Water tower
+sc.fillStyle = '#a0a0a0';
+sc.fillRect(215, 112 - 35, 4, 20); // legs
+sc.fillRect(225, 112 - 35, 4, 20);
+sc.beginPath();
+sc.ellipse(222, 112 - 35, 12, 8, 0, 0, Math.PI * 2);
+sc.fill();
+sc.fillStyle = '#fff';
+sc.font = '5px Courier New';
+sc.textAlign = 'center';
+sc.fillText('WATER', 222, 112 - 34);
+
+// Storm shelter (cutout in table)
+sc.fillStyle = '#FFD700';
+sc.globalAlpha = 0.6;
+sc.fillRect(370, 112, 20, 10);
+sc.globalAlpha = 1;
+sc.strokeStyle = '#FFD700';
+sc.lineWidth = 1;
+sc.strokeRect(370, 112, 20, 10);
+// One-way flap
+sc.strokeStyle = '#e94560';
+sc.lineWidth = 1.5;
+sc.beginPath();
+sc.moveTo(370, 112);
+sc.lineTo(374, 118);
+sc.stroke();
+sc.beginPath();
+sc.moveTo(390, 112);
+sc.lineTo(386, 118);
+sc.stroke();
+// Collection tray underneath
+sc.fillStyle = '#333';
+sc.fillRect(365, 122, 30, 8);
+sc.strokeStyle = '#555';
+sc.lineWidth = 1;
+sc.strokeRect(365, 122, 30, 8);
+sc.fillStyle = '#888';
+sc.font = '6px Courier New';
+sc.textAlign = 'center';
+sc.fillText('COLLECTION TRAY', 380, 140);
+
+// Flag on shelter
+sc.strokeStyle = '#FFD700';
+sc.lineWidth = 1;
+sc.beginPath();
+sc.moveTo(380, 112);
+sc.lineTo(380, 96);
+sc.stroke();
+sc.fillStyle = '#FFD700';
+sc.beginPath();
+sc.moveTo(380, 96);
+sc.lineTo(388, 99);
+sc.lineTo(380, 102);
+sc.closePath();
+sc.fill();
+sc.fillStyle = '#FFD700';
+sc.font = '7px Courier New';
+sc.textAlign = 'left';
+sc.fillText('SHELTER', 390, 100);
+
+// Acrylic lid
+sc.strokeStyle = 'rgba(135, 206, 250, 0.5)';
+sc.lineWidth = 3;
+sc.beginPath();
+sc.moveTo(48, 72);
+sc.lineTo(472, 72);
+sc.stroke();
+sc.fillStyle = 'rgba(135,206,250,0.4)';
+sc.font = '8px Courier New';
+sc.textAlign = 'center';
+sc.fillText('ACRYLIC LID', 260, 66);
+
+// Gap dimension
+sc.strokeStyle = '#888';
+sc.lineWidth = 1;
+sc.beginPath();
+sc.moveTo(490, 72);
+sc.lineTo(490, 112);
+sc.stroke();
+sc.beginPath(); sc.moveTo(486, 72); sc.lineTo(494, 72); sc.stroke();
+sc.beginPath(); sc.moveTo(486, 112); sc.lineTo(494, 112); sc.stroke();
+sc.fillStyle = '#888';
+sc.font = '9px Courier New';
+sc.textAlign = 'left';
+sc.fillText('6"', 496, 95);
+
+// Height dimension
+sc.strokeStyle = '#888';
+sc.lineWidth = 1;
+sc.beginPath();
+sc.moveTo(28, 72);
+sc.lineTo(28, 210);
+sc.stroke();
+sc.beginPath(); sc.moveTo(24, 72); sc.lineTo(32, 72); sc.stroke();
+sc.beginPath(); sc.moveTo(24, 210); sc.lineTo(32, 210); sc.stroke();
+sc.fillStyle = '#888';
+sc.font = '9px Courier New';
+sc.textAlign = 'right';
+sc.fillText('36"', 24, 144);
+
+// Vortex cannon on left side
+// Bucket shape
+sc.fillStyle = '#e94560';
+sc.globalAlpha = 0.8;
+sc.beginPath();
+sc.moveTo(20, 75);
+sc.lineTo(10, 55);
+sc.lineTo(10, 35);
+sc.lineTo(30, 30);
+sc.lineTo(50, 35);
+sc.lineTo(50, 55);
+sc.lineTo(40, 75);
+sc.closePath();
+sc.fill();
+sc.globalAlpha = 1;
+sc.strokeStyle = '#e94560';
+sc.lineWidth = 1.5;
+sc.beginPath();
+sc.moveTo(20, 75);
+sc.lineTo(10, 55);
+sc.lineTo(10, 35);
+sc.lineTo(30, 30);
+sc.lineTo(50, 35);
+sc.lineTo(50, 55);
+sc.lineTo(40, 75);
+sc.closePath();
+sc.stroke();
+
+// Nozzle pointing into port
+sc.fillStyle = '#c0c0c0';
+sc.fillRect(24, 75, 12, 6);
+
+// Membrane (back of bucket)
+sc.strokeStyle = '#FFE44D';
+sc.lineWidth = 2;
+sc.beginPath();
+sc.moveTo(10, 35);
+sc.quadraticCurveTo(30, 25, 50, 35);
+sc.stroke();
+
+// Pull handle
+sc.fillStyle = '#FFE44D';
+sc.beginPath();
+sc.arc(30, 28, 4, 0, Math.PI * 2);
+sc.fill();
+
+// Labels
+sc.fillStyle = '#e94560';
+sc.font = 'bold 8px Courier New';
+sc.textAlign = 'center';
+sc.fillText('VORTEX', 30, 50);
+sc.fillText('CANNON', 30, 58);
+
+sc.fillStyle = '#FFE44D';
+sc.font = '7px Courier New';
+sc.fillText('PULL →', 30, 20);
+sc.fillText('MEMBRANE', 30, 14);
+
+// Vortex blast arrow
+sc.strokeStyle = '#9b59b6';
+sc.lineWidth = 1.5;
+sc.setLineDash([4, 3]);
+sc.beginPath();
+sc.moveTo(36, 78);
+sc.lineTo(80, 90);
+sc.lineTo(160, 92);
+sc.stroke();
+sc.setLineDash([]);
+// Arrowhead
+sc.fillStyle = '#9b59b6';
+sc.beginPath();
+sc.moveTo(160, 92);
+sc.lineTo(152, 88);
+sc.lineTo(152, 96);
+sc.closePath();
+sc.fill();
+sc.fillStyle = '#9b59b6';
+sc.font = 'italic 7px Courier New';
+sc.fillText('THWUMP!', 120, 85);
+
+// Whiffle ball being blasted
+sc.fillStyle = '#FFE44D';
+sc.globalAlpha = 0.9;
+sc.beginPath();
+sc.arc(170, 95, 4, 0, Math.PI * 2);
+sc.fill();
+sc.globalAlpha = 1;
+
+// Section label
+sc.fillStyle = '#888';
+sc.font = '10px Courier New';
+sc.textAlign = 'center';
+sc.fillText('CROSS-SECTION (looking from player 1 side)', 260, 240);
+
+// Tabletop label
+sc.fillStyle = '#666';
+sc.font = '8px Courier New';
+sc.textAlign = 'center';
+sc.fillText('3/4" PLYWOOD', 260, 130);
+
+// Folding hinge label on legs
+sc.fillStyle = '#666';
+sc.font = '7px Courier New';
+sc.textAlign = 'center';
+sc.fillText('FOLDING', 75, 148);
+sc.fillText('LEGS', 75, 156);
+
+</script>
+
+</body>
+</html>
