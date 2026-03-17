@@ -1,0 +1,1082 @@
+<!-- screenshot: 900x1700 -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pinball Panic — Concept Diagram</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #0a0a12; color: #e0e0e0; font-family: 'Courier New', monospace; padding: 20px; }
+  h1 { text-align: center; color: #ff2d95; margin-bottom: 4px; font-size: 30px; letter-spacing: 6px; text-shadow: 0 0 15px #ff2d95, 0 0 30px #ff2d95; }
+  .subtitle { text-align: center; color: #888; margin-bottom: 30px; font-size: 13px; }
+  .views { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .view { background: #111122; border: 1px solid #333; border-radius: 8px; padding: 16px; }
+  .view h2 { color: #ff2d95; margin-bottom: 12px; font-size: 15px; text-align: center; letter-spacing: 2px; }
+  canvas { display: block; }
+  .legend { margin-top: 28px; max-width: 870px; margin-left: auto; margin-right: auto; }
+  .legend h3 { color: #ff2d95; margin-bottom: 10px; font-size: 14px; }
+  .legend-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4px 24px; }
+  .legend-item { display: flex; align-items: center; gap: 10px; margin-bottom: 5px; font-size: 12px; }
+  .legend-swatch { width: 16px; height: 16px; border-radius: 3px; flex-shrink: 0; }
+  .specs { margin-top: 28px; max-width: 870px; margin-left: auto; margin-right: auto; background: #111122; border: 1px solid #333; border-radius: 8px; padding: 20px; }
+  .specs h3 { color: #ff2d95; margin-bottom: 10px; font-size: 14px; }
+  .specs table { width: 100%; font-size: 12px; }
+  .specs td { padding: 3px 8px; }
+  .specs td:first-child { color: #888; width: 35%; }
+</style>
+</head>
+<body>
+
+<h1>PINBALL PANIC</h1>
+<p class="subtitle">giant walk-up pinball machine — kids ARE the flippers — carnival booth concept</p>
+
+<div class="views">
+  <div class="view">
+    <h2>TOP-DOWN VIEW (PLAYFIELD)</h2>
+    <canvas id="topdown" width="400" height="720"></canvas>
+  </div>
+  <div class="view">
+    <h2>SIDE CROSS-SECTION</h2>
+    <canvas id="side" width="340" height="720"></canvas>
+  </div>
+</div>
+
+<div class="legend">
+  <h3>LEGEND</h3>
+  <div class="legend-grid">
+    <div class="legend-item"><div class="legend-swatch" style="background:#1a1a2e"></div> Playfield surface (matte black plywood)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#ff2d95"></div> Player 1 flipper (neon pink)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#39ff14"></div> Player 2 flipper (neon green)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#ff6b35"></div> Pop bumpers (spring-loaded, with bells)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#ffd700"></div> Jackpot ramp (500 pts, center)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#00ccff"></div> Loop ramp (100 pts, left side)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#c77dff"></div> Star targets (50 pts each)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#44ff88"></div> Spinner gate (25 pts/spin)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#666"></div> Static bumper posts (wooden dowels)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#e94560"></div> Launch lane + plunger</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:rgba(255,255,255,0.3)"></div> Edge rails (1×4 lumber)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#ffe44d"></div> Whiffle ball + trajectories</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#ff4444"></div> Drain zone (ball lost!)</div>
+    <div class="legend-item"><div class="legend-swatch" style="background:#555"></div> 2×4 support legs + cross bracing</div>
+  </div>
+</div>
+
+<div class="specs">
+  <h3>KEY SPECS</h3>
+  <table>
+    <tr><td>Playfield</td><td>48"W × 96"L (standard 4×8 plywood sheet), ¾" thick</td></tr>
+    <tr><td>Tilt</td><td>~10° from horizontal, top end at 42", bottom at 26"</td></tr>
+    <tr><td>Edge rails</td><td>1×4 lumber, 3.5" tall, all four sides</td></tr>
+    <tr><td>Flippers (×2)</td><td>24" long × 4" wide plywood paddles, hinged, spring-return, 60° swing arc</td></tr>
+    <tr><td>Pop bumpers</td><td>6× spring-loaded 3D-printed mushroom caps with jingle bells</td></tr>
+    <tr><td>Ramps</td><td>Loop ramp (100 pts), Jackpot ramp (500 pts), Spinner gate (25/spin)</td></tr>
+    <tr><td>Launch</td><td>Spring-loaded pinball plunger, gravity-fed 3" PVC ball magazine (5 balls)</td></tr>
+    <tr><td>Scoring</td><td>Manual (volunteer + whiteboard) or bell-based honor system</td></tr>
+    <tr><td>Balls</td><td>Standard whiffle balls, neon colors</td></tr>
+    <tr><td>Lighting</td><td>Battery LED strips (edge rails) + UV blacklight strip (top)</td></tr>
+    <tr><td>Est. cost</td><td>~$350–420</td></tr>
+  </table>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+// TOP-DOWN VIEW (looking down at playfield)
+// ══════════════════════════════════════════
+const tc = document.getElementById('topdown').getContext('2d');
+const TW = 400, TH = 720;
+
+// Playfield boundary
+const pfx = 40, pfy = 40, pfw = 320, pfh = 620;
+
+// ── Playfield surface ──
+tc.fillStyle = '#12121e';
+tc.fillRect(pfx, pfy, pfw, pfh);
+
+// Grid lines (subtle, showing modular hole pattern)
+tc.strokeStyle = 'rgba(255,255,255,0.04)';
+tc.lineWidth = 0.5;
+for (let gx = pfx + 20; gx < pfx + pfw; gx += 20) {
+  tc.beginPath(); tc.moveTo(gx, pfy); tc.lineTo(gx, pfy + pfh); tc.stroke();
+}
+for (let gy = pfy + 20; gy < pfy + pfh; gy += 20) {
+  tc.beginPath(); tc.moveTo(pfx, gy); tc.lineTo(pfx + pfw, gy); tc.stroke();
+}
+
+// ── Edge Rails ──
+tc.strokeStyle = 'rgba(255,255,255,0.35)';
+tc.lineWidth = 6;
+// Top rail
+tc.beginPath(); tc.moveTo(pfx, pfy); tc.lineTo(pfx + pfw, pfy); tc.stroke();
+// Left rail
+tc.beginPath(); tc.moveTo(pfx, pfy); tc.lineTo(pfx, pfy + pfh); tc.stroke();
+// Right rail (gap for launch lane)
+tc.beginPath(); tc.moveTo(pfx + pfw, pfy + 80); tc.lineTo(pfx + pfw, pfy + pfh); tc.stroke();
+tc.beginPath(); tc.moveTo(pfx + pfw, pfy); tc.lineTo(pfx + pfw, pfy + 30); tc.stroke();
+// Bottom rail (gap for drain)
+tc.beginPath(); tc.moveTo(pfx, pfy + pfh); tc.lineTo(pfx + pfw * 0.35, pfy + pfh); tc.stroke();
+tc.beginPath(); tc.moveTo(pfx + pfw * 0.65, pfy + pfh); tc.lineTo(pfx + pfw, pfy + pfh); tc.stroke();
+
+// ── LED strips along edges ──
+tc.strokeStyle = 'rgba(255,45,149,0.3)';
+tc.lineWidth = 2;
+tc.beginPath(); tc.moveTo(pfx + 3, pfy + 3); tc.lineTo(pfx + pfw - 3, pfy + 3); tc.stroke();
+tc.beginPath(); tc.moveTo(pfx + 3, pfy + 3); tc.lineTo(pfx + 3, pfy + pfh - 3); tc.stroke();
+tc.strokeStyle = 'rgba(57,255,20,0.3)';
+tc.beginPath(); tc.moveTo(pfx + pfw - 3, pfy + 80); tc.lineTo(pfx + pfw - 3, pfy + pfh - 3); tc.stroke();
+
+// ── Launch Lane (right side, top) ──
+tc.fillStyle = '#1e1020';
+tc.fillRect(pfx + pfw - 40, pfy, 40, 80);
+tc.strokeStyle = '#e94560';
+tc.lineWidth = 2;
+// Lane walls
+tc.beginPath();
+tc.moveTo(pfx + pfw - 40, pfy);
+tc.lineTo(pfx + pfw - 40, pfy + 80);
+tc.stroke();
+// Plunger at top
+tc.fillStyle = '#e94560';
+tc.beginPath();
+tc.arc(pfx + pfw - 20, pfy + 15, 8, 0, Math.PI * 2);
+tc.fill();
+tc.fillStyle = '#fff';
+tc.font = 'bold 6px Courier New';
+tc.textAlign = 'center';
+tc.fillText('PULL', pfx + pfw - 20, pfy + 17);
+// Plunger spring (zigzag)
+tc.strokeStyle = '#e94560';
+tc.lineWidth = 1.5;
+tc.beginPath();
+let sy = pfy + 25;
+tc.moveTo(pfx + pfw - 20, sy);
+for (let i = 0; i < 4; i++) {
+  tc.lineTo(pfx + pfw - 26, sy + 4 + i * 8);
+  tc.lineTo(pfx + pfw - 14, sy + 8 + i * 8);
+}
+tc.stroke();
+// Ball in launch position
+tc.fillStyle = '#ffe44d';
+tc.beginPath();
+tc.arc(pfx + pfw - 20, pfy + 65, 7, 0, Math.PI * 2);
+tc.fill();
+tc.fillStyle = '#000';
+tc.font = '5px Courier New';
+tc.fillText('●', pfx + pfw - 20, pfy + 67);
+
+// Launch lane labels
+tc.fillStyle = '#e94560';
+tc.font = '7px Courier New';
+tc.textAlign = 'center';
+tc.save();
+tc.translate(pfx + pfw - 10, pfy + 45);
+tc.rotate(Math.PI / 2);
+tc.fillText('LAUNCH', 0, 0);
+tc.restore();
+
+// Lane exit deflector (curved)
+tc.strokeStyle = '#e94560';
+tc.lineWidth = 2;
+tc.beginPath();
+tc.arc(pfx + pfw - 40, pfy + 80, 20, 0, Math.PI / 2);
+tc.stroke();
+tc.fillStyle = '#e94560';
+tc.font = '6px Courier New';
+tc.textAlign = 'left';
+tc.fillText('DEFLECTOR', pfx + pfw - 65, pfy + 95);
+
+// Ball feed tube (PVC, above launch lane)
+tc.strokeStyle = '#9b59b6';
+tc.lineWidth = 2;
+tc.beginPath();
+tc.arc(pfx + pfw - 20, pfy + 8, 12, 0, Math.PI * 2);
+tc.stroke();
+tc.fillStyle = '#9b59b6';
+tc.font = '5px Courier New';
+tc.textAlign = 'center';
+tc.fillText('BALL', pfx + pfw - 20, pfy + 7);
+tc.fillText('FEED', pfx + pfw - 20, pfy + 13);
+
+// ── Pop Bumpers (×6) — triangular cluster in upper-center ──
+function drawPopBumper(x, y, label) {
+  // Outer ring (mushroom cap)
+  tc.fillStyle = '#ff6b35';
+  tc.globalAlpha = 0.7;
+  tc.beginPath();
+  tc.arc(x, y, 14, 0, Math.PI * 2);
+  tc.fill();
+  tc.globalAlpha = 1;
+  // Inner ring
+  tc.strokeStyle = '#ff6b35';
+  tc.lineWidth = 2;
+  tc.beginPath();
+  tc.arc(x, y, 14, 0, Math.PI * 2);
+  tc.stroke();
+  // Center post
+  tc.fillStyle = '#ffaa00';
+  tc.beginPath();
+  tc.arc(x, y, 5, 0, Math.PI * 2);
+  tc.fill();
+  // Bell indicator
+  tc.fillStyle = '#fff';
+  tc.font = '8px Courier New';
+  tc.textAlign = 'center';
+  tc.fillText('🔔', x, y + 3);
+  // Points
+  tc.fillStyle = '#ff6b35';
+  tc.font = 'bold 7px Courier New';
+  tc.fillText(label, x, y - 17);
+}
+
+// Triangle formation
+drawPopBumper(pfx + pfw/2, pfy + 160, '10');
+drawPopBumper(pfx + pfw/2 - 45, pfy + 210, '10');
+drawPopBumper(pfx + pfw/2 + 45, pfy + 210, '10');
+drawPopBumper(pfx + pfw/2 - 22, pfy + 260, '10');
+drawPopBumper(pfx + pfw/2 + 22, pfy + 260, '10');
+// Outlier
+drawPopBumper(pfx + 50, pfy + 320, '10');
+
+// ── Static Bumper Posts ──
+function drawStaticPost(x, y) {
+  tc.fillStyle = '#555';
+  tc.beginPath();
+  tc.arc(x, y, 5, 0, Math.PI * 2);
+  tc.fill();
+  tc.strokeStyle = '#777';
+  tc.lineWidth = 1;
+  tc.beginPath();
+  tc.arc(x, y, 7, 0, Math.PI * 2);
+  tc.stroke();
+}
+
+drawStaticPost(pfx + 60, pfy + 170);
+drawStaticPost(pfx + pfw - 60, pfy + 170);
+drawStaticPost(pfx + 45, pfy + 400);
+drawStaticPost(pfx + pfw - 45, pfy + 400);
+drawStaticPost(pfx + 80, pfy + 470);
+drawStaticPost(pfx + pfw - 80, pfy + 470);
+drawStaticPost(pfx + pfw/2, pfy + 380);
+drawStaticPost(pfx + pfw/2, pfy + 480);
+
+// ── Spinner Gate (upper-left lane) ──
+tc.fillStyle = '#44ff88';
+tc.globalAlpha = 0.6;
+tc.fillRect(pfx + 30, pfy + 120, 40, 6);
+tc.globalAlpha = 1;
+tc.strokeStyle = '#44ff88';
+tc.lineWidth = 1.5;
+tc.strokeRect(pfx + 30, pfy + 120, 40, 6);
+// Spinner disc
+tc.beginPath();
+tc.arc(pfx + 50, pfy + 123, 10, 0, Math.PI * 2);
+tc.stroke();
+// Spin arrows
+tc.beginPath();
+tc.arc(pfx + 50, pfy + 123, 13, -0.5, 0.5);
+tc.stroke();
+tc.fillStyle = '#44ff88';
+tc.font = '7px Courier New';
+tc.textAlign = 'center';
+tc.fillText('SPINNER', pfx + 50, pfy + 112);
+tc.fillText('25/spin', pfx + 50, pfy + 143);
+
+// ── Star Targets (×3, upper-right cluster) ──
+function drawStar(x, y) {
+  tc.fillStyle = '#c77dff';
+  tc.globalAlpha = 0.8;
+  const r = 10, ir = 4;
+  tc.beginPath();
+  for (let i = 0; i < 5; i++) {
+    const angle = -Math.PI / 2 + (i * 2 * Math.PI / 5);
+    const iAngle = angle + Math.PI / 5;
+    tc.lineTo(x + r * Math.cos(angle), y + r * Math.sin(angle));
+    tc.lineTo(x + ir * Math.cos(iAngle), y + ir * Math.sin(iAngle));
+  }
+  tc.closePath();
+  tc.fill();
+  tc.globalAlpha = 1;
+  tc.strokeStyle = '#c77dff';
+  tc.lineWidth = 1;
+  tc.stroke();
+}
+
+drawStar(pfx + pfw - 55, pfy + 130);
+drawStar(pfx + pfw - 55, pfy + 155);
+drawStar(pfx + pfw - 55, pfy + 180);
+tc.fillStyle = '#c77dff';
+tc.font = '7px Courier New';
+tc.textAlign = 'center';
+tc.fillText('★ 50 ea', pfx + pfw - 55, pfy + 198);
+tc.font = '6px Courier New';
+tc.fillText('ALL 3 = COMBO', pfx + pfw - 55, pfy + 208);
+tc.fillText('(200 BONUS)', pfx + pfw - 55, pfy + 217);
+
+// ── Loop Ramp (left side) ──
+tc.strokeStyle = '#00ccff';
+tc.lineWidth = 3;
+tc.globalAlpha = 0.7;
+tc.beginPath();
+// Entry at bottom-left, curves up and around
+tc.moveTo(pfx + 30, pfy + 440);
+tc.quadraticCurveTo(pfx + 15, pfy + 300, pfx + 30, pfy + 220);
+tc.quadraticCurveTo(pfx + 55, pfy + 170, pfx + 90, pfy + 200);
+tc.quadraticCurveTo(pfx + 110, pfy + 240, pfx + 90, pfy + 310);
+tc.lineTo(pfx + 80, pfy + 360);
+tc.stroke();
+tc.globalAlpha = 1;
+// Loop label
+tc.fillStyle = '#00ccff';
+tc.font = 'bold 8px Courier New';
+tc.textAlign = 'center';
+tc.fillText('LOOP', pfx + 25, pfy + 280);
+tc.fillText('100', pfx + 25, pfy + 292);
+// Arrow on loop
+tc.fillStyle = '#00ccff';
+tc.beginPath();
+tc.moveTo(pfx + 80, pfy + 360);
+tc.lineTo(pfx + 74, pfy + 350);
+tc.lineTo(pfx + 86, pfy + 350);
+tc.closePath();
+tc.fill();
+
+// ── JACKPOT Ramp (center) ──
+// Ramp going from bottom-center upward
+tc.fillStyle = '#ffd700';
+tc.globalAlpha = 0.15;
+tc.beginPath();
+tc.moveTo(pfx + pfw/2 - 18, pfy + pfh - 50);
+tc.lineTo(pfx + pfw/2 + 18, pfy + pfh - 50);
+tc.lineTo(pfx + pfw/2 + 14, pfy + 300);
+tc.lineTo(pfx + pfw/2 - 14, pfy + 300);
+tc.closePath();
+tc.fill();
+tc.globalAlpha = 1;
+// Ramp edges
+tc.strokeStyle = '#ffd700';
+tc.lineWidth = 2;
+tc.beginPath();
+tc.moveTo(pfx + pfw/2 - 18, pfy + pfh - 50);
+tc.lineTo(pfx + pfw/2 - 14, pfy + 300);
+tc.stroke();
+tc.beginPath();
+tc.moveTo(pfx + pfw/2 + 18, pfy + pfh - 50);
+tc.lineTo(pfx + pfw/2 + 14, pfy + 300);
+tc.stroke();
+// Jackpot text
+tc.fillStyle = '#ffd700';
+tc.font = 'bold 11px Courier New';
+tc.textAlign = 'center';
+tc.fillText('JACKPOT', pfx + pfw/2, pfy + 340);
+tc.font = 'bold 14px Courier New';
+tc.fillText('500', pfx + pfw/2, pfy + 358);
+// Cowbell at top of ramp
+tc.font = '12px Courier New';
+tc.fillText('🔔', pfx + pfw/2, pfy + 308);
+tc.font = '6px Courier New';
+tc.fillStyle = '#ffd700';
+tc.fillText('COWBELL', pfx + pfw/2, pfy + 320);
+
+// ── Ball return rail (from jackpot ramp top to launch lane) ──
+tc.strokeStyle = '#ffd700';
+tc.lineWidth = 1.5;
+tc.setLineDash([4, 3]);
+tc.globalAlpha = 0.4;
+tc.beginPath();
+tc.moveTo(pfx + pfw/2 + 10, pfy + 300);
+tc.quadraticCurveTo(pfx + pfw - 60, pfy + 200, pfx + pfw - 40, pfy + 70);
+tc.stroke();
+tc.setLineDash([]);
+tc.font = '6px Courier New';
+tc.textAlign = 'left';
+tc.fillStyle = '#ffd700';
+tc.fillText('BALL RETURN', pfx + pfw/2 + 30, pfy + 280);
+tc.fillText('TO LAUNCH', pfx + pfw/2 + 30, pfy + 289);
+tc.globalAlpha = 1;
+
+// ── FLIPPERS (×2) ──
+// Player 1 flipper (left, neon pink)
+tc.save();
+tc.translate(pfx + pfw * 0.3, pfy + pfh - 20);
+tc.rotate(-0.3); // slight angle — resting position
+tc.fillStyle = '#ff2d95';
+tc.globalAlpha = 0.85;
+// Paddle shape
+tc.beginPath();
+tc.moveTo(0, -6);
+tc.lineTo(-80, -12);
+tc.quadraticCurveTo(-90, 0, -80, 12);
+tc.lineTo(0, 6);
+tc.closePath();
+tc.fill();
+tc.globalAlpha = 1;
+tc.strokeStyle = '#ff2d95';
+tc.lineWidth = 1.5;
+tc.stroke();
+// Hinge point
+tc.fillStyle = '#fff';
+tc.beginPath();
+tc.arc(0, 0, 4, 0, Math.PI * 2);
+tc.fill();
+// Rubber tip
+tc.fillStyle = '#ff69b4';
+tc.beginPath();
+tc.arc(-85, 0, 6, 0, Math.PI * 2);
+tc.fill();
+// Handle
+tc.fillStyle = '#cc1166';
+tc.fillRect(-20, -3, 8, 6);
+tc.restore();
+
+// Flipper swing arc indicator (P1)
+tc.strokeStyle = 'rgba(255,45,149,0.25)';
+tc.lineWidth = 1;
+tc.setLineDash([3, 3]);
+tc.beginPath();
+tc.arc(pfx + pfw * 0.3, pfy + pfh - 20, 80, Math.PI + 0.2, Math.PI + 1.2);
+tc.stroke();
+tc.setLineDash([]);
+tc.fillStyle = '#ff2d95';
+tc.font = '7px Courier New';
+tc.textAlign = 'center';
+tc.fillText('P1 FLIPPER', pfx + pfw * 0.3 - 50, pfy + pfh - 40);
+tc.fillText('(NEON PINK)', pfx + pfw * 0.3 - 50, pfy + pfh - 31);
+
+// Player 2 flipper (right, neon green)
+tc.save();
+tc.translate(pfx + pfw * 0.7, pfy + pfh - 20);
+tc.rotate(0.3);
+tc.fillStyle = '#39ff14';
+tc.globalAlpha = 0.85;
+tc.beginPath();
+tc.moveTo(0, -6);
+tc.lineTo(80, -12);
+tc.quadraticCurveTo(90, 0, 80, 12);
+tc.lineTo(0, 6);
+tc.closePath();
+tc.fill();
+tc.globalAlpha = 1;
+tc.strokeStyle = '#39ff14';
+tc.lineWidth = 1.5;
+tc.stroke();
+// Hinge
+tc.fillStyle = '#fff';
+tc.beginPath();
+tc.arc(0, 0, 4, 0, Math.PI * 2);
+tc.fill();
+// Rubber tip
+tc.fillStyle = '#66ff66';
+tc.beginPath();
+tc.arc(85, 0, 6, 0, Math.PI * 2);
+tc.fill();
+// Handle
+tc.fillStyle = '#22aa00';
+tc.fillRect(12, -3, 8, 6);
+tc.restore();
+
+// Flipper swing arc indicator (P2)
+tc.strokeStyle = 'rgba(57,255,20,0.25)';
+tc.lineWidth = 1;
+tc.setLineDash([3, 3]);
+tc.beginPath();
+tc.arc(pfx + pfw * 0.7, pfy + pfh - 20, 80, -0.2, Math.PI - 1.2, true);
+tc.stroke();
+tc.setLineDash([]);
+tc.fillStyle = '#39ff14';
+tc.font = '7px Courier New';
+tc.textAlign = 'center';
+tc.fillText('P2 FLIPPER', pfx + pfw * 0.7 + 50, pfy + pfh - 40);
+tc.fillText('(NEON GREEN)', pfx + pfw * 0.7 + 50, pfy + pfh - 31);
+
+// ── Drain Zone ──
+tc.fillStyle = '#ff4444';
+tc.globalAlpha = 0.3;
+tc.fillRect(pfx + pfw * 0.35, pfy + pfh - 4, pfw * 0.3, 8);
+tc.globalAlpha = 1;
+tc.strokeStyle = '#ff4444';
+tc.lineWidth = 1.5;
+tc.beginPath();
+tc.moveTo(pfx + pfw * 0.35, pfy + pfh);
+tc.lineTo(pfx + pfw * 0.65, pfy + pfh);
+tc.stroke();
+tc.fillStyle = '#ff4444';
+tc.font = 'bold 8px Courier New';
+tc.textAlign = 'center';
+tc.fillText('DRAIN', pfx + pfw/2, pfy + pfh + 14);
+tc.font = '6px Courier New';
+tc.fillText('(BALL LOST)', pfx + pfw/2, pfy + pfh + 23);
+
+// ── Ball trajectory example (launched ball cascading down) ──
+tc.strokeStyle = '#ffe44d';
+tc.lineWidth = 1.5;
+tc.setLineDash([4, 3]);
+tc.globalAlpha = 0.6;
+tc.beginPath();
+tc.moveTo(pfx + pfw - 20, pfy + 65);
+tc.quadraticCurveTo(pfx + pfw - 50, pfy + 85, pfx + pfw - 60, pfy + 100);
+// Deflects across the top
+tc.lineTo(pfx + pfw/2 + 20, pfy + 130);
+// Hits bumper, bounces
+tc.lineTo(pfx + pfw/2 - 30, pfy + 200);
+tc.lineTo(pfx + pfw/2 + 50, pfy + 250);
+tc.lineTo(pfx + pfw/2 - 10, pfy + 350);
+tc.lineTo(pfx + pfw * 0.3 + 20, pfy + pfh - 60);
+tc.stroke();
+tc.setLineDash([]);
+// Arrowhead
+tc.fillStyle = '#ffe44d';
+tc.beginPath();
+tc.moveTo(pfx + pfw * 0.3 + 20, pfy + pfh - 60);
+tc.lineTo(pfx + pfw * 0.3 + 14, pfy + pfh - 70);
+tc.lineTo(pfx + pfw * 0.3 + 26, pfy + pfh - 70);
+tc.closePath();
+tc.fill();
+tc.font = 'italic 7px Courier New';
+tc.textAlign = 'left';
+tc.fillText('BALL CASCADES', pfx + pfw * 0.3 + 30, pfy + pfh - 68);
+tc.fillText('THROUGH BUMPERS', pfx + pfw * 0.3 + 30, pfy + pfh - 59);
+tc.globalAlpha = 1;
+
+// Flipper save trajectory (ball going back up after flip)
+tc.strokeStyle = '#ff2d95';
+tc.lineWidth = 1.5;
+tc.setLineDash([4, 3]);
+tc.globalAlpha = 0.5;
+tc.beginPath();
+tc.moveTo(pfx + pfw * 0.3 - 50, pfy + pfh - 30);
+tc.quadraticCurveTo(pfx + pfw * 0.25, pfy + pfh - 120, pfx + 45, pfy + 430);
+tc.stroke();
+tc.setLineDash([]);
+tc.fillStyle = '#ff2d95';
+tc.beginPath();
+tc.moveTo(pfx + 45, pfy + 430);
+tc.lineTo(pfx + 39, pfy + 440);
+tc.lineTo(pfx + 51, pfy + 440);
+tc.closePath();
+tc.fill();
+tc.font = 'italic 7px Courier New';
+tc.textAlign = 'left';
+tc.fillText('FLIPPER SAVE!', pfx + 55, pfy + 435);
+tc.fillText('→ LOOP RAMP', pfx + 55, pfy + 445);
+tc.globalAlpha = 1;
+
+// ── Playfield zone labels ──
+tc.fillStyle = 'rgba(255,255,255,0.15)';
+tc.font = '9px Courier New';
+tc.textAlign = 'center';
+tc.fillText('— UPPER ZONE —', pfx + pfw/2, pfy + 110);
+tc.fillText('— MID ZONE —', pfx + pfw/2, pfy + 300);
+tc.fillText('— FLIPPER ZONE —', pfx + pfw/2, pfy + pfh - 75);
+
+// ── Dimensions ──
+tc.fillStyle = '#555';
+tc.font = '10px Courier New';
+tc.textAlign = 'center';
+// Width
+tc.fillText('48"', pfx + pfw/2, pfy - 16);
+tc.strokeStyle = '#555';
+tc.lineWidth = 1;
+tc.beginPath(); tc.moveTo(pfx, pfy - 10); tc.lineTo(pfx + pfw, pfy - 10); tc.stroke();
+tc.beginPath(); tc.moveTo(pfx, pfy - 14); tc.lineTo(pfx, pfy - 6); tc.stroke();
+tc.beginPath(); tc.moveTo(pfx + pfw, pfy - 14); tc.lineTo(pfx + pfw, pfy - 6); tc.stroke();
+
+// Length
+tc.save();
+tc.translate(pfx - 22, pfy + pfh/2);
+tc.rotate(-Math.PI/2);
+tc.fillText('96" (8 ft)', 0, 0);
+tc.restore();
+tc.strokeStyle = '#555';
+tc.beginPath(); tc.moveTo(pfx - 14, pfy); tc.lineTo(pfx - 14, pfy + pfh); tc.stroke();
+tc.beginPath(); tc.moveTo(pfx - 18, pfy); tc.lineTo(pfx - 10, pfy); tc.stroke();
+tc.beginPath(); tc.moveTo(pfx - 18, pfy + pfh); tc.lineTo(pfx - 10, pfy + pfh); tc.stroke();
+
+// Direction labels
+tc.fillStyle = '#666';
+tc.font = '9px Courier New';
+tc.textAlign = 'center';
+tc.fillText('▲ TOP (PLUNGER END — 42" high)', pfx + pfw/2, pfy - 24);
+tc.fillText('▼ BOTTOM (FLIPPER END — 26" high)', pfx + pfw/2, pfy + pfh + 38);
+
+// Section label
+tc.fillStyle = '#555';
+tc.font = '10px Courier New';
+tc.textAlign = 'center';
+tc.fillText('TOP-DOWN — PLAYFIELD LAYOUT', TW/2, TH - 10);
+
+
+// ══════════════════════════════════════════
+// SIDE CROSS-SECTION
+// ══════════════════════════════════════════
+const sc = document.getElementById('side').getContext('2d');
+const SW = 340, SH = 720;
+
+// Ground line
+sc.strokeStyle = '#333';
+sc.lineWidth = 1;
+sc.beginPath();
+sc.moveTo(20, 600);
+sc.lineTo(320, 600);
+sc.stroke();
+
+// Playfield dimensions in side view
+// Tilted ~10° — top end is higher, bottom (flipper) end is lower
+// Top end at 42" = drawn at y~260, bottom at 26" = y~360 (exaggerated for visibility)
+const sTopX = 60, sTopY = 220;     // top-left corner of playfield (plunger end, high)
+const sBotX = 280, sBotY = 340;    // bottom-right corner (flipper end, low)
+
+// ── Playfield surface (tilted rectangle) ──
+const pfThick = 8; // visual thickness
+sc.fillStyle = '#1a1a2e';
+sc.beginPath();
+sc.moveTo(sTopX, sTopY);
+sc.lineTo(sBotX, sBotY);
+sc.lineTo(sBotX, sBotY + pfThick);
+sc.lineTo(sTopX, sTopY + pfThick);
+sc.closePath();
+sc.fill();
+sc.strokeStyle = '#555';
+sc.lineWidth = 1;
+sc.stroke();
+
+// Playfield surface label
+sc.fillStyle = '#888';
+sc.font = '7px Courier New';
+sc.textAlign = 'center';
+const midPFX = (sTopX + sBotX) / 2;
+const midPFY = (sTopY + sBotY) / 2;
+sc.save();
+sc.translate(midPFX, midPFY + 20);
+sc.rotate(Math.atan2(sBotY - sTopY, sBotX - sTopX));
+sc.fillText('¾" PLYWOOD PLAYFIELD', 0, 0);
+sc.restore();
+
+// ── Edge Rails (side view — shows the 3.5" tall walls) ──
+const railH = 22; // visual height of edge rail
+// Top end rail
+sc.fillStyle = 'rgba(255,255,255,0.15)';
+sc.beginPath();
+sc.moveTo(sTopX - 4, sTopY - railH);
+sc.lineTo(sTopX + 4, sTopY - railH);
+sc.lineTo(sTopX + 4, sTopY);
+sc.lineTo(sTopX - 4, sTopY);
+sc.closePath();
+sc.fill();
+sc.strokeStyle = 'rgba(255,255,255,0.3)';
+sc.lineWidth = 1;
+sc.stroke();
+
+// Bottom end rail (with drain gap)
+sc.fillStyle = 'rgba(255,255,255,0.15)';
+sc.beginPath();
+sc.moveTo(sBotX - 4, sBotY - railH);
+sc.lineTo(sBotX + 4, sBotY - railH);
+sc.lineTo(sBotX + 4, sBotY);
+sc.lineTo(sBotX - 4, sBotY);
+sc.closePath();
+sc.fill();
+sc.strokeStyle = 'rgba(255,255,255,0.3)';
+sc.stroke();
+
+// Rail labels
+sc.fillStyle = '#888';
+sc.font = '7px Courier New';
+sc.textAlign = 'left';
+sc.fillText('3.5" RAIL', sTopX + 10, sTopY - railH + 8);
+
+// ── Support Legs ──
+// Rear legs (tall, under plunger end)
+sc.strokeStyle = '#666';
+sc.lineWidth = 5;
+sc.beginPath();
+sc.moveTo(sTopX + 10, sTopY + pfThick);
+sc.lineTo(sTopX - 10, 600);
+sc.stroke();
+sc.beginPath();
+sc.moveTo(sTopX + 30, sTopY + pfThick);
+sc.lineTo(sTopX + 50, 600);
+sc.stroke();
+
+// Front legs (shorter, under flipper end)
+sc.beginPath();
+sc.moveTo(sBotX - 30, sBotY + pfThick);
+sc.lineTo(sBotX - 50, 600);
+sc.stroke();
+sc.beginPath();
+sc.moveTo(sBotX - 10, sBotY + pfThick);
+sc.lineTo(sBotX + 10, 600);
+sc.stroke();
+
+// Cross bracing
+sc.lineWidth = 3;
+sc.beginPath();
+sc.moveTo(sTopX + 5, 500);
+sc.lineTo(sTopX + 45, 500);
+sc.stroke();
+sc.beginPath();
+sc.moveTo(sBotX - 48, 530);
+sc.lineTo(sBotX + 8, 530);
+sc.stroke();
+
+// Diagonal brace
+sc.lineWidth = 2;
+sc.strokeStyle = '#555';
+sc.beginPath();
+sc.moveTo(sTopX + 25, 400);
+sc.lineTo(sBotX - 25, 480);
+sc.stroke();
+
+// Rubber feet
+sc.fillStyle = '#e94560';
+[sTopX - 14, sTopX + 46, sBotX - 54, sBotX + 6].forEach(x => {
+  sc.fillRect(x, 598, 12, 5);
+});
+
+// Leg labels
+sc.fillStyle = '#666';
+sc.font = '7px Courier New';
+sc.textAlign = 'center';
+sc.fillText('REAR LEGS', sTopX + 20, 615);
+sc.fillText('(42" TALL)', sTopX + 20, 624);
+sc.fillText('FRONT LEGS', sBotX - 20, 615);
+sc.fillText('(26" TALL)', sBotX - 20, 624);
+
+// ── Bumpers on playfield (side view — mushroom caps protruding) ──
+function drawBumperSide(x, y) {
+  // Stem
+  sc.fillStyle = '#ff6b35';
+  sc.fillRect(x - 1, y - 14, 3, 12);
+  // Cap
+  sc.beginPath();
+  sc.arc(x, y - 14, 5, Math.PI, 0);
+  sc.fill();
+}
+// Place a few along the playfield slope
+const bumperPositions = [0.25, 0.35, 0.45, 0.55];
+bumperPositions.forEach(t => {
+  const bx = sTopX + (sBotX - sTopX) * t;
+  const by = sTopY + (sBotY - sTopY) * t;
+  drawBumperSide(bx, by);
+});
+
+// ── Jackpot Ramp (side view — angled up from playfield) ──
+const rampBaseX = sTopX + (sBotX - sTopX) * 0.65;
+const rampBaseY = sTopY + (sBotY - sTopY) * 0.65;
+sc.strokeStyle = '#ffd700';
+sc.lineWidth = 2;
+sc.beginPath();
+sc.moveTo(rampBaseX, rampBaseY);
+sc.lineTo(rampBaseX - 30, rampBaseY - 35);
+sc.stroke();
+// Ramp surface
+sc.fillStyle = 'rgba(255,215,0,0.15)';
+sc.beginPath();
+sc.moveTo(rampBaseX - 2, rampBaseY);
+sc.lineTo(rampBaseX + 6, rampBaseY);
+sc.lineTo(rampBaseX - 24, rampBaseY - 33);
+sc.lineTo(rampBaseX - 32, rampBaseY - 33);
+sc.closePath();
+sc.fill();
+sc.fillStyle = '#ffd700';
+sc.font = '7px Courier New';
+sc.textAlign = 'left';
+sc.fillText('JACKPOT', rampBaseX - 55, rampBaseY - 40);
+sc.fillText('RAMP (15°)', rampBaseX - 55, rampBaseY - 32);
+
+// ── Flipper (side view) ──
+// Show the paddle at the bottom end, extending above the playfield
+sc.fillStyle = '#ff2d95';
+sc.globalAlpha = 0.85;
+sc.beginPath();
+// Paddle profile (side view — thin rectangle sticking up from playfield)
+sc.moveTo(sBotX - 20, sBotY - 2);
+sc.lineTo(sBotX - 20, sBotY - 18);
+sc.lineTo(sBotX - 16, sBotY - 20);
+sc.lineTo(sBotX - 8, sBotY - 20);
+sc.lineTo(sBotX - 4, sBotY - 18);
+sc.lineTo(sBotX - 4, sBotY - 2);
+sc.closePath();
+sc.fill();
+sc.globalAlpha = 1;
+sc.strokeStyle = '#ff2d95';
+sc.lineWidth = 1;
+sc.stroke();
+// Hinge
+sc.fillStyle = '#fff';
+sc.beginPath();
+sc.arc(sBotX - 4, sBotY - 2, 3, 0, Math.PI * 2);
+sc.fill();
+// Handle (below playfield)
+sc.fillStyle = '#cc1166';
+sc.fillRect(sBotX - 16, sBotY + pfThick, 8, 20);
+sc.strokeStyle = '#ff2d95';
+sc.lineWidth = 1;
+sc.strokeRect(sBotX - 16, sBotY + pfThick, 8, 20);
+
+sc.fillStyle = '#ff2d95';
+sc.font = '7px Courier New';
+sc.textAlign = 'center';
+sc.fillText('FLIPPER', sBotX - 12, sBotY - 24);
+sc.fillText('PADDLE', sBotX - 12, sBotY - 16);
+
+// Handle label
+sc.fillStyle = '#cc1166';
+sc.font = '6px Courier New';
+sc.fillText('HANDLE', sBotX - 12, sBotY + pfThick + 34);
+sc.fillText('(GRIP HERE)', sBotX - 12, sBotY + pfThick + 42);
+
+// Spring return indicator
+sc.strokeStyle = '#ff2d95';
+sc.lineWidth = 1;
+sc.setLineDash([2, 2]);
+sc.beginPath();
+sc.moveTo(sBotX - 4, sBotY + 5);
+sc.quadraticCurveTo(sBotX + 10, sBotY + 15, sBotX + 5, sBotY + 25);
+sc.stroke();
+sc.setLineDash([]);
+sc.fillStyle = '#ff2d95';
+sc.font = '5px Courier New';
+sc.textAlign = 'left';
+sc.fillText('RETURN', sBotX + 12, sBotY + 15);
+sc.fillText('SPRING', sBotX + 12, sBotY + 22);
+
+// ── Plunger (side view, at top end) ──
+sc.fillStyle = '#e94560';
+sc.fillRect(sTopX - 2, sTopY - railH - 5, 8, railH + 5);
+sc.strokeStyle = '#e94560';
+sc.lineWidth = 1;
+sc.strokeRect(sTopX - 2, sTopY - railH - 5, 8, railH + 5);
+// Spring inside plunger
+sc.strokeStyle = '#e94560';
+sc.lineWidth = 1;
+let plY = sTopY - railH;
+sc.beginPath();
+sc.moveTo(sTopX + 2, plY);
+for (let i = 0; i < 3; i++) {
+  sc.lineTo(sTopX - 1, plY - 2 - i * 4);
+  sc.lineTo(sTopX + 5, plY - 4 - i * 4);
+}
+sc.stroke();
+sc.fillStyle = '#e94560';
+sc.font = '7px Courier New';
+sc.textAlign = 'center';
+sc.fillText('PLUNGER', sTopX + 3, sTopY - railH - 10);
+
+// Ball feed tube
+sc.strokeStyle = '#9b59b6';
+sc.lineWidth = 2;
+sc.beginPath();
+sc.moveTo(sTopX + 12, sTopY - railH);
+sc.lineTo(sTopX + 12, sTopY - railH - 60);
+sc.moveTo(sTopX + 24, sTopY - railH);
+sc.lineTo(sTopX + 24, sTopY - railH - 60);
+sc.stroke();
+// Balls in tube
+for (let i = 0; i < 4; i++) {
+  sc.fillStyle = '#ffe44d';
+  sc.globalAlpha = 0.7;
+  sc.beginPath();
+  sc.arc(sTopX + 18, sTopY - railH - 8 - i * 14, 5, 0, Math.PI * 2);
+  sc.fill();
+  sc.globalAlpha = 1;
+}
+sc.fillStyle = '#9b59b6';
+sc.font = '7px Courier New';
+sc.textAlign = 'left';
+sc.fillText('BALL FEED', sTopX + 28, sTopY - railH - 40);
+sc.fillText('(3" PVC)', sTopX + 28, sTopY - railH - 32);
+sc.fillText('5 BALLS', sTopX + 28, sTopY - railH - 24);
+
+// ── Ball trajectory (side view) ──
+sc.strokeStyle = '#ffe44d';
+sc.lineWidth = 1.5;
+sc.setLineDash([4, 3]);
+sc.globalAlpha = 0.5;
+sc.beginPath();
+sc.moveTo(sTopX + 3, sTopY - 10);
+// Ball launches and rolls/bounces down the tilted field
+sc.quadraticCurveTo(sTopX + 60, sTopY + 20, sTopX + 100, sTopY + 60);
+sc.lineTo(sBotX - 60, sBotY - 30);
+sc.stroke();
+sc.setLineDash([]);
+// Arrow
+sc.fillStyle = '#ffe44d';
+sc.beginPath();
+sc.moveTo(sBotX - 60, sBotY - 30);
+sc.lineTo(sBotX - 66, sBotY - 40);
+sc.lineTo(sBotX - 54, sBotY - 40);
+sc.closePath();
+sc.fill();
+sc.font = 'italic 7px Courier New';
+sc.textAlign = 'left';
+sc.fillText('BALL ROLLS', sBotX - 48, sBotY - 35);
+sc.fillText('DOWNHILL', sBotX - 48, sBotY - 27);
+
+// Ball bouncing off bumper (secondary trajectory)
+sc.strokeStyle = '#ffe44d';
+sc.lineWidth = 1;
+sc.setLineDash([3, 3]);
+sc.globalAlpha = 0.3;
+const bumpT = 0.35;
+const bumpX = sTopX + (sBotX - sTopX) * bumpT;
+const bumpY = sTopY + (sBotY - sTopY) * bumpT;
+sc.beginPath();
+sc.moveTo(bumpX, bumpY - 14);
+sc.quadraticCurveTo(bumpX + 10, bumpY - 40, bumpX + 30, bumpY - 20);
+sc.stroke();
+sc.setLineDash([]);
+sc.font = 'italic 6px Courier New';
+sc.fillText('BOUNCE!', bumpX + 15, bumpY - 42);
+sc.globalAlpha = 1;
+
+// ── Collection Tray (under flipper end) ──
+sc.fillStyle = '#2a2a2a';
+sc.beginPath();
+sc.moveTo(sBotX - 40, sBotY + pfThick + 5);
+sc.lineTo(sBotX + 15, sBotY + pfThick + 5);
+sc.lineTo(sBotX + 15, sBotY + pfThick + 25);
+sc.lineTo(sBotX - 40, sBotY + pfThick + 30);
+sc.closePath();
+sc.fill();
+sc.strokeStyle = '#555';
+sc.lineWidth = 1;
+sc.stroke();
+sc.fillStyle = '#888';
+sc.font = '6px Courier New';
+sc.textAlign = 'center';
+sc.fillText('COLLECTION TRAY', sBotX - 12, sBotY + pfThick + 42);
+sc.fillText('(CATCH DRAINED BALLS)', sBotX - 12, sBotY + pfThick + 50);
+
+// Drain arrow
+sc.strokeStyle = '#ff4444';
+sc.lineWidth = 1;
+sc.globalAlpha = 0.6;
+sc.beginPath();
+sc.moveTo(sBotX - 12, sBotY + 2);
+sc.lineTo(sBotX - 12, sBotY + pfThick + 8);
+sc.stroke();
+sc.fillStyle = '#ff4444';
+sc.beginPath();
+sc.moveTo(sBotX - 12, sBotY + pfThick + 8);
+sc.lineTo(sBotX - 16, sBotY + pfThick + 2);
+sc.lineTo(sBotX - 8, sBotY + pfThick + 2);
+sc.closePath();
+sc.fill();
+sc.font = '5px Courier New';
+sc.textAlign = 'left';
+sc.fillText('DRAIN', sBotX, sBotY + 8);
+sc.globalAlpha = 1;
+
+// ── Tilt Angle Indicator ──
+sc.strokeStyle = '#ff2d95';
+sc.lineWidth = 1;
+sc.globalAlpha = 0.5;
+// Horizontal reference
+sc.setLineDash([3, 3]);
+sc.beginPath();
+sc.moveTo(sBotX, sBotY + 4);
+sc.lineTo(sBotX - 100, sBotY + 4);
+sc.stroke();
+sc.setLineDash([]);
+// Angle arc
+sc.beginPath();
+sc.arc(sBotX, sBotY + 4, 60, Math.PI, Math.PI + Math.atan2(sTopY - sBotY, sTopX - sBotX) + Math.PI, true);
+sc.stroke();
+sc.globalAlpha = 1;
+sc.fillStyle = '#ff2d95';
+sc.font = 'bold 9px Courier New';
+sc.textAlign = 'center';
+sc.fillText('~10°', sBotX - 70, sBotY - 10);
+
+// ── Height Markers ──
+sc.strokeStyle = '#555';
+sc.lineWidth = 1;
+// 42" at top end
+sc.beginPath();
+sc.moveTo(sTopX - 30, sTopY); sc.lineTo(sTopX - 30, 600); sc.stroke();
+sc.beginPath(); sc.moveTo(sTopX - 34, sTopY); sc.lineTo(sTopX - 26, sTopY); sc.stroke();
+sc.beginPath(); sc.moveTo(sTopX - 34, 600); sc.lineTo(sTopX - 26, 600); sc.stroke();
+sc.fillStyle = '#555';
+sc.font = '9px Courier New';
+sc.save();
+sc.translate(sTopX - 40, (sTopY + 600) / 2);
+sc.rotate(-Math.PI / 2);
+sc.textAlign = 'center';
+sc.fillText('42"', 0, 0);
+sc.restore();
+
+// 26" at flipper end
+sc.strokeStyle = '#555';
+sc.beginPath();
+sc.moveTo(sBotX + 30, sBotY); sc.lineTo(sBotX + 30, 600); sc.stroke();
+sc.beginPath(); sc.moveTo(sBotX + 26, sBotY); sc.lineTo(sBotX + 34, sBotY); sc.stroke();
+sc.beginPath(); sc.moveTo(sBotX + 26, 600); sc.lineTo(sBotX + 34, 600); sc.stroke();
+sc.fillStyle = '#555';
+sc.font = '9px Courier New';
+sc.save();
+sc.translate(sBotX + 40, (sBotY + 600) / 2);
+sc.rotate(-Math.PI / 2);
+sc.textAlign = 'center';
+sc.fillText('26"', 0, 0);
+sc.restore();
+
+// ── Player silhouette at flipper end ──
+sc.fillStyle = 'rgba(255,255,255,0.12)';
+// Simple stick figure
+const playerX = sBotX + 5;
+const playerFeetY = 600;
+// Head
+sc.beginPath();
+sc.arc(playerX + 25, playerFeetY - 110, 10, 0, Math.PI * 2);
+sc.fill();
+// Body
+sc.strokeStyle = 'rgba(255,255,255,0.12)';
+sc.lineWidth = 3;
+sc.beginPath();
+sc.moveTo(playerX + 25, playerFeetY - 100);
+sc.lineTo(playerX + 25, playerFeetY - 55);
+sc.stroke();
+// Legs
+sc.beginPath();
+sc.moveTo(playerX + 25, playerFeetY - 55);
+sc.lineTo(playerX + 15, playerFeetY);
+sc.stroke();
+sc.beginPath();
+sc.moveTo(playerX + 25, playerFeetY - 55);
+sc.lineTo(playerX + 35, playerFeetY);
+sc.stroke();
+// Arms reaching for flipper handle
+sc.beginPath();
+sc.moveTo(playerX + 25, playerFeetY - 85);
+sc.lineTo(playerX - 20, playerFeetY - 80);
+sc.lineTo(sBotX - 12, sBotY + pfThick + 10);
+sc.stroke();
+
+sc.fillStyle = 'rgba(255,255,255,0.2)';
+sc.font = '7px Courier New';
+sc.textAlign = 'center';
+sc.fillText('PLAYER', playerX + 25, playerFeetY - 125);
+
+// ── LED strip indicators ──
+sc.strokeStyle = 'rgba(255,45,149,0.5)';
+sc.lineWidth = 2;
+// Top rail LED
+sc.beginPath();
+sc.moveTo(sTopX - 3, sTopY - railH);
+sc.lineTo(sTopX - 3, sTopY - railH + 4);
+sc.stroke();
+sc.fillStyle = 'rgba(255,45,149,0.5)';
+sc.font = '5px Courier New';
+sc.textAlign = 'left';
+sc.fillText('LED', sTopX + 10, sTopY - railH + 3);
+
+// Section label
+sc.fillStyle = '#555';
+sc.font = '10px Courier New';
+sc.textAlign = 'center';
+sc.fillText('SIDE CROSS-SECTION', SW/2, SH - 10);
+
+</script>
+
+</body>
+</html>
