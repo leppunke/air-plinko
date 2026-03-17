@@ -1,0 +1,1299 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>AIRFALL — Diagram</title>
+<!-- screenshot: 1200x2100 -->
+<style>
+  body {
+    margin: 0;
+    padding: 20px;
+    background: #0a0a1a;
+    font-family: 'Segoe UI', Arial, sans-serif;
+    color: #e0e0e0;
+  }
+  h1 {
+    text-align: center;
+    color: #ffd700;
+    font-size: 28px;
+    margin: 10px 0 5px 0;
+    letter-spacing: 3px;
+  }
+  h2 {
+    text-align: center;
+    color: #aaa;
+    font-size: 14px;
+    margin: 0 0 15px 0;
+    font-weight: normal;
+  }
+  .view-label {
+    text-align: center;
+    color: #ffd700;
+    font-size: 16px;
+    margin: 18px 0 5px 0;
+    font-weight: bold;
+  }
+  canvas {
+    display: block;
+    margin: 0 auto;
+    border: 1px solid #333;
+  }
+  .legend-container {
+    max-width: 1160px;
+    margin: 20px auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+  }
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+  }
+  .legend-swatch {
+    width: 18px;
+    height: 18px;
+    border-radius: 3px;
+    border: 1px solid #555;
+  }
+  .specs-table {
+    max-width: 700px;
+    margin: 15px auto;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .specs-table th, .specs-table td {
+    padding: 6px 14px;
+    border: 1px solid #444;
+    text-align: left;
+  }
+  .specs-table th {
+    background: #2a2a4a;
+    color: #ffd700;
+  }
+  .specs-table td {
+    background: #1e1e3a;
+  }
+  .sequence-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+  }
+  .seq-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+  .seq-circle {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: #ffd700;
+    color: #1a1a2e;
+    font-weight: bold;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .seq-label {
+    font-size: 11px;
+    color: #ccc;
+    text-align: center;
+    max-width: 100px;
+  }
+  .seq-arrow {
+    font-size: 24px;
+    color: #ffd700;
+    margin: 0 6px;
+    margin-bottom: 18px;
+  }
+</style>
+</head>
+<body>
+
+<h1>AIRFALL</h1>
+<h2>Waterfuls Meets Leaf Blowers &mdash; Two-Player Ping Pong Ball Air Chamber</h2>
+
+<div class="view-label">FRONT VIEW &mdash; Player Perspective</div>
+<canvas id="frontView" width="1160" height="820"></canvas>
+
+<div class="view-label">SIDE CROSS-SECTION</div>
+<canvas id="sideView" width="1160" height="440"></canvas>
+
+<div class="view-label">GAMEPLAY SEQUENCE</div>
+<div class="sequence-container">
+  <div class="seq-step">
+    <div class="seq-circle">1</div>
+    <div class="seq-label">Grab blower<br>(5 sec)</div>
+  </div>
+  <div class="seq-arrow">&rarr;</div>
+  <div class="seq-step">
+    <div class="seq-circle">2</div>
+    <div class="seq-label">Timer starts<br>AIM &amp; BLAST!</div>
+  </div>
+  <div class="seq-arrow">&rarr;</div>
+  <div class="seq-step">
+    <div class="seq-circle">3</div>
+    <div class="seq-label">60 sec of<br>controlled chaos</div>
+  </div>
+  <div class="seq-arrow">&rarr;</div>
+  <div class="seq-step">
+    <div class="seq-circle">4</div>
+    <div class="seq-label">Timer ends<br>balls settle</div>
+  </div>
+  <div class="seq-arrow">&rarr;</div>
+  <div class="seq-step">
+    <div class="seq-circle">5</div>
+    <div class="seq-label">Count shelves<br>(15 sec)</div>
+  </div>
+  <div class="seq-arrow">&rarr;</div>
+  <div class="seq-step">
+    <div class="seq-circle">6</div>
+    <div class="seq-label">Pull reset<br>all balls drop</div>
+  </div>
+</div>
+
+<div class="view-label">LEGEND</div>
+<div class="legend-container">
+  <div class="legend-item"><div class="legend-swatch" style="background:#1a1a1a;border:2px solid #666;"></div>Plywood (matte black)</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:rgba(173,216,230,0.3);border:2px solid #add8e6;"></div>Polycarbonate front</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#f0f0f0;"></div>White ping pong balls</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#e74c3c;"></div>Red balls (2x)</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#ffd700;"></div>Gold balls (3x)</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:rgba(0,180,255,0.3);border:2px solid #00b4ff;"></div>Air streams</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#8B4513;"></div>Plywood shelves</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:#c0392b;"></div>Milwaukee M18 blower</div>
+  <div class="legend-item"><div class="legend-swatch" style="background:rgba(100,100,100,0.5);border:2px dashed #888;"></div>Ventilation mesh</div>
+</div>
+
+<div class="view-label">KEY SPECS</div>
+<table class="specs-table">
+  <tr><th>Spec</th><th>Value</th><th>Notes</th></tr>
+  <tr><td>Cabinet</td><td>36"W &times; 72"H &times; 8"D</td><td>Vertical, no tilt</td></tr>
+  <tr><td>Base platform</td><td>36"W &times; 30"D &times; 12"H</td><td>Elevates cabinet to kid height</td></tr>
+  <tr><td>Ball count</td><td>40 total</td><td>30 white + 6 red (2x) + 4 gold (3x)</td></tr>
+  <tr><td>Ball weight</td><td>2.7 grams each</td><td>Light enough to hover in air stream</td></tr>
+  <tr><td>Blowers</td><td>2&times; Milwaukee M18</td><td>450 CFM, battery powered</td></tr>
+  <tr><td>Scoring shelves</td><td>9 (4 left, 4 right, 1 center)</td><td>10 / 25 / 50 / 75 / 100 pts</td></tr>
+  <tr><td>Round time</td><td>60 seconds</td><td>Active blowing the whole time</td></tr>
+  <tr><td>Cycle time</td><td>~90 seconds</td><td>Fastest throughput in the repo</td></tr>
+  <tr><td>Cost (own blowers)</td><td>$350&ndash;400</td><td>Home Depot + 3D prints</td></tr>
+  <tr><td>Cost (buy blowers)</td><td>$700&ndash;750</td><td>Including 2 blowers + 4 batteries</td></tr>
+</table>
+
+<script>
+// ============================================================
+// FRONT VIEW
+// ============================================================
+(function() {
+  const canvas = document.getElementById('frontView');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width;
+  const H = canvas.height;
+
+  ctx.fillStyle = '#0d0d1a';
+  ctx.fillRect(0, 0, W, H);
+
+  // Cabinet dimensions in canvas space
+  const cabL = 330;
+  const cabR = 830;
+  const cabT = 40;
+  const cabB = 710;
+  const cabW = cabR - cabL;
+  const cabH = cabB - cabT;
+  const cabCX = (cabL + cabR) / 2;
+
+  // Base platform
+  const platH = 50;
+  const platT = cabB;
+  const platB = platT + platH;
+  ctx.fillStyle = '#3d2b1a';
+  ctx.strokeStyle = '#8B4513';
+  ctx.lineWidth = 2;
+  ctx.fillRect(cabL - 15, platT, cabW + 30, platH);
+  ctx.strokeRect(cabL - 15, platT, cabW + 30, platH);
+  // Platform legs
+  ctx.fillStyle = '#5C3A1E';
+  ctx.fillRect(cabL - 10, platB, 20, 30);
+  ctx.fillRect(cabR - 10, platB, 20, 30);
+  // Rubber feet
+  ctx.fillStyle = '#333';
+  ctx.fillRect(cabL - 12, platB + 30, 24, 6);
+  ctx.fillRect(cabR - 12, platB + 30, 24, 6);
+
+  // Cabinet back panel (matte black)
+  ctx.fillStyle = '#111';
+  ctx.fillRect(cabL, cabT, cabW, cabH);
+  ctx.strokeStyle = '#444';
+  ctx.lineWidth = 2;
+  ctx.strokeRect(cabL, cabT, cabW, cabH);
+
+  // Ventilation mesh at top
+  const ventH = 30;
+  ctx.fillStyle = 'rgba(80,80,80,0.3)';
+  ctx.fillRect(cabL, cabT, cabW, ventH);
+  // Draw mesh pattern
+  ctx.strokeStyle = 'rgba(120,120,120,0.4)';
+  ctx.lineWidth = 0.5;
+  for (let x = cabL; x < cabR; x += 12) {
+    ctx.beginPath();
+    ctx.moveTo(x, cabT);
+    ctx.lineTo(x, cabT + ventH);
+    ctx.stroke();
+  }
+  for (let y = cabT; y < cabT + ventH; y += 12) {
+    ctx.beginPath();
+    ctx.moveTo(cabL, y);
+    ctx.lineTo(cabR, y);
+    ctx.stroke();
+  }
+  ctx.fillStyle = '#888';
+  ctx.font = '9px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('VENTILATION MESH (air exits here)', cabCX, cabT + ventH / 2 + 3);
+
+  // Bottom trough (V-shaped)
+  const troughH = 35;
+  const troughT = cabB - troughH;
+  ctx.fillStyle = '#2a1a0a';
+  ctx.strokeStyle = '#8B4513';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(cabL, troughT);
+  ctx.lineTo(cabL, cabB);
+  ctx.lineTo(cabCX, cabB - 8);
+  ctx.lineTo(cabR, cabB);
+  ctx.lineTo(cabR, troughT);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  ctx.fillStyle = '#8B4513';
+  ctx.font = '10px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('COLLECTION TROUGH', cabCX, cabB - 14);
+
+  // Balls pooled in trough
+  for (let i = 0; i < 14; i++) {
+    const bx = cabL + 30 + i * (cabW - 60) / 13;
+    const by = cabB - 24 + Math.sin(i * 0.8) * 3;
+    const colors = ['#f0f0f0', '#f0f0f0', '#f0f0f0', '#e74c3c', '#f0f0f0', '#f0f0f0', '#ffd700', '#f0f0f0', '#f0f0f0', '#f0f0f0', '#e74c3c', '#f0f0f0', '#f0f0f0', '#f0f0f0'];
+    ctx.fillStyle = colors[i];
+    ctx.beginPath();
+    ctx.arc(bx, by, 5, 0, Math.PI * 2);
+    ctx.fill();
+    // highlight
+    ctx.fillStyle = 'rgba(255,255,255,0.3)';
+    ctx.beginPath();
+    ctx.arc(bx - 1.5, by - 1.5, 2, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // ---- SCORING SHELVES ----
+  // Left shelves (Player A scores these)
+  const shelvesLeft = [
+    { y: troughT - 60, w: 70, pts: 10, label: '10' },
+    { y: troughT - 160, w: 55, pts: 25, label: '25' },
+    { y: troughT - 270, w: 40, pts: 50, label: '50' },
+    { y: troughT - 370, w: 30, pts: 75, label: '75' },
+  ];
+  // Right shelves (Player B scores these)
+  const shelvesRight = [
+    { y: troughT - 80, w: 70, pts: 10, label: '10' },
+    { y: troughT - 180, w: 55, pts: 25, label: '25' },
+    { y: troughT - 290, w: 40, pts: 50, label: '50' },
+    { y: troughT - 390, w: 30, pts: 75, label: '75' },
+  ];
+  // Center top shelf
+  const centerShelf = { y: troughT - 460, w: 30, pts: 100, label: '100' };
+
+  function drawShelf(x, y, w, label, color, side) {
+    // Shelf body
+    ctx.fillStyle = '#5C3A1E';
+    ctx.strokeStyle = '#8B4513';
+    ctx.lineWidth = 2;
+    ctx.fillRect(x, y, w, 8);
+    ctx.strokeRect(x, y, w, 8);
+    // Front lip
+    ctx.fillStyle = '#6B3A1E';
+    ctx.fillRect(x + w - 4, y - 6, 4, 14);
+    // Back attachment
+    ctx.fillStyle = '#4a2a0a';
+    ctx.fillRect(x, y - 2, 4, 12);
+
+    // Score label
+    ctx.fillStyle = '#fff';
+    ctx.font = 'bold 14px Segoe UI, Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText(label, x + w / 2, y - 10);
+    ctx.font = '9px Arial';
+    ctx.fillStyle = color;
+    ctx.fillText('pts', x + w / 2, y - 0);
+  }
+
+  // Draw left shelves (attached to left wall)
+  shelvesLeft.forEach(s => {
+    drawShelf(cabL, s.y, s.w, s.label, '#4ecdc4', 'left');
+  });
+
+  // Draw right shelves (attached to right wall)
+  shelvesRight.forEach(s => {
+    drawShelf(cabR - s.w, s.y, s.w, s.label, '#e67e22', 'right');
+  });
+
+  // Draw center top shelf
+  drawShelf(cabCX - centerShelf.w / 2, centerShelf.y, centerShelf.w, centerShelf.label, '#ffd700', 'center');
+
+  // Player A / Player B labels
+  ctx.fillStyle = '#4ecdc4';
+  ctx.font = 'bold 13px Segoe UI, Arial';
+  ctx.textAlign = 'left';
+  ctx.fillText('PLAYER A', cabL + 5, cabT + ventH + 20);
+  ctx.font = '10px Arial';
+  ctx.fillText('(scores left shelves)', cabL + 5, cabT + ventH + 34);
+
+  ctx.fillStyle = '#e67e22';
+  ctx.font = 'bold 13px Segoe UI, Arial';
+  ctx.textAlign = 'right';
+  ctx.fillText('PLAYER B', cabR - 5, cabT + ventH + 20);
+  ctx.font = '10px Arial';
+  ctx.fillText('(scores right shelves)', cabR - 5, cabT + ventH + 34);
+
+  // Center divider (subtle)
+  ctx.strokeStyle = 'rgba(255,255,255,0.12)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([8, 8]);
+  ctx.beginPath();
+  ctx.moveTo(cabCX, cabT + ventH);
+  ctx.lineTo(cabCX, troughT);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // ---- AIR STREAMS ----
+  // Two blower ports at bottom of front panel
+  const portAx = cabL + 70;
+  const portBx = cabR - 70;
+  const portY = troughT + 5;
+
+  // Port circles
+  ctx.fillStyle = '#333';
+  ctx.strokeStyle = '#c0392b';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.arc(portAx, portY, 14, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.arc(portBx, portY, 14, 0, Math.PI * 2);
+  ctx.fill();
+  ctx.stroke();
+
+  // Port labels
+  ctx.fillStyle = '#c0392b';
+  ctx.font = '8px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('BLOWER', portAx, portY + 3);
+  ctx.fillText('PORT', portAx, portY + 12);
+  ctx.fillText('BLOWER', portBx, portY + 3);
+  ctx.fillText('PORT', portBx, portY + 12);
+
+  // Air stream A (fanning upward and to the right)
+  function drawAirStream(startX, startY, aimAngle, color, length) {
+    const steps = 20;
+    const spread = 0.4; // radians spread
+    for (let s = -2; s <= 2; s++) {
+      const angle = aimAngle + s * spread / 4;
+      ctx.strokeStyle = color;
+      ctx.lineWidth = 1.5;
+      ctx.globalAlpha = 0.15 + 0.1 * (2 - Math.abs(s));
+      ctx.setLineDash([6, 8]);
+      ctx.beginPath();
+      ctx.moveTo(startX, startY);
+      let cx = startX;
+      let cy = startY;
+      for (let i = 0; i < steps; i++) {
+        const stepLen = length / steps;
+        cx += Math.sin(angle + Math.sin(i * 0.5) * 0.05) * stepLen * 0.3;
+        cy -= Math.cos(angle) * stepLen;
+        ctx.lineTo(cx, cy);
+      }
+      ctx.stroke();
+      ctx.setLineDash([]);
+    }
+    ctx.globalAlpha = 1.0;
+
+    // Air stream glow at source
+    const grad = ctx.createRadialGradient(startX, startY, 5, startX, startY - 60, 80);
+    grad.addColorStop(0, 'rgba(0,180,255,0.15)');
+    grad.addColorStop(1, 'rgba(0,180,255,0)');
+    ctx.fillStyle = grad;
+    ctx.beginPath();
+    ctx.moveTo(startX - 30, startY);
+    ctx.lineTo(startX - 50, startY - 200);
+    ctx.lineTo(startX + 50, startY - 200);
+    ctx.lineTo(startX + 30, startY);
+    ctx.closePath();
+    ctx.fill();
+  }
+
+  drawAirStream(portAx, portY - 20, 0.15, 'rgba(0,180,255,0.5)', 350);
+  drawAirStream(portBx, portY - 20, -0.15, 'rgba(0,180,255,0.5)', 350);
+
+  // ---- FLOATING / HOVERING PING PONG BALLS ----
+  const floatingBalls = [
+    // Balls hovering in air streams
+    { x: portAx + 10, y: troughT - 50, color: '#f0f0f0', opacity: 0.9 },
+    { x: portAx - 15, y: troughT - 100, color: '#f0f0f0', opacity: 0.85 },
+    { x: portAx + 25, y: troughT - 140, color: '#e74c3c', opacity: 0.9 },
+    { x: portAx + 5, y: troughT - 200, color: '#f0f0f0', opacity: 0.8 },
+    { x: portAx + 35, y: troughT - 250, color: '#f0f0f0', opacity: 0.75 },
+    { x: portAx - 10, y: troughT - 310, color: '#ffd700', opacity: 0.95 },
+
+    { x: portBx - 10, y: troughT - 70, color: '#f0f0f0', opacity: 0.9 },
+    { x: portBx + 15, y: troughT - 120, color: '#f0f0f0', opacity: 0.85 },
+    { x: portBx - 20, y: troughT - 170, color: '#f0f0f0', opacity: 0.8 },
+    { x: portBx + 5, y: troughT - 230, color: '#e74c3c', opacity: 0.9 },
+    { x: portBx - 30, y: troughT - 280, color: '#f0f0f0', opacity: 0.75 },
+    { x: portBx + 10, y: troughT - 340, color: '#f0f0f0', opacity: 0.7 },
+
+    // Balls drifting between streams (turbulence zone)
+    { x: cabCX - 20, y: troughT - 150, color: '#f0f0f0', opacity: 0.6 },
+    { x: cabCX + 30, y: troughT - 220, color: '#f0f0f0', opacity: 0.55 },
+    { x: cabCX - 10, y: troughT - 300, color: '#e74c3c', opacity: 0.65 },
+    { x: cabCX + 15, y: troughT - 380, color: '#ffd700', opacity: 0.8 },
+
+    // Cascade waterfall — balls falling from a shelf
+    { x: cabR - 55, y: troughT - 150, color: '#f0f0f0', opacity: 0.5 },
+    { x: cabR - 45, y: troughT - 130, color: '#f0f0f0', opacity: 0.45 },
+    { x: cabR - 60, y: troughT - 110, color: '#f0f0f0', opacity: 0.4 },
+  ];
+
+  floatingBalls.forEach(b => {
+    ctx.globalAlpha = b.opacity;
+    ctx.shadowColor = b.color === '#f0f0f0' ? 'rgba(200,200,255,0.5)' : b.color;
+    ctx.shadowBlur = 8;
+    ctx.fillStyle = b.color;
+    ctx.beginPath();
+    ctx.arc(b.x, b.y, 7, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    // 3D highlight
+    ctx.fillStyle = 'rgba(255,255,255,0.4)';
+    ctx.beginPath();
+    ctx.arc(b.x - 2, b.y - 2, 2.5, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 1.0;
+  });
+
+  // Balls resting on shelves
+  const shelfBalls = [
+    // Left 10pt shelf — 3 balls
+    { x: cabL + 15, y: shelvesLeft[0].y - 7, color: '#f0f0f0' },
+    { x: cabL + 30, y: shelvesLeft[0].y - 7, color: '#f0f0f0' },
+    { x: cabL + 45, y: shelvesLeft[0].y - 7, color: '#e74c3c' },
+    // Left 25pt shelf — 2 balls
+    { x: cabL + 15, y: shelvesLeft[1].y - 7, color: '#f0f0f0' },
+    { x: cabL + 30, y: shelvesLeft[1].y - 7, color: '#f0f0f0' },
+    // Left 50pt shelf — 1 ball
+    { x: cabL + 15, y: shelvesLeft[2].y - 7, color: '#ffd700' },
+    // Right 10pt — 2 balls
+    { x: cabR - 20, y: shelvesRight[0].y - 7, color: '#f0f0f0' },
+    { x: cabR - 35, y: shelvesRight[0].y - 7, color: '#f0f0f0' },
+    // Right 25pt — 1 ball
+    { x: cabR - 20, y: shelvesRight[1].y - 7, color: '#f0f0f0' },
+    // Top 100pt — 1 gold ball!
+    { x: cabCX, y: centerShelf.y - 7, color: '#ffd700' },
+  ];
+
+  shelfBalls.forEach(b => {
+    ctx.shadowColor = b.color === '#f0f0f0' ? 'rgba(200,200,255,0.4)' : b.color;
+    ctx.shadowBlur = 5;
+    ctx.fillStyle = b.color;
+    ctx.beginPath();
+    ctx.arc(b.x, b.y, 6, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.shadowBlur = 0;
+    ctx.fillStyle = 'rgba(255,255,255,0.35)';
+    ctx.beginPath();
+    ctx.arc(b.x - 1.5, b.y - 1.5, 2, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  // Cascade waterfall trail (from right 10pt shelf being knocked)
+  ctx.strokeStyle = 'rgba(200,200,200,0.2)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([3, 4]);
+  ctx.beginPath();
+  ctx.moveTo(cabR - 50, shelvesRight[0].y);
+  ctx.quadraticCurveTo(cabR - 55, troughT - 140, cabR - 50, troughT - 100);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  // Cascade label
+  ctx.fillStyle = 'rgba(255,255,255,0.4)';
+  ctx.font = 'italic 9px Arial';
+  ctx.textAlign = 'left';
+  ctx.fillText('cascade!', cabR - 40, troughT - 125);
+
+  // Acrylic front panel indicator
+  ctx.strokeStyle = 'rgba(173,216,230,0.4)';
+  ctx.lineWidth = 3;
+  ctx.strokeRect(cabL - 3, cabT - 3, cabW + 6, cabH + 6);
+  ctx.fillStyle = 'rgba(173,216,230,0.5)';
+  ctx.font = '10px Arial';
+  ctx.textAlign = 'left';
+  ctx.fillText('POLYCARBONATE FRONT', cabL, cabT - 8);
+
+  // ---- DIMENSION LINES ----
+  ctx.strokeStyle = '#666';
+  ctx.lineWidth = 1;
+  ctx.fillStyle = '#999';
+  ctx.font = '11px Arial';
+  ctx.textAlign = 'center';
+
+  // Width (top)
+  const dimY = cabT - 25;
+  ctx.beginPath();
+  ctx.moveTo(cabL, dimY); ctx.lineTo(cabR, dimY); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cabL, dimY - 4); ctx.lineTo(cabL, dimY + 4); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(cabR, dimY - 4); ctx.lineTo(cabR, dimY + 4); ctx.stroke();
+  ctx.fillText('36" (3 ft)', cabCX, dimY - 5);
+
+  // Height (left)
+  const dimX = cabL - 40;
+  ctx.beginPath();
+  ctx.moveTo(dimX, cabT); ctx.lineTo(dimX, cabB); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(dimX - 4, cabT); ctx.lineTo(dimX + 4, cabT); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(dimX - 4, cabB); ctx.lineTo(dimX + 4, cabB); ctx.stroke();
+  ctx.save();
+  ctx.translate(dimX - 10, cabT + cabH / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('72" (6 ft)', 0, 0);
+  ctx.restore();
+
+  // Platform height (left, lower)
+  const platDimX = cabL - 65;
+  ctx.beginPath();
+  ctx.moveTo(platDimX, platT); ctx.lineTo(platDimX, platB + 36); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(platDimX - 3, platT); ctx.lineTo(platDimX + 3, platT); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(platDimX - 3, platB + 36); ctx.lineTo(platDimX + 3, platB + 36); ctx.stroke();
+  ctx.save();
+  ctx.translate(platDimX - 8, platT + (platB + 36 - platT) / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('12" riser', 0, 0);
+  ctx.restore();
+
+  // ---- ZONE SIDEBAR ----
+  const zones = [
+    { label: 'VENT', y1: cabT, y2: cabT + ventH, color: '#666' },
+    { label: 'PLAY FIELD', y1: cabT + ventH, y2: troughT, color: '#00b4ff' },
+    { label: 'TROUGH', y1: troughT, y2: cabB, color: '#8B4513' },
+    { label: 'BASE', y1: platT, y2: platB + 36, color: '#5C3A1E' },
+  ];
+  zones.forEach(z => {
+    ctx.fillStyle = z.color;
+    ctx.globalAlpha = 0.35;
+    ctx.fillRect(cabR + 10, z.y1, 8, z.y2 - z.y1);
+    ctx.globalAlpha = 1.0;
+    ctx.fillStyle = '#aaa';
+    ctx.font = '9px Arial';
+    ctx.save();
+    ctx.translate(cabR + 24, (z.y1 + z.y2) / 2);
+    ctx.rotate(-Math.PI / 2);
+    ctx.textAlign = 'center';
+    ctx.fillText(z.label, 0, 0);
+    ctx.restore();
+  });
+
+  // ---- STICK FIGURES WITH BLOWERS ----
+  function drawPlayerWithBlower(cx, groundY, color, label, portX, portY, mirror) {
+    const dir = mirror ? -1 : 1;
+
+    ctx.strokeStyle = color;
+    ctx.lineWidth = 2;
+    // Head
+    ctx.beginPath();
+    ctx.arc(cx, groundY - 55, 9, 0, Math.PI * 2);
+    ctx.stroke();
+    // Body
+    ctx.beginPath();
+    ctx.moveTo(cx, groundY - 46);
+    ctx.lineTo(cx, groundY - 18);
+    ctx.stroke();
+    // Legs
+    ctx.beginPath();
+    ctx.moveTo(cx - 12, groundY);
+    ctx.lineTo(cx, groundY - 18);
+    ctx.lineTo(cx + 12, groundY);
+    ctx.stroke();
+
+    // Arms holding blower toward port
+    const handX = portX + dir * 25;
+    const handY = portY + 10;
+    // Upper arm
+    ctx.beginPath();
+    ctx.moveTo(cx, groundY - 38);
+    ctx.lineTo(handX + dir * 30, handY - 10);
+    ctx.stroke();
+    // Lower arm
+    ctx.beginPath();
+    ctx.moveTo(cx, groundY - 32);
+    ctx.lineTo(handX + dir * 20, handY + 5);
+    ctx.stroke();
+
+    // Draw blower body (simplified)
+    ctx.fillStyle = '#c0392b';
+    ctx.strokeStyle = '#e74c3c';
+    ctx.lineWidth = 1.5;
+    // Blower tube aimed at port
+    const blowerLen = 50;
+    const bx1 = handX + dir * 30;
+    const by1 = handY - 15;
+    const bx2 = portX + dir * 18;
+    const by2 = portY;
+
+    // Blower body (rectangle)
+    ctx.save();
+    const angle = Math.atan2(by2 - by1, bx2 - bx1);
+    ctx.translate(bx1, by1);
+    ctx.rotate(angle);
+    // Motor housing
+    ctx.fillStyle = '#c0392b';
+    ctx.fillRect(-25, -10, 30, 20);
+    ctx.strokeStyle = '#e74c3c';
+    ctx.strokeRect(-25, -10, 30, 20);
+    // Nozzle
+    ctx.fillStyle = '#888';
+    ctx.fillRect(5, -5, 35, 10);
+    ctx.strokeStyle = '#aaa';
+    ctx.strokeRect(5, -5, 35, 10);
+    // Battery
+    ctx.fillStyle = '#cc0000';
+    ctx.fillRect(-25, 10, 18, 8);
+    ctx.restore();
+
+    // Bungee tether (dashed line to frame)
+    ctx.strokeStyle = 'rgba(255,255,255,0.2)';
+    ctx.lineWidth = 1;
+    ctx.setLineDash([3, 4]);
+    ctx.beginPath();
+    ctx.moveTo(bx1, by1);
+    ctx.lineTo(mirror ? cabR + 10 : cabL - 10, platT);
+    ctx.stroke();
+    ctx.setLineDash([]);
+
+    // Label
+    ctx.fillStyle = color;
+    ctx.font = 'bold 11px Arial';
+    ctx.textAlign = 'center';
+    ctx.fillText(label, cx, groundY + 15);
+  }
+
+  drawPlayerWithBlower(cabL - 80, platB + 35, '#4ecdc4', 'Player A', portAx, portY, false);
+  drawPlayerWithBlower(cabR + 80, platB + 35, '#e67e22', 'Player B', portBx, portY, true);
+
+  // ---- TIMER (LED strip representation at top inside) ----
+  const timerY = cabT + ventH + 5;
+  // Green bar
+  const barW = cabW - 20;
+  const grad = ctx.createLinearGradient(cabL + 10, 0, cabL + 10 + barW * 0.6, 0);
+  grad.addColorStop(0, '#2ecc71');
+  grad.addColorStop(0.7, '#f1c40f');
+  grad.addColorStop(1, '#e74c3c');
+  ctx.fillStyle = grad;
+  ctx.fillRect(cabL + 10, timerY, barW * 0.6, 4);
+  // Remaining (dark)
+  ctx.fillStyle = '#333';
+  ctx.fillRect(cabL + 10 + barW * 0.6, timerY, barW * 0.4, 4);
+  ctx.fillStyle = '#2ecc71';
+  ctx.font = '8px Arial';
+  ctx.textAlign = 'right';
+  ctx.fillText('LED TIMER STRIP', cabR - 15, timerY + 14);
+
+  // ---- CALLOUT: "THE WATERFULS EFFECT" ----
+  ctx.fillStyle = 'rgba(0,180,255,0.1)';
+  ctx.strokeStyle = 'rgba(0,180,255,0.3)';
+  ctx.lineWidth = 1;
+  const callX = 40;
+  const callY = 180;
+  ctx.fillRect(callX, callY, 240, 80);
+  ctx.strokeRect(callX, callY, 240, 80);
+  ctx.fillStyle = '#00b4ff';
+  ctx.font = 'bold 11px Segoe UI, Arial';
+  ctx.textAlign = 'left';
+  ctx.fillText('THE WATERFULS EFFECT', callX + 10, callY + 18);
+  ctx.fillStyle = '#8ac8e8';
+  ctx.font = '10px Arial';
+  ctx.fillText('Ping pong balls at 2.7g hover', callX + 10, callY + 34);
+  ctx.fillText('in 450 CFM air streams like', callX + 10, callY + 47);
+  ctx.fillText('rings floating in water. They', callX + 10, callY + 60);
+  ctx.fillText('drift, swirl, and cascade.', callX + 10, callY + 73);
+
+  // ---- CALLOUT: TRIGGER CONTROL ----
+  ctx.fillStyle = 'rgba(192,57,43,0.1)';
+  ctx.strokeStyle = 'rgba(192,57,43,0.3)';
+  ctx.fillRect(callX, callY + 95, 240, 55);
+  ctx.strokeRect(callX, callY + 95, 240, 55);
+  ctx.fillStyle = '#e74c3c';
+  ctx.font = 'bold 11px Segoe UI, Arial';
+  ctx.fillText('SKILL MECHANIC', callX + 10, callY + 112);
+  ctx.fillStyle = '#e8a8a8';
+  ctx.font = '10px Arial';
+  ctx.fillText('Variable trigger = variable CFM.', callX + 10, callY + 128);
+  ctx.fillText('Full blast = chaos. Pulse = precision.', callX + 10, callY + 141);
+
+  // ---- CALLOUT: Contested shelf ----
+  ctx.strokeStyle = 'rgba(255,215,0,0.4)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([4, 3]);
+  ctx.beginPath();
+  ctx.moveTo(cabCX, centerShelf.y - 15);
+  ctx.lineTo(cabR + 60, centerShelf.y - 40);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#ffd700';
+  ctx.font = 'bold 10px Arial';
+  ctx.textAlign = 'left';
+  ctx.fillText('CONTESTED SHELF', cabR + 65, centerShelf.y - 45);
+  ctx.fillStyle = '#cca800';
+  ctx.font = '10px Arial';
+  ctx.fillText('Both players can score.', cabR + 65, centerShelf.y - 32);
+  ctx.fillText('Both streams destabilize it.', cabR + 65, centerShelf.y - 20);
+
+})();
+
+// ============================================================
+// SIDE CROSS-SECTION
+// ============================================================
+(function() {
+  const canvas = document.getElementById('sideView');
+  const ctx = canvas.getContext('2d');
+  const W = canvas.width;
+  const H = canvas.height;
+
+  ctx.fillStyle = '#0d0d1a';
+  ctx.fillRect(0, 0, W, H);
+
+  // Cabinet cross-section — vertical (no tilt)
+  const groundY = H - 40;
+  const platH = 30; // platform visual height
+  const platTopY = groundY - platH;
+
+  const cabBottomY = platTopY;
+  const cabHeight = 300; // visual height of cabinet
+  const cabTopY = cabBottomY - cabHeight;
+
+  const backX = 300; // back panel X position
+  const frontX = backX + 60; // front panel X (8" gap exaggerated to 60px)
+
+  // Ground line
+  ctx.strokeStyle = '#444';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.moveTo(80, groundY);
+  ctx.lineTo(W - 80, groundY);
+  ctx.stroke();
+
+  // Platform
+  ctx.fillStyle = '#3d2b1a';
+  ctx.strokeStyle = '#8B4513';
+  ctx.lineWidth = 2;
+  ctx.fillRect(backX - 30, platTopY, frontX - backX + 60, platH);
+  ctx.strokeRect(backX - 30, platTopY, frontX - backX + 60, platH);
+  ctx.fillStyle = '#8B4513';
+  ctx.font = '10px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('12" PLATFORM', (backX + frontX) / 2, platTopY + platH / 2 + 4);
+
+  // Platform legs
+  ctx.fillStyle = '#5C3A1E';
+  ctx.fillRect(backX - 25, groundY - platH, 12, platH);
+  ctx.fillRect(frontX + 15, groundY - platH, 12, platH);
+
+  // Back panel (plywood)
+  ctx.strokeStyle = '#888';
+  ctx.lineWidth = 5;
+  ctx.beginPath();
+  ctx.moveTo(backX, cabBottomY);
+  ctx.lineTo(backX, cabTopY);
+  ctx.stroke();
+
+  // Front panel (polycarbonate)
+  ctx.strokeStyle = 'rgba(173,216,230,0.7)';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(frontX, cabBottomY);
+  ctx.lineTo(frontX, cabTopY);
+  ctx.stroke();
+
+  // Top cap with mesh
+  ctx.fillStyle = 'rgba(80,80,80,0.3)';
+  ctx.fillRect(backX - 5, cabTopY - 8, frontX - backX + 10, 8);
+  ctx.strokeStyle = 'rgba(120,120,120,0.5)';
+  ctx.lineWidth = 0.5;
+  for (let x = backX; x < frontX; x += 6) {
+    ctx.beginPath();
+    ctx.moveTo(x, cabTopY - 8);
+    ctx.lineTo(x, cabTopY);
+    ctx.stroke();
+  }
+
+  // Air escape arrows from top
+  ctx.strokeStyle = 'rgba(0,180,255,0.4)';
+  ctx.lineWidth = 1.5;
+  for (let i = 0; i < 5; i++) {
+    const ax = backX + 8 + i * (frontX - backX - 16) / 4;
+    ctx.beginPath();
+    ctx.moveTo(ax, cabTopY - 10);
+    ctx.lineTo(ax, cabTopY - 25);
+    ctx.stroke();
+    // Arrowhead
+    ctx.beginPath();
+    ctx.moveTo(ax - 3, cabTopY - 20);
+    ctx.lineTo(ax, cabTopY - 25);
+    ctx.lineTo(ax + 3, cabTopY - 20);
+    ctx.stroke();
+  }
+  ctx.fillStyle = 'rgba(0,180,255,0.5)';
+  ctx.font = '9px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('AIR EXITS', (backX + frontX) / 2, cabTopY - 28);
+
+  // Gap dimension
+  ctx.strokeStyle = '#666';
+  ctx.lineWidth = 1;
+  const gapDimY = cabTopY + cabHeight * 0.4;
+  ctx.beginPath();
+  ctx.moveTo(backX + 3, gapDimY);
+  ctx.lineTo(frontX - 3, gapDimY);
+  ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(backX + 3, gapDimY - 3); ctx.lineTo(backX + 3, gapDimY + 3); ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(frontX - 3, gapDimY - 3); ctx.lineTo(frontX - 3, gapDimY + 3); ctx.stroke();
+  ctx.fillStyle = '#ccc';
+  ctx.font = '11px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('8"', (backX + frontX) / 2, gapDimY - 6);
+
+  // Shelves in cross-section (attached to back panel)
+  const shelfPositions = [0.15, 0.3, 0.5, 0.65, 0.8];
+  const shelfLabels = ['100', '75', '50', '25', '10'];
+  shelfPositions.forEach((t, i) => {
+    const sy = cabTopY + t * cabHeight;
+    const shelfW = 18 + i * 4; // higher shelves are narrower
+    ctx.fillStyle = '#5C3A1E';
+    ctx.fillRect(backX, sy, shelfW, 4);
+    ctx.strokeStyle = '#8B4513';
+    ctx.lineWidth = 1;
+    ctx.strokeRect(backX, sy, shelfW, 4);
+    // Lip
+    ctx.fillRect(backX + shelfW - 2, sy - 4, 3, 8);
+    // Trapdoor hinge (small circle)
+    ctx.fillStyle = '#666';
+    ctx.beginPath();
+    ctx.arc(backX + 4, sy + 4, 2, 0, Math.PI * 2);
+    ctx.fill();
+    // Label
+    ctx.fillStyle = '#aaa';
+    ctx.font = '9px Arial';
+    ctx.textAlign = 'left';
+    ctx.fillText(shelfLabels[i] + ' pts', backX + shelfW + 5, sy + 3);
+
+    // Ball on shelf (on some)
+    if (i === 2 || i === 4) {
+      ctx.fillStyle = '#f0f0f0';
+      ctx.shadowColor = 'rgba(200,200,255,0.4)';
+      ctx.shadowBlur = 4;
+      ctx.beginPath();
+      ctx.arc(backX + shelfW / 2 + 2, sy - 5, 5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.shadowBlur = 0;
+    }
+  });
+
+  // Trough at bottom
+  ctx.fillStyle = '#2a1a0a';
+  ctx.strokeStyle = '#8B4513';
+  ctx.lineWidth = 2;
+  ctx.beginPath();
+  ctx.moveTo(backX, cabBottomY - 20);
+  ctx.lineTo(backX, cabBottomY);
+  ctx.lineTo(frontX, cabBottomY);
+  ctx.lineTo(frontX, cabBottomY - 20);
+  ctx.lineTo(backX, cabBottomY - 20);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+  ctx.fillStyle = '#8B4513';
+  ctx.font = '8px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('TROUGH', (backX + frontX) / 2, cabBottomY - 6);
+
+  // Balls in trough
+  for (let i = 0; i < 4; i++) {
+    ctx.fillStyle = i === 2 ? '#e74c3c' : '#f0f0f0';
+    ctx.beginPath();
+    ctx.arc(backX + 12 + i * 11, cabBottomY - 14, 4, 0, Math.PI * 2);
+    ctx.fill();
+  }
+
+  // ---- BLOWER PORT & FUNNEL (key mechanism) ----
+  // Port through front panel at trough level
+  const portCY = cabBottomY - 10;
+  // Funnel (cone shape from outside to inside)
+  ctx.fillStyle = '#555';
+  ctx.strokeStyle = '#888';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(frontX, portCY - 8);
+  ctx.lineTo(frontX + 20, portCY - 12);
+  ctx.lineTo(frontX + 20, portCY + 12);
+  ctx.lineTo(frontX, portCY + 8);
+  ctx.closePath();
+  ctx.fill();
+  ctx.stroke();
+
+  // Ball-and-socket joint (circle)
+  ctx.fillStyle = '#444';
+  ctx.strokeStyle = '#777';
+  ctx.lineWidth = 1;
+  ctx.beginPath();
+  ctx.arc(frontX + 10, portCY, 10, 0, Math.PI * 2);
+  ctx.stroke();
+
+  // Mesh screen inside funnel
+  ctx.strokeStyle = 'rgba(150,150,150,0.5)';
+  ctx.lineWidth = 0.5;
+  ctx.beginPath();
+  ctx.moveTo(frontX + 2, portCY - 6);
+  ctx.lineTo(frontX + 2, portCY + 6);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(frontX + 4, portCY - 5);
+  ctx.lineTo(frontX + 4, portCY + 5);
+  ctx.stroke();
+
+  // Flexible seal boot
+  ctx.strokeStyle = '#c0392b';
+  ctx.lineWidth = 2;
+  ctx.setLineDash([2, 2]);
+  ctx.beginPath();
+  ctx.arc(frontX + 10, portCY, 14, -0.5, 0.5);
+  ctx.stroke();
+  ctx.arc(frontX + 10, portCY, 14, Math.PI - 0.5, Math.PI + 0.5);
+  ctx.stroke();
+  ctx.setLineDash([]);
+
+  // Air stream inside cabinet (going up from port)
+  const airGrad = ctx.createLinearGradient(0, cabBottomY - 30, 0, cabTopY + 40);
+  airGrad.addColorStop(0, 'rgba(0,180,255,0.2)');
+  airGrad.addColorStop(0.5, 'rgba(0,180,255,0.08)');
+  airGrad.addColorStop(1, 'rgba(0,180,255,0.02)');
+  ctx.fillStyle = airGrad;
+  ctx.beginPath();
+  ctx.moveTo(backX + 15, cabBottomY - 20);
+  ctx.lineTo(backX + 5, cabTopY + 20);
+  ctx.lineTo(frontX - 5, cabTopY + 20);
+  ctx.lineTo(frontX - 10, cabBottomY - 20);
+  ctx.closePath();
+  ctx.fill();
+
+  // Air flow arrows inside
+  ctx.strokeStyle = 'rgba(0,180,255,0.3)';
+  ctx.lineWidth = 1;
+  for (let i = 0; i < 4; i++) {
+    const ay = cabBottomY - 40 - i * 60;
+    const ax = (backX + frontX) / 2 + (i % 2 ? 8 : -8);
+    ctx.beginPath();
+    ctx.moveTo(ax, ay + 15);
+    ctx.lineTo(ax, ay);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(ax - 3, ay + 5);
+    ctx.lineTo(ax, ay);
+    ctx.lineTo(ax + 3, ay + 5);
+    ctx.stroke();
+  }
+
+  // ---- BLOWER (held by player) ----
+  const playerX = frontX + 130;
+  const playerGroundY = groundY;
+
+  // Stick figure
+  ctx.strokeStyle = '#4ecdc4';
+  ctx.lineWidth = 2;
+  // Head
+  ctx.beginPath();
+  ctx.arc(playerX, playerGroundY - 90, 10, 0, Math.PI * 2);
+  ctx.stroke();
+  // Body
+  ctx.beginPath();
+  ctx.moveTo(playerX, playerGroundY - 80);
+  ctx.lineTo(playerX, playerGroundY - 35);
+  ctx.stroke();
+  // Legs
+  ctx.beginPath();
+  ctx.moveTo(playerX - 15, playerGroundY);
+  ctx.lineTo(playerX, playerGroundY - 35);
+  ctx.lineTo(playerX + 15, playerGroundY);
+  ctx.stroke();
+  // Arms reaching toward blower port
+  ctx.beginPath();
+  ctx.moveTo(playerX, playerGroundY - 65);
+  ctx.lineTo(frontX + 60, portCY - 8);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(playerX, playerGroundY - 58);
+  ctx.lineTo(frontX + 55, portCY + 5);
+  ctx.stroke();
+
+  // Blower in hands
+  ctx.fillStyle = '#c0392b';
+  ctx.save();
+  const blAngle = Math.atan2(portCY - (playerGroundY - 62), (frontX + 55) - playerX);
+  ctx.translate(frontX + 55, portCY);
+  ctx.rotate(blAngle);
+  // Motor housing
+  ctx.fillRect(-35, -8, 28, 16);
+  ctx.strokeStyle = '#e74c3c';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(-35, -8, 28, 16);
+  // Nozzle
+  ctx.fillStyle = '#888';
+  ctx.fillRect(-7, -4, 25, 8);
+  // Battery
+  ctx.fillStyle = '#cc0000';
+  ctx.fillRect(-35, 8, 14, 6);
+  ctx.fillStyle = '#ff6666';
+  ctx.font = '6px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('M18', -28, 13);
+  ctx.restore();
+
+  // Player label
+  ctx.fillStyle = '#4ecdc4';
+  ctx.font = 'bold 11px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('Player', playerX, playerGroundY + 14);
+
+  // Bungee tether
+  ctx.strokeStyle = 'rgba(255,255,255,0.15)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([3, 4]);
+  ctx.beginPath();
+  ctx.moveTo(frontX + 40, portCY - 10);
+  ctx.lineTo(frontX + 30, platTopY);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = '#666';
+  ctx.font = '8px Arial';
+  ctx.textAlign = 'left';
+  ctx.fillText('bungee tether', frontX + 35, platTopY - 5);
+
+  // Panel labels
+  ctx.fillStyle = '#999';
+  ctx.font = '10px Arial';
+  ctx.textAlign = 'center';
+  ctx.save();
+  ctx.translate(backX - 12, cabTopY + cabHeight / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.fillText('PLYWOOD BACK (matte black)', 0, 0);
+  ctx.restore();
+  ctx.fillStyle = 'rgba(173,216,230,0.6)';
+  ctx.save();
+  ctx.translate(frontX + 6, cabTopY + cabHeight / 2);
+  ctx.rotate(-Math.PI / 2);
+  ctx.textAlign = 'center';
+  ctx.fillText('POLYCARBONATE FRONT', 0, 0);
+  ctx.restore();
+
+  // ---- DETAIL CALLOUTS (right side) ----
+  const callX = 580;
+  ctx.fillStyle = '#ffd700';
+  ctx.font = 'bold 13px Segoe UI, Arial';
+  ctx.textAlign = 'left';
+  ctx.fillText('CROSS-SECTION DETAIL', callX, 30);
+
+  ctx.font = '12px Segoe UI, Arial';
+  const callouts = [
+    '1. Fully vertical cabinet (no tilt needed)',
+    '2. 8" gap: balls float freely, pass each other',
+    '3. Air enters through blower port funnels',
+    '4. Ball-and-socket mount allows 30\u00b0 aim control',
+    '5. Mesh screen inside port blocks ball escape',
+    '6. TPU flexible boot seals gap around socket',
+    '7. Air column rises naturally, exits mesh top',
+    '8. Shelves have trapdoor bottoms for one-pull reset',
+    '9. Player aims blower by pressing against funnel',
+  ];
+  callouts.forEach((text, i) => {
+    ctx.fillStyle = '#aaa';
+    ctx.fillText(text, callX, 55 + i * 22);
+  });
+
+  // ---- BLOWER PORT DETAIL INSET ----
+  const insetX = 600;
+  const insetY = 270;
+  ctx.strokeStyle = '#555';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(insetX, insetY, 240, 120);
+  ctx.fillStyle = '#0d0d1a';
+  ctx.fillRect(insetX + 1, insetY + 1, 238, 118);
+  ctx.fillStyle = '#ffd700';
+  ctx.font = 'bold 10px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('BLOWER PORT DETAIL (top-down)', insetX + 120, insetY + 14);
+
+  ctx.save();
+  ctx.translate(insetX + 20, insetY + 65);
+
+  // Acrylic panel (horizontal line)
+  ctx.strokeStyle = 'rgba(173,216,230,0.7)';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(0, -40);
+  ctx.lineTo(0, 40);
+  ctx.stroke();
+  ctx.fillStyle = 'rgba(173,216,230,0.5)';
+  ctx.font = '8px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('Panel', -8, 48);
+
+  // Port hole
+  ctx.fillStyle = '#222';
+  ctx.fillRect(-3, -10, 6, 20);
+
+  // Funnel (widening outward)
+  ctx.fillStyle = '#555';
+  ctx.beginPath();
+  ctx.moveTo(3, -10);
+  ctx.lineTo(40, -16);
+  ctx.lineTo(40, 16);
+  ctx.lineTo(3, 10);
+  ctx.closePath();
+  ctx.fill();
+  ctx.strokeStyle = '#888';
+  ctx.lineWidth = 1;
+  ctx.stroke();
+
+  // Ball-and-socket (circle at pivot)
+  ctx.strokeStyle = '#aaa';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.arc(20, 0, 14, 0, Math.PI * 2);
+  ctx.stroke();
+  ctx.fillStyle = '#777';
+  ctx.font = '7px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('socket', 20, 3);
+
+  // Aim arc (ghost positions)
+  ctx.strokeStyle = 'rgba(0,180,255,0.3)';
+  ctx.lineWidth = 1;
+  ctx.setLineDash([3, 3]);
+  // Upper aim
+  ctx.beginPath();
+  ctx.moveTo(40, -16);
+  ctx.lineTo(70, -30);
+  ctx.stroke();
+  // Lower aim
+  ctx.beginPath();
+  ctx.moveTo(40, 16);
+  ctx.lineTo(70, 30);
+  ctx.stroke();
+  ctx.setLineDash([]);
+  ctx.fillStyle = 'rgba(0,180,255,0.5)';
+  ctx.font = '8px Arial';
+  ctx.fillText('30\u00b0 aim', 80, 0);
+
+  // Blower nozzle (outside)
+  ctx.fillStyle = '#888';
+  ctx.fillRect(40, -6, 30, 12);
+  ctx.strokeStyle = '#aaa';
+  ctx.strokeRect(40, -6, 30, 12);
+
+  // Blower body
+  ctx.fillStyle = '#c0392b';
+  ctx.fillRect(70, -12, 40, 24);
+  ctx.strokeStyle = '#e74c3c';
+  ctx.lineWidth = 1;
+  ctx.strokeRect(70, -12, 40, 24);
+  ctx.fillStyle = '#fff';
+  ctx.font = 'bold 8px Arial';
+  ctx.fillText('M18', 90, 3);
+
+  // Battery
+  ctx.fillStyle = '#cc0000';
+  ctx.fillRect(110, -8, 15, 16);
+  ctx.fillStyle = '#ff6666';
+  ctx.font = '6px Arial';
+  ctx.fillText('5.0Ah', 117, 3);
+
+  // Mesh screen inside port
+  ctx.strokeStyle = '#999';
+  ctx.lineWidth = 0.5;
+  for (let y = -8; y <= 8; y += 4) {
+    ctx.beginPath();
+    ctx.moveTo(5, y);
+    ctx.lineTo(8, y);
+    ctx.stroke();
+  }
+  ctx.fillStyle = '#999';
+  ctx.font = '7px Arial';
+  ctx.textAlign = 'left';
+  ctx.fillText('mesh', 5, -14);
+  ctx.fillText('screen', 5, -6);
+
+  // Flexible boot label
+  ctx.fillStyle = '#e74c3c';
+  ctx.font = '7px Arial';
+  ctx.textAlign = 'center';
+  ctx.fillText('TPU boot', 20, -20);
+
+  // Air flow arrow inside
+  ctx.strokeStyle = 'rgba(0,180,255,0.5)';
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+  ctx.moveTo(-5, 0);
+  ctx.lineTo(-25, 0);
+  ctx.stroke();
+  ctx.beginPath();
+  ctx.moveTo(-20, -3);
+  ctx.lineTo(-25, 0);
+  ctx.lineTo(-20, 3);
+  ctx.stroke();
+  ctx.fillStyle = 'rgba(0,180,255,0.6)';
+  ctx.font = '8px Arial';
+  ctx.textAlign = 'right';
+  ctx.fillText('air in', -28, 3);
+
+  ctx.restore();
+
+  // Scale note
+  ctx.fillStyle = '#666';
+  ctx.font = '10px Arial';
+  ctx.textAlign = 'left';
+  ctx.fillText('(not to scale \u2014 depth exaggerated for clarity)', 20, H - 10);
+
+  // Rear brace
+  ctx.strokeStyle = '#5C3A1E';
+  ctx.lineWidth = 3;
+  ctx.beginPath();
+  ctx.moveTo(backX - 25, platTopY);
+  ctx.lineTo(backX - 5, cabTopY + 60);
+  ctx.stroke();
+  ctx.fillStyle = '#5C3A1E';
+  ctx.font = '8px Arial';
+  ctx.textAlign = 'right';
+  ctx.fillText('diagonal', backX - 30, cabTopY + 100);
+  ctx.fillText('brace', backX - 30, cabTopY + 110);
+
+})();
+</script>
+
+</body>
+</html>
