@@ -105,6 +105,7 @@ Slingshot Siege scores 7.1/10. It is not in the same tier as Stomp Rockets (8.8)
 | **2-Player Dynamic** | Face-to-face combat, shared wall | Side-by-side parallel | Opposite ends, shared balls |
 | **Player Interaction** | Attack opponent's side directly | Independent scoring | Indirect (shared ball field) |
 | **Physical Intensity** | Moderate (arms, aim) | High (full body stomping) | Moderate (arm pulls) |
-| **Skill Expression** | Highest (marksmanship + strategy) | Medium (stomp calibration) | Medium (port selection) |
-| **Mechanical Complexity** | Lowest (no moving parts except slingshot) | High (pneumatics, magazines) | Medium (6 cannons, flaps) |
-| **Average Score** | 8.7 | 8.8 | 8.1 |
+| **Skill Expression** | Potentially highest — unproven | Medium (stomp calibration) | Medium (port selection) |
+| **Core Mechanic Proven?** | No — whiffle ball accuracy untested | Yes — stomping is reliable | Partially — vortex cannons need tuning |
+| **Mechanical Complexity** | Medium (double-sided pegs, swivel mounts, precision gate cuts) | High (pneumatics, magazines) | Medium (6 cannons, flaps) |
+| **Average Score** | 7.1 | 8.8 | 8.1 |
