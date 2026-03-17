@@ -5,85 +5,62 @@ Each heuristic scored 1–10 (10 = best possible).
 
 ---
 
-### Overall Entertainment: 10/10
-This is the most fun game in the lineup. Full stop. The combination of frantic whacking, human-powered mole pops, the BONK sound, the googly eyes shaking on impact, the operator cackling behind the board, the fake-outs, the scrambling — it generates more laughter per minute than any other concept. The dual-role mechanic (both players experience both sides) doubles the gameplay variety. The human opponent as the "difficulty engine" means every round is unique, adaptive, and personal. There is no arcade whack-a-mole that matches this because no machine can feint, read your body language, or laugh at your misses. The entertainment ceiling is limitless because humans are infinitely creative operators.
+### Overall Entertainment: 8/10
+The human-operator mechanic is the genuine innovation here. Using another player as the game engine creates adaptive difficulty, social rivalry, and unpredictability that no mechanical system can match. The dual-role design (both players whack AND operate) doubles the gameplay variety in a single match. The foam BONK, the scrambling, the fake-outs — the game generates real energy and laughter.
 
-### Memorability: 10/10
-"Remember that game where your friend hid behind the board and you had to WHACK the moles with a foam bat?" This is a story kids retell with full-body reenactment. The memory isn't just the game — it's the PERSON. You remember who you played against, the fake-out that got you, the mole you absolutely demolished. The googly eyes. The BONK. The operator's evil grin peeking over the top of the board. The moment you realized you could read their feet. Every element creates a specific, shareable memory. This is the game parents film vertically on their phones and text to grandma.
+The concern is consistency. The entertainment depends entirely on the operator's engagement. A good operator — fast, tricky, using fake-outs and double-pops — creates a great experience. A bored or shy operator who lazily pushes one plunger every 3 seconds creates a dead game. At a school carnival, the operator is a random kid from the line. Some will be naturally devious and make the game shine. Others will be tentative, confused, or uninterested in the operating role. The game has no floor — if the operator doesn't perform, the whacker has nothing to whack.
 
-### Ease of Construction: 10/10
-**The simplest build in the entire lineup, tied with Kraken Attack but even less painting required.** Plywood sheet + 12 holes + A-frame + foam balls on sticks + pool noodle. That's the complete game. No precision required — holes can be slightly off-grid and it doesn't matter. No moving parts to align. No mechanisms to calibrate. No acrylic, no PVC, no springs, no bearings, no cables, no 3D printing.
+This is the only game in the lineup where the quality of one player's experience depends on the skill and enthusiasm of another player. That's either a brilliant social mechanic or a reliability problem, depending on who shows up.
 
-The only tools needed: circular saw (or have Home Depot cut the plywood), hole saw or jigsaw (for 12 holes), drill, and a hot glue gun (for foam balls).
+### Memorability: 7/10
+The human-vs-human dynamic creates personal memories: you remember WHO you played against, not just the game. "I whacked Maya 14 times but she only got me 9" is a story with characters, which most carnival booths don't produce. The BONK sound is sticky. The googly-eyed mole faces are charming.
 
-**Build time:** A single Saturday morning. An ambitious builder could finish in 3 hours. The paint/decoration phase is optional — the game is fully functional with raw plywood and unpainted foam balls. The theme just makes it more delightful.
+But the physical object — a plywood board with holes — is not memorable to look at. From across the carnival it reads as a decorated rectangle. There's no visual spectacle, no glowing elements, no mechanical wow factor. The memories are social and experiential, not visual. A parent describing it afterward says "they hit foam things through holes in a board," which sounds less exciting than it is to play.
 
-**Cost:** $130–150. The cheapest game by a significant margin.
+The game also has a familiarity problem: whack-a-mole exists everywhere as an arcade game. "Manual whack-a-mole" is a clever twist, but the initial reaction is "oh, whack-a-mole" rather than "what IS that?" First impressions matter at a carnival where kids are choosing between booths from a distance.
+
+### Ease of Construction: 9/10
+Plywood with 12 holes, an A-frame, foam balls on sticks, a pool noodle mallet. Genuinely one of the simplest builds possible. No precision required — holes can be slightly off-grid and it doesn't affect gameplay. No mechanisms, no hardware beyond bolts and screws.
+
+Dropping from 10 to 9 because: cutting 12 clean 4" holes with a hole saw takes longer than it sounds (especially if you only have a jigsaw — cutting circles in ¾" plywood with a jigsaw is tedious and imprecise). And building 14 foam plungers that are durable enough to survive hundreds of whacks without the foam heads popping off requires better-than-average hot glue work. First-generation plungers WILL lose their heads mid-game. Budget time for rebuilding plungers after testing.
+
+Cost ($130–150) is genuinely the cheapest in the lineup.
 
 ### Appeal by Elementary School Grade
 | Grade | Appeal (1-10) | Notes |
 |-------|--------------|-------|
-| K–1st | 10/10 | This is the PERFECT age for this game. Whacking things with a foam bat is the purest joy a 6-year-old can experience. The googly-eyed moles are hilarious to this age group. The operator role is simple enough for a first-grader (just push sticks through holes). The foam mallet is perfectly sized for small hands. And the BONK sound will send them into hysterics. The only carnival game that gets a 10/10 for this age group |
-| 2nd–3rd | 10/10 | The competitive meta-game emerges here. These kids will develop operator strategies (fake-outs, double-pops, timing patterns) and whacker strategies (watching feet, pre-positioning). The role swap adds stakes — "you only got 8 whacks, I got 11, I WIN." The face-to-face social dynamic is exactly what this age group thrives on. Best friends and rivals alike will play this 5+ times |
-| 4th–5th | 8/10 | The mechanical simplicity could read as "babyish" to some 5th graders — until they try the operator role and discover it's a genuine strategic challenge. The speed of play at this age is impressive: 4th graders can pop and whack 30+ times in 30 seconds. The physical comedy (foam BONK, googly eyes, frantic swinging) transcends cool-kid resistance. Loses 2 points because a small subset of 5th graders won't touch anything with googly eyes on principle |
+| K–1st | 8/10 | Whacking things with a foam bat is primal joy for this age. The mole faces with googly eyes are delightful. But the OPERATOR role is a real concern: a kindergartner operating will push plungers slowly, one at a time, through the same 2–3 holes. The whacker's experience depends on the operator's skill, and K–1st operators don't have the speed, deception, or spatial awareness to create a challenging game. Solution: pair young whackers with an older operator (parent volunteer or older kid). This works but requires staffing |
+| 2nd–3rd | 8/10 | Both roles are accessible and fun. Operators at this age start developing fake-outs and timing variation. Whackers have the reaction speed for a satisfying hit rate. The competitive role-swap creates genuine rivalry. This is the sweet spot — both roles work well, the social dynamic is strong, and the physical comedy resonates |
+| 4th–5th | 6/10 | The mechanical simplicity is a problem. Foam moles with googly eyes on a painted board reads as "little kid game" to many 4th–5th graders, regardless of how fun it actually is. The ones who try it will have fun — the operator meta-game (deception, timing, reading body language) has real depth. But getting a 5th grader to walk up to a board with cartoon mole faces requires overcoming a social barrier that some won't cross. The game's visual identity undercuts its actual sophistication |
 
-### Skill to Luck Spectrum: 8/10 (Highly Skill-Based — Dual Skills)
-**Whacker skills:**
-1. **Reaction time** — Tracking a foam head as it appears, processing position, swinging the mallet. This is a raw fast-twitch reflex challenge
-2. **Spatial awareness** — Monitoring 12 holes simultaneously while recovering from the last swing
-3. **Prediction** — Reading the operator's foot position, shoulder movement (visible above/below the board), and behavioral patterns to anticipate the next pop
-4. **Mallet control** — Accurate swinging under time pressure. Wild flailing misses; controlled swipes connect
+### Skill to Luck Spectrum: 7/10 (Skill-Based — Two Distinct Skill Sets)
+Both roles involve real skill: whacking requires reaction time, spatial tracking, and prediction; operating requires deception, timing, and two-hand coordination. The skill expression is genuine and deepens with practice.
 
-**Operator skills:**
-1. **Deception** — Fake-outs, timing variation, misdirection (pop a mole on the left to draw attention, then immediately pop one on the right)
-2. **Tempo control** — Fast pops overwhelm beginners. Slow, unpredictable pops frustrate experts. Reading the whacker's skill and adjusting
-3. **Two-hand independence** — Using both hands simultaneously to pop two moles at once in different locations
-4. **Board awareness** — Remembering which holes you've used recently and varying the pattern
+But the scoring is inherently noisy. Whether a whack "counts" depends on timing (did the mallet hit before the operator withdrew the plunger?) and judgment (the operator decides what counts as a hit). With no objective sensor, scoring disputes are common: "I hit that one!" "No you didn't, I pulled it back first!" The honor system works between friends but breaks down between strangers or competitive kids. This introduces a social-luck factor — your score depends partly on how generously your opponent scores your hits.
 
-**Luck factors:** Minimal. If the whacker happens to have their mallet near the hole where the next mole pops, that's a free hit — but operators quickly learn to avoid the whacker's current position. The game is 95% skill across both roles.
+The operator's randomness also introduces variance. A skilled whacker facing a slow operator gets an easy high score; the same whacker facing a fast, deceptive operator gets a low score. The final number reflects the matchup as much as individual skill.
 
-Scored 8/10 instead of 10/10 because the whacker occasionally gets lucky hits on fast double-pops, and the operator's human randomness introduces slight variance that's not pure strategic choice.
+### Chaos Level: 7/10
+The game generates genuine energy: frantic swinging, BONK sounds, laughing, shouting. The foam mallet creates satisfying physical comedy. Both players are physically active and emotionally engaged. Spectators on both sides of the board have something to watch.
 
-### Chaos Level: 9/10
-**This is the second most chaotic game in the lineup** (behind only Stomp Rockets' full-body pandemonium). The chaos is INTERPERSONAL:
+But the chaos is contained to a small footprint (two players and a board) and doesn't create a visual spectacle visible from across the carnival. Compare to a game where 20 balls fly through the air simultaneously — that draws a crowd from 50 feet. Whack Attack draws attention from people standing nearby, not across the room. The chaos is interpersonal, not spectacular.
 
-- Foam moles popping out in unpredictable patterns
-- A kid swinging a foam bat at full speed
-- BONK BONK BONK sounds echoing
-- Googly eyes shaking with every impact
-- The operator giggling/cackling behind the board
-- Missed swings followed by frustrated "ARGH"
-- Fake-outs that make the whacker swing at nothing
-- The operator peeking over the top with evil eyebrows
-- Spectators on both sides cheering/laughing simultaneously
-- The swap moment ("NOW IT'S MY TURN") — the energy DOUBLES
+### Durability: 7/10
+The plywood board and A-frame are robust. The mallet handle (wooden dowel) is sturdy.
 
-The chaos is controlled (foam everything, contained footprint) but the ENERGY is maximum. This game creates a noise footprint that draws every kid within earshot.
+The consumable problem is real: foam balls WILL detach from dowel sticks during gameplay. Hot glue fails under repeated lateral impacts (the whacking force is perpendicular to the glue joint). Expect to rebuild 3–5 plungers per carnival day. Googly eyes will fall off within the first hour regardless of how well they're taped — they're a charming but disposable detail. The pool noodle mallet head compresses after ~200 whacks, losing its satisfying BONK and becoming a floppy tube. Bring 2–3 spare noodle sections.
 
-### Durability: 9/10
-**Rock solid.** The plywood board is a tank. The A-frame is simple lumber. The foam mallet and plungers are the only consumable components, and they're trivially cheap to replace.
+None of these failures stop the game, and repairs take minutes. But a game that requires mid-event plunger surgery is not a 9/10 on durability. These are exactly the "fragile parts that can be quickly swapped" the rubric mentions — functional but maintenance-heavy.
 
-**Wear points:** Foam balls may detach from dowels after hundreds of whacks — re-glue (2 minutes) or replace ($0.70 per ball). Pool noodle mallet head will eventually compress — replace noodle ($2, 5 minutes). Googly eyes may fall off — tape them on more thoroughly or skip them. Paint on the board will show mallet wear marks — adds character, or touch up between events.
+### Photogenicity: 5/10
+A plywood board with holes is not photogenic. A kid swinging a pool noodle at a brown foam ball is action, but it's visually plain. The color palette (green board, brown moles) is warm but not eye-catching. There's no glow, no spectacle, no mechanical wow visible in a photo.
 
-**What WON'T break:** The plywood board, the A-frame, the dowel handles, the hole edges. The game's core structure is indestructible. Everything that wears is a sub-$5 consumable.
+The best photo opportunity is capturing the split-second of mallet-on-mole impact, but this requires burst-mode photography and good timing. The operator peeking over the board with a mischievous grin is a cute candid, but you need to be behind the board to see it.
 
-### Photogenicity: 8/10
-**Front view:** A kid mid-swing with foam moles popping out of a colorful board, googly eyes everywhere, BONK expression on their face — this is inherently photogenic. The green grass + brown dirt + colorful moles create a warm, inviting palette that photographs well.
+Video captures the game much better than stills — the sequence of pop-whack-pop-miss-BONK tells the story. But carnival documentation skews toward photos.
 
-**Side/behind view:** The operator's grinning face as they pop plungers through is equally compelling. The two-player dynamic means there are TWO photo subjects and two distinct photo opportunities per round.
-
-**Action shots:** The speed of play makes great burst-mode photography. The moment a mallet connects with a mole (foam compression, googly eyes flying) is a perfect freeze-frame.
-
-**What hurts:** The board is less visually impressive than a glowing ocean scene (Kraken Attack) or a castle fortress (Slingshot Siege). It's a 4×3 board with holes. The fun is in the ACTION, not the set piece. Video captures the experience better than stills.
-
-**Upgrade:** Add a "WHACK ATTACK" marquee sign above the board with lightbulb-style lettering. Adds carnival visual identity at minimal cost.
-
-### Onboarding Time: 10/10 (Instant — The Fastest in the Lineup)
-**3-second explanation:** "Hit the things that pop out."
-
-Done. No further explanation needed. The foam mallet is an invitation. The popping moles are a call to action. The game literally explains itself through play. Even the operator role needs zero instruction — "push these through the holes as fast as you can" is understood by any human who has ever pushed a stick through a hole, which is every human.
-
-The role swap adds a second layer of understanding, but it's equally instant: "Now you go behind the board." There is no game in existence with faster onboarding than whack-a-mole.
+### Onboarding Time: 10/10 (Instant)
+"Hit the things that pop out." This is genuinely the simplest possible game to explain. The foam mallet is a physical invitation. The popping moles are an irresistible call to action. No rules, no scoring system to explain, no controls to learn. Even the operator role is instant: "push these through the holes."
 
 ---
 
@@ -91,47 +68,42 @@ The role swap adds a second layer of understanding, but it's equally instant: "N
 
 | Heuristic | Score |
 |-----------|-------|
-| Overall Entertainment | 10/10 |
-| Memorability | 10/10 |
-| Ease of Construction | 10/10 |
-| Appeal (K–1st) | 10/10 |
-| Appeal (2nd–3rd) | 10/10 |
-| Appeal (4th–5th) | 8/10 |
-| Skill/Luck Balance | 8/10 |
-| Chaos Level | 9/10 |
-| Durability | 9/10 |
-| Photogenicity | 8/10 |
+| Overall Entertainment | 8/10 |
+| Memorability | 7/10 |
+| Ease of Construction | 9/10 |
+| Appeal (K–1st) | 8/10 |
+| Appeal (2nd–3rd) | 8/10 |
+| Appeal (4th–5th) | 6/10 |
+| Skill/Luck Balance | 7/10 |
+| Chaos Level | 7/10 |
+| Durability | 7/10 |
+| Photogenicity | 5/10 |
 | Onboarding Time | 10/10 |
-| **Average** | **9.3/10** |
+| **Average** | **7.5/10** |
 
 ## Verdict
-Whack Attack scores **9.3/10** — the highest score in the entire lineup. It achieves this not through mechanical sophistication or visual spectacle but through the most fundamental truth of carnival games: **the best games are the ones where humans play against humans.** The operator-as-game-engine mechanic is a stroke of design genius that creates:
+Whack Attack scores 7.5/10. The human-operator mechanic is a genuinely clever design insight — using another player as the difficulty engine creates social dynamics, adaptive challenge, and personal rivalry that mechanical games can't replicate. The dual-role format gives every player two distinct experiences. The build is cheap and fast.
 
-1. **Infinite replayability** — no two rounds are the same because the operator is human
-2. **Automatic difficulty scaling** — the opponent adjusts to your skill level in real-time
-3. **Social connection** — you remember the PERSON, not just the game
-4. **Dual gameplay** — two completely different skill sets in one game
-5. **Maximum laughter** — the combination of foam BONKs, googly eyes, and human deception is comedy gold
+The concept's ceiling is very high. When two engaged, competitive kids face off — one popping moles with devious timing, the other whacking with lightning reflexes — this is the most entertaining game at the carnival. But the ceiling is not the average case. The average case is two random kids from the line, one of whom doesn't fully understand the operator role and pushes plungers slowly through the same three holes. The game's quality has higher variance than any other concept because it depends on human performance, not mechanical reliability.
 
-**Where it excels:** Entertainment (10), memorability (10), ease of construction (10), K–3rd grade appeal (10/10), chaos level (9), onboarding (10). This is the game that defines your carnival. It's the game kids talk about at school on Monday. It's the game that makes parents think "why didn't we do this years ago?"
+**When to build it:** When your carnival serves primarily K–3rd grade. When you need a cheap, fast build ($130, one Saturday). When you can pair it with operator coaching (a parent volunteer behind the board who helps young operators with pacing and hole selection). When you want a social game that creates interpersonal moments rather than solo achievement.
 
-**Where it's "merely great":** 4th–5th grade appeal (8/10) and photogenicity (8/10). Some older kids may perceive it as young, and the visual set piece is simpler than other concepts. These are minor quibbles on an otherwise dominant game.
+**When NOT to build it:** When your audience includes a significant 4th–5th grade population who may dismiss the visual presentation. When you can't provide operator coaching for young players. When you need a game that's visually impressive from a distance (this game's charm is up-close and experiential).
 
-**The cost efficiency argument:** At $130–150, Whack Attack costs less than a third of Slingshot Siege ($400–450) while scoring 0.6 points higher. It builds in a single Saturday while others take 2 weekends. The fun-to-cost and fun-to-effort ratios are unmatched. If you could only build ONE game for your carnival, build this one.
+**The operator dependency problem:** This is the concept's existential risk. Every other game in the lineup works the same regardless of who's playing it — a ring toss is a ring toss, a labyrinth is a labyrinth. Whack Attack's quality varies 3x depending on operator engagement. A great operator makes it a 9/10 experience. A passive operator makes it a 5/10 experience. You cannot control this at a carnival. Mitigation: have an adult volunteer serve as operator for all rounds (eliminates the competitive role-swap but ensures consistent quality). This sacrifices the game's best feature (dual roles) to solve its worst problem (operator variance).
 
-**Throughput:** ~60 seconds per match (30 sec × 2 rounds + setup). That's ~50–60 matches per hour. With 2 players per match, you're serving 100–120 kids per hour. Only Kraken Attack (single-player, ~30 sec rounds) has comparable throughput.
+**The durability tax:** Budget for ongoing plunger repairs. Hot-glued foam on dowels under repeated mallet impacts is not a durable construction. Consider upgrading to bolted or friction-fit foam heads if building for multiple events. The googly eyes are a first-hour casualty — enjoy them while they last and don't bother reattaching mid-carnival.
 
-**Biggest upgrade opportunity:** Build TWO boards for side-by-side play. Add a "golden mole" (one gold-painted plunger worth 3× points that the operator deploys occasionally). These two additions cost ~$60 total and double the spectacle and throughput.
+**Honest comparison to arcade whack-a-mole:** The arcade version uses lights, sounds, consistent timing, and objective scoring. This version trades all of that for the human operator mechanic, which is more social but less reliable. The trade is worth making for a school carnival (where social > polish), but "manual whack-a-mole is better than arcade whack-a-mole" is not universally true.
 
 ## Head-to-Head Comparison
 
 | | Whack Attack | Kraken Attack | The Great Heist | Slingshot Siege |
 |---|---|---|---|---|
-| **Game Type** | Reaction/deception | Ring toss | Dexterity/maze | Projectile/combat |
-| **Players** | 2 (alternating) | 1 | 1 | 2 (simultaneous) |
+| **Game Type** | Reaction/social | Ring toss | Dexterity/maze | Projectile/combat |
 | **Build Time** | 3 hours | 1 day | 2 weekends | 2 weekends |
 | **Cost** | $130–150 | $150–180 | $200–240 | $400–450 |
-| **Chaos** | Maximum (9/10) | Low (3/10) | Zen (2/10) | Medium (7/10) |
-| **Skill Type** | Reaction + deception | Aim | Coordination | Aim + strategy |
-| **Laughter/min** | Off the charts | Moderate | Low (tension) | High |
-| **Average Score** | **9.3** | 8.4 | 8.0 | 8.7 |
+| **Quality Variance** | High (operator-dependent) | Low (consistent) | Low (consistent) | Medium (accuracy-dependent) |
+| **Best Case** | 9/10 (great operator) | 7.5/10 (glow mode) | 8/10 (skilled player) | 8.5/10 (proven mechanic) |
+| **Worst Case** | 5/10 (passive operator) | 5.5/10 (daylight, no paint) | 4/10 (K-1st, can't coordinate) | 4/10 (can't hit gates) |
+| **Average Score** | 7.5 | 6.9 | 6.3 | 7.1 |

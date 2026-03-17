@@ -5,54 +5,60 @@ Each heuristic scored 1–10 (10 = best possible).
 
 ---
 
-### Overall Entertainment: 8/10
-Ring toss is one of the most universally enjoyed carnival games for a reason — the mechanic is instantly satisfying (toss, arc, land or miss). Kraken Attack elevates the formula with the tentacle theme, variable difficulty targets, and the KRAKEN CAPTURED jackpot mechanic that adds a strategic layer. The core loop is simple but the moment-to-moment decisions (do I keep going for the Spike or bank points on the Thick Boys?) create genuine tension. Deducting 2 points because the base mechanic — throwing rings at targets — is inherently less physically dynamic than games with slingshots, stomps, or cranks. The entertainment ceiling depends heavily on the theme selling the fantasy. Without the paint job and glow, it's just ring toss on PVC pipes.
+### Overall Entertainment: 6/10
+Ring toss is ring toss. The tentacle theme and variable targets add visual interest and a thin strategic layer (which tentacle do I aim for?), but the core loop — stand still, throw ring, watch it miss, throw another — is passive and repetitive. There's no physical intensity, no head-to-head competition, no scrambling, no mechanical interaction. You throw 12 rings and you're done in 90 seconds.
 
-### Memorability: 8/10
-"The one with the GLOWING TENTACLES" — that's what kids will call it. The visual identity is strong: bioluminescent colors, ocean platform, tentacles erupting at weird angles. Under blacklight (GLOW MODE), this becomes the game every kid photographs and posts about. The Spike is the white whale — kids who land one will tell that story. The KRAKEN CAPTURED mechanic (3 rings on one tentacle) gives kids a named achievement to chase. Loses 2 points vs. the most memorable concepts because the gameplay itself is familiar — ring toss is ring toss. The theme carries the memorability, not the mechanic.
+The KRAKEN CAPTURED bonus (3 rings on one tentacle) is a nice idea on paper. In practice, a kid who lands 3 rings on the same tentacle from 6 feet is exceptional. Most players will land 2–4 rings total across all 8 targets. The bonus mechanic will almost never trigger, making it decorative rather than functional.
 
-### Ease of Construction: 10/10
-**This is the easiest build in the entire lineup.** A plywood square on legs, PVC pipes screwed into floor flanges, paint, and glow stick rings. No precision cutting (no gates, no maze walls, no peg holes). No acrylic panels. No springs, no pneumatics, no cables, no moving parts. The most complex step is heat-bending one PVC pipe for The Curler, and that's optional. A single person could build this in a day. Two dads could finish it in a Saturday morning with time left for a beer run. The paint job (ocean scene) is the most time-consuming part and it's entirely cosmetic — the game works without it.
+The honest comparison: a standard ring toss booth at any county fair scores about 5/10 on entertainment. Kraken Attack's theming and variable targets add real value over that baseline, but not as much as a fundamentally different mechanic would. It's a well-dressed version of something that already exists everywhere.
 
-**Cost comparison:** At $150–180, this is less than half the cost of most other concepts ($300–450). Add GLOW MODE for $25 more and it still comes in under $210.
+### Memorability: 6/10
+Without GLOW MODE: kids will call it "the ring toss with the colorful pipes." Spray-painted PVC on plywood is not visually distinctive from 20 feet away. Up close, the tentacle theme is charming — the pool noodle wrapping, the varied angles, the ocean paint job — but it doesn't have the visual scale or mechanical novelty to become a carnival landmark. Ring toss booths exist at every fair. This one has a kraken theme. That's nice, not transformative.
+
+With GLOW MODE: the memorability jumps meaningfully. UV-reactive tentacles under blacklight are genuinely unusual and photogenic. "The glowing tentacle game" is a more distinctive memory than "the ring toss." But GLOW MODE requires darkness, which means it only works for part of the event (dusk onward for outdoor carnivals, or a dedicated dark room indoors). Scoring for the average deployment across a full carnival day, not the best-case evening scenario.
+
+The Spike (¾" PVC, 100 pts) is a good white whale — if anyone actually hits it. At ¾" diameter from 6 feet with a 10" ring, the clearance is generous enough that it's achievable, but the hit rate will be very low. Whether "The Spike" becomes a talked-about challenge or a thing nobody interacts with depends on whether anyone lands it during the carnival.
+
+### Ease of Construction: 9/10
+Genuinely one of the simplest builds in the lineup. Plywood platform, PVC pipes in floor flanges, paint, rings. No precision cuts, no mechanisms, no acrylic.
+
+Dropping from 10 to 9 because: (1) the ocean scene painting is time-consuming if done well — a detailed seascape with fish, coral, and waves takes hours of craft painting that not every builder will enjoy or execute well, and (2) heat-bending The Curler requires a heat gun and some PVC experience — overbend it and you need a new pipe; underbend it and rings don't slide properly. Neither is hard, but "build this in a Saturday morning" assumes skipping the detailed paint job. Realistic build time with good paint: a full Saturday.
+
+Cost estimate ($150–180) is accurate and genuinely the lowest in the lineup.
 
 ### Appeal by Elementary School Grade
 | Grade | Appeal (1-10) | Notes |
 |-------|--------------|-------|
-| K–1st | 9/10 | The tentacle theme is MAGNETIC for this age. Throwing rings is a motor skill they can do (move the line to 4ft). The Thick Boys (2" PVC) are achievable targets. They'll squeal when they land one. GLOW MODE makes this pure magic for little kids — they'll want to play just to hold the glow rings |
-| 2nd–3rd | 8/10 | Solid engagement. They'll develop aiming technique quickly and start going for the Whips (50pt). The KRAKEN CAPTURED mechanic adds a goal beyond "throw all your rings." Competition with friends over who can hit the Spike keeps them coming back. Slight dip because ring toss doesn't have the physical intensity that this age group craves |
-| 4th–5th | 7/10 | The skill ceiling (Spike at ¾" from 6ft) keeps it from feeling babyish. The math of optimizing score (3 rings on a Whip = 150 + 500 bonus vs. spreading across 6 targets) engages strategic thinkers. But some 5th graders may perceive ring toss as "too simple" regardless of the theme. The glow/ocean aesthetics help, but this age group is harder to wow with visuals alone. They want MECHANICS |
+| K–1st | 7/10 | The theme resonates and throwing things is fun at this age. But ring toss accuracy from even 4 feet is low for 5-6 year olds — expect most rings to miss entirely or hit tentacles without landing. A kid who throws 12 rings and lands 0–1 is not having a great time, regardless of the tentacle theme. The glow rings themselves are appealing objects (kids will want to play with them rather than throw them). The game works for this age but the hit rate frustration is real |
+| 2nd–3rd | 7/10 | Better motor control means a more satisfying hit rate (maybe 3–5 out of 12 on the easier targets). The variable difficulty creates natural goal-setting. But ring toss lacks the physical dynamism this age group gravitates toward — they'd rather stomp, whack, or launch something. The game is "fine" for this age, not magnetic |
+| 4th–5th | 5/10 | Ring toss reads as a little-kid game to most 4th-5th graders regardless of theming. The Spike challenge might hook a few competitive kids, but the core activity — standing still and tossing rings — doesn't have the mechanical coolness or physical intensity this age group wants. Spray-painted PVC tentacles are charming to adults; to a 10-year-old they're "pipes with paint." GLOW MODE helps but doesn't fundamentally change the mechanic |
 
-### Skill to Luck Spectrum: 10/10 (Pure Skill)
-**This is the most skill-dominant game in the entire lineup.** There is zero randomness. No peg bounces, no cascades, no wind effects (indoors), no dice, no hidden variables. You throw a ring at a target. It either lands or it doesn't. Your aim, your release angle, your distance calibration — 100% deterministic.
+### Skill to Luck Spectrum: 8/10 (High Skill — but frustrating for beginners)
+The mechanic is 100% skill with zero randomness — this is accurate. You throw the ring, physics decides where it goes, and every variable is under your control.
 
-**Skill progression is visible and motivating.** A beginner misses everything. After 12 throws, they're landing Thick Boys. By their third round, they're attempting Whips. After 10 rounds, they're gunning for the Spike. The skill curve is smooth and infinitely deep — there's always a harder target to attempt, a more efficient scoring strategy to discover.
+The problem is that "100% skill" in a difficult throwing task means beginners experience it as "100% failure." A first-timer throwing 12 lightweight rings at PVC pipes from 6 feet will miss most of them. The skill curve is real but steep at the entry point. Unlike a game with some luck built in (plinko cascades, bouncing balls), there's no consolation prize for a bad throw. You miss, you get nothing, you throw again.
 
-**The only luck factor:** Outdoors, wind slightly affects the lightweight glow rings. Indoors, this game is 100% skill.
+For experienced players who return multiple times, the skill expression is excellent — genuine technique development, target selection strategy, visible improvement. But most carnival players get one round. The skill ceiling is high; the skill floor is frustrating.
+
+Scored 8 rather than 10 because a game that most first-time players experience as "I missed everything" has a skill-expression problem regardless of its theoretical purity.
 
 ### Chaos Level: 3/10
-Low chaos by design. Ring toss is an orderly, sequential game — throw, observe, repeat. There's no simultaneous action, no scrambling, no frenetic energy. One ring in the air at a time. The visual spectacle (glowing tentacles) adds atmosphere but not chaos.
+Accurate. Ring toss is orderly and quiet. One throw at a time, no simultaneous action, no scrambling. The game generates atmosphere (colorful tentacles, glow effects) but not energy.
 
-**This is a feature, not a bug.** Not every carnival game needs to be pandemonium. Kraken Attack is the "cool zone" — the chill, skill-focused game between the frenetic ones. It's where the focused kids go. It's where parents take a breath. The low chaos also means it's EASY TO OPERATE — one person can run this game while eating a hot dog.
+### Durability: 9/10
+PVC, plywood, and floor flanges are nearly indestructible. No moving parts, no mechanisms to maintain.
 
-### Durability: 10/10
-**Essentially indestructible.** PVC pipes don't break under normal use (a ring weighs ounces). The plywood platform is a slab. Floor flanges are industrial hardware. There are NO moving parts, NO fragile components, NO wear items.
+Dropping from 10 to 9 because: glow stick rings are single-use consumables that need constant replenishment through a carnival day. Budget for 100+ rings for a full event. The ocean scene paint will show wear from ring impacts — rings landing on the platform scuff the surface. Clear polyurethane helps but doesn't eliminate this. After 2–3 events the paint job will look tired. These are maintenance issues, not durability failures, but they're real ongoing costs.
 
-**What could break:** Glow stick rings are disposable (by design — buy in bulk). 3D-printed rings could crack if stepped on — keep spares. The paint will scuff over time from ring impacts — touch up between events or apply extra polyurethane. That's literally it. This game could survive a decade of school carnivals with zero maintenance beyond ring replenishment and occasional paint touch-ups.
+### Photogenicity: 6/10
+In daylight: colored PVC pipes on a painted plywood square. It's colorful but not visually spectacular. From a parent's phone camera at a carnival, it reads as "craft project ring toss." A kid mid-throw is a decent action shot but nothing that stands out in a photo album.
 
-### Photogenicity: 9/10
-**Standard mode:** 7/10. Colorful tentacles on an ocean platform look great in well-lit photos. The variety of colors (purple, magenta, green, pink, blue) ensures the game pops in any photo. A kid mid-throw with glowing rings and tentacles in the background is a natural photo moment.
+Under blacklight (GLOW MODE): significantly better. UV-reactive tentacles and glow rings create unusual, eye-catching photos. But this requires darkness, which is a subset of a carnival day.
 
-**GLOW MODE:** 11/10. Under blacklight, this game is the carnival's Instagram centerpiece. Bioluminescent tentacles, glowing ocean surface, glow rings arcing through the air — every photo looks like a deep-sea rave. This is the game that makes the school carnival look like it has a professional art director.
-
-The 9/10 average assumes GLOW MODE is deployed at least part of the event (dusk onward). Without it, score drops to 7/10.
+Scoring for average conditions across a full event, not the optimal nighttime scenario. A game that needs special lighting to photograph well has a photogenicity limitation.
 
 ### Onboarding Time: 10/10 (Instant)
-**5-second explanation:** "Throw rings at the tentacles! Higher ones are worth more. Go!"
-
-Ring toss requires zero explanation. Every human on Earth understands "throw ring, land on thing." The tentacle theme, the point values, the KRAKEN CAPTURED bonus — kids discover all of this organically through play. You could put this game out with just a scoring sign and no operator, and every kid would figure it out immediately.
-
-This is the fastest-onboarding game possible. Cornhole-tier accessibility.
+"Throw rings at the tentacles. Higher ones are worth more." Ring toss is universally understood. No explanation needed, no learning curve on the controls (you throw with your hand), no rules to memorize. This is genuinely the fastest-onboarding game possible.
 
 ---
 
@@ -60,29 +66,31 @@ This is the fastest-onboarding game possible. Cornhole-tier accessibility.
 
 | Heuristic | Score |
 |-----------|-------|
-| Overall Entertainment | 8/10 |
-| Memorability | 8/10 |
-| Ease of Construction | 10/10 |
-| Appeal (K–1st) | 9/10 |
-| Appeal (2nd–3rd) | 8/10 |
-| Appeal (4th–5th) | 7/10 |
-| Skill/Luck Balance | 10/10 |
+| Overall Entertainment | 6/10 |
+| Memorability | 6/10 |
+| Ease of Construction | 9/10 |
+| Appeal (K–1st) | 7/10 |
+| Appeal (2nd–3rd) | 7/10 |
+| Appeal (4th–5th) | 5/10 |
+| Skill/Luck Balance | 8/10 |
 | Chaos Level | 3/10 |
-| Durability | 10/10 |
-| Photogenicity | 9/10 |
+| Durability | 9/10 |
+| Photogenicity | 6/10 |
 | Onboarding Time | 10/10 |
-| **Average** | **8.4/10** |
+| **Average** | **6.9/10** |
 
 ## Verdict
-Kraken Attack scores 8.4/10 — competitive with the top concepts but winning on completely different axes. It's the **easiest to build** (10/10, single day), the **cheapest** ($150–180), the **most durable** (10/10, no moving parts), the **most skill-dominant** (10/10, zero luck), and the **fastest to learn** (10/10, instant). It trades chaos and mechanical complexity for elegance, accessibility, and theme.
+Kraken Attack scores 6.9/10. It is a well-themed ring toss — the best version of ring toss you could build for a school carnival. But it is still ring toss. The fundamental mechanic is passive, repetitive, and frustrating for beginners who miss most throws. The theme elevates it cosmetically but doesn't change what you're doing with your hands.
 
-**Where it excels:** This is the game you build when you want maximum fun-to-effort ratio. If you're a single parent with one Saturday, $150, and a dream — build Kraken Attack. It delivers 90% of the wow factor at 30% of the cost and 20% of the build time of the more complex concepts.
+**When to build it:** When you need a game built fast and cheap that fills a slot in the carnival lineup. When you have limited build time (single Saturday) and budget ($150). When you need a calm, low-operator-attention game to balance high-chaos options. When your carnival runs into dusk and you can deploy GLOW MODE.
 
-**Where it falls short:** Lower chaos (3/10) means it won't draw the same crowd energy as Slingshot Siege or Stomp Rockets. 4th–5th graders may find the base mechanic too simple unless the GLOW MODE sells the atmosphere. It's a "play once, maybe twice" game for older kids unless the Spike challenge hooks them.
+**When NOT to build it:** When you only have room for one game and need maximum impact. When your audience skews 4th–5th grade. When the carnival is entirely in daylight (GLOW MODE is this game's best differentiator). When you want a game that draws a crowd — ring toss draws a line, not a crowd.
 
-**The GLOW MODE multiplier:** Without blacklight, this is a solid 7.5/10 game. WITH blacklight, it jumps to 8.4/10 because the visual spectacle transforms ring toss from "classic carnival filler" to "the most beautiful thing at the event." Budget the extra $25 for GLOW MODE. It's the difference between "fun game" and "the game everyone photographs."
+**The core tension:** Kraken Attack's strongest scores are on axes that don't excite kids (ease of construction, durability, onboarding). Its weakest scores are on axes that do (entertainment, chaos, 4th-5th appeal). It's a game optimized for the builder, not the player. That's useful — sometimes you need the easy build. But don't mistake builder convenience for player excitement.
 
-**Best deployment:** Place Kraken Attack between two high-chaos games (like Slingshot Siege and Whack Attack) to give kids a focused, skill-based palate cleanser. Run GLOW MODE from dusk onward. Offer a special prize for anyone who lands The Spike.
+**The GLOW MODE question:** Without blacklight, this is a 6.2/10 game. With blacklight at dusk, it's closer to 7.5/10 — the visual spectacle genuinely transforms the experience. If you build this, budget the $25 for UV strips. But recognize that you're building a game whose best feature only works part of the time.
+
+**Honest comparison:** A standard ring toss booth with bottles scores about 5/10. Kraken Attack's theming, variable targets, and GLOW MODE add roughly 2 points to that baseline. That's real value, but it's incremental improvement on a known formula, not a new category of fun.
 
 ## Head-to-Head Comparison
 
@@ -90,8 +98,8 @@ Kraken Attack scores 8.4/10 — competitive with the top concepts but winning on
 |---|---|---|---|
 | **Build Time** | 1 day | 2 weekends | 2 weekends |
 | **Cost** | $150–180 | $400–450 | $350–400 |
-| **Skill Expression** | Highest (pure aim) | Very High (aim + strategy) | Medium (stomp calibration) |
-| **Chaos Level** | Low (zen focus) | Medium (controlled combat) | High (pandemonium) |
-| **Durability** | Indestructible | Very High | Medium (pneumatics) |
-| **GLOW MODE Bonus** | Transformative | Additive | Moderate |
-| **Average Score** | 8.4 | 8.7 | 8.8 |
+| **Skill Expression** | High (pure aim) | Uncertain (untested) | Medium (stomp calibration) |
+| **Chaos Level** | Low (3/10) | Medium (6/10) | High (pandemonium) |
+| **Durability** | Very High | High | Medium (pneumatics) |
+| **Core Mechanic** | Ring toss (known, proven, modest) | Slingshot (novel, unproven) | Stomp launch (proven, exciting) |
+| **Average Score** | 6.9 | 7.1 | 8.8 |

@@ -5,69 +5,71 @@ Each heuristic scored 1–10 (10 = best possible).
 
 ---
 
-### Overall Entertainment: 9/10
-The tilting labyrinth is one of the most compelling dexterity mechanisms in game history — there's a reason the wooden labyrinth toy has been manufactured continuously since the 1940s. Scaling it up to 4 feet and theming it as a bank vault heist amplifies everything: the tension of guiding the ball through narrow corridors, the panic when it rolls toward a trap hole, the relief when it threads past. The dual-crank control (two hands, two axes) is the magic — it's a motor skill challenge that's instantly intuitive but takes genuine practice to master. The ALARM bells provide punctuation: every failure is announced to the world, every stretch of silence means someone is in the zone. The 60-second timer adds urgency that escalates as the vault gets closer. Deducting 1 point because the game is solo (one player at a time) — spectators are enthralled but only one kid plays per round.
+### Overall Entertainment: 7/10
+The tilting labyrinth is a genuinely compelling dexterity mechanism. The dual-crank control creates a unique motor skill challenge — coordinating two axes simultaneously is intuitive to grasp but satisfying to refine. The ball rolling through corridors, approaching trap holes, teetering on edges — these moments produce real tension. The 60-second timer adds urgency that builds as you get deeper into the maze.
 
-### Memorability: 9/10
-"Remember that giant maze where you had to break into the vault?" The heist narrative is instantly cinematic. Kids don't just play a maze — they're pulling off a heist. The ALARM bells become a carnival sound effect that everyone associates with the game. The speed run leaderboard creates social memory ("I was 3rd fastest!"). The three-path discovery mechanic means kids come back to try a harder route, building a multi-round story. The physical sensation of the cranks — the resistance, the precision, the moment your hands coordinate perfectly — is a tactile memory that sticks. Loses 1 point vs. the absolute top because the visual spectacle is subtler than glowing tentacles or flying projectiles — the drama is in the ball's journey, which is best seen up close.
+The fundamental problem is throughput. This is a solo game. One kid plays while everyone else watches. A round takes ~90 seconds (setup + play + reset). That's ~40 kids per hour. At a carnival with 200+ kids, that's a 30-minute line. Kids in line are not entertained; they're waiting. The spectator experience (watching someone tilt a ball through a maze) is engaging for about 30 seconds, then the novelty fades — you're watching someone else play a dexterity game, which is fundamentally less interesting than playing it yourself.
 
-### Ease of Construction: 8/10
-The maze surface itself is simple — gluing plywood strips to a flat surface is tedious but requires no special skills. The paint job (blueprint theme) is straightforward. The trap hole bells are dead simple. The challenging part is the **gimbal mechanism**: two perpendicular pivot axes with smooth rotation, connected to hand cranks via linkages. This requires careful alignment and some mechanical intuition. A builder with basic woodworking skills can do it, but it's not "cut plywood and screw things together" simple.
+The heist narrative adds flavor but doesn't change the mechanics. A kid playing this for 60 seconds is tilting a ball through a maze. The painted room labels ("SECURITY OFFICE," "AIR DUCT") are read once and then ignored while focusing on the ball. The narrative is appreciated by adults more than kids.
 
-**Complexity factors:** (1) Gimbal axis alignment is critical — misaligned axes cause binding. (2) Connecting rod linkage from cranks to axes needs proper geometry for smooth proportional control. (3) Return-to-center springs need tuning. (4) The maze walls need to be precisely placed (ball gets stuck in poorly-glued corners).
+### Memorability: 7/10
+The giant labyrinth table is physically distinctive — most kids have never seen one at 4 feet wide. The dual-crank mechanism is mechanically interesting. The bicycle bell alarm is a strong audio signature that carries across the carnival. These are real differentiators.
 
-**Simpler than:** Slingshot Siege (no acrylic panels, no 3D printing required, fewer components). **More complex than:** Kraken Attack (the gimbal mechanism adds a full day of work).
+But the lasting memory depends on the player's experience: a kid who reaches the vault remembers triumph. A kid who triggered alarms 6 times and ran out of time remembers frustration. Since most first-time players will struggle with dual-crank coordination and trigger multiple alarms, the majority of players' memories are "that maze I couldn't beat." That can be motivating (come back and try again) or discouraging (move on to the next game). Which one depends heavily on the kid's temperament.
 
-At $200–240, it's in the mid-range. Most of the cost is hardware (bearings, steel rods, springs).
+The speed run leaderboard is the strongest memorability feature — "I was 4th fastest" persists as a social reference point through the carnival. This only works if enough kids actually complete the maze to populate the board.
+
+### Ease of Construction: 6/10
+The maze surface itself is straightforward — gluing plywood strips to a flat surface is tedious but simple. The paint job is optional fun. The trap hole bells are dead simple.
+
+The gimbal mechanism is where the build gets hard. Two perpendicular pivot axes that need to rotate smoothly, independently, and without binding. Getting this right requires:
+1. Precise alignment of pillow block bearings — misalignment causes the surface to bind at certain angles
+2. Connecting rod linkages from cranks to axes that provide proportional, smooth control — too much play and the cranks feel sloppy, too tight and they bind
+3. Return-to-center springs that are strong enough to center the surface but weak enough that the cranks can overcome them easily
+4. Tilt limiters that allow exactly ±5° — too little and the ball barely rolls, too much and it's uncontrollable
+
+A builder with mechanical experience can handle this. A typical parent volunteer who's comfortable with a table saw but hasn't built linkage mechanisms will spend a full extra day debugging the gimbal — adjusting bearing alignment, swapping springs, rebuilding connecting rods. The build plan describes this as "Weekend 2, Day 1" but gimbal debugging could easily consume all of Weekend 2.
+
+Cost ($200–240) is mid-range and accurate. Most of the cost is hardware (bearings, steel rods, springs) that can't be substituted with lumber.
 
 ### Appeal by Elementary School Grade
 | Grade | Appeal (1-10) | Notes |
 |-------|--------------|-------|
-| K–1st | 7/10 | They LOVE the concept. They will happily turn the cranks. But the dual-hand coordination is genuinely difficult for this age — expect a lot of alarm bells and some frustration. The heist narrative keeps them engaged even when failing. The sound of the bells will make them laugh even when it means they lost. Consider having the operator "help" by controlling one crank while the kid does the other |
-| 2nd–3rd | 10/10 | The sweet spot. Motor skills are developed enough for dual-crank coordination. The heist narrative hits perfectly — this age group LOVES secret agents, spies, heist movies. They'll develop real technique over multiple plays and start attempting harder paths. The leaderboard creates social competition. "I beat the vault in 28 seconds" becomes playground currency |
-| 4th–5th | 9/10 | The skill ceiling keeps this age group engaged — the Air Duct path at sub-20 seconds is genuinely challenging for anyone. The "cool" factor of bank heist theming appeals to pre-teens who might eye-roll at tentacles or moles. The mechanical sophistication (cranks, gimbal, the FEELING of the mechanism) appeals to kids who appreciate engineering. Some 5th graders will be fascinated by HOW the cranks work, not just playing the game |
+| K–1st | 4/10 | The dual-crank mechanism is genuinely difficult for this age. Coordinating two hands on independent axes requires motor planning that most 5-6 year olds haven't developed. They'll turn both cranks the same direction, get confused when the ball goes sideways, and trigger alarms repeatedly. The 60-second timer will expire before most K–1st players reach the vault, leaving them with a "failed" experience. The heist narrative goes over their heads. This game is not appropriate for this age without heavy operator assistance (operator controls one crank while the kid controls the other), which halves the game's core challenge |
+| 2nd–3rd | 7/10 | Motor skills are sufficient for basic dual-crank coordination. They'll figure out the controls within 10–15 seconds and start making real progress. The Easy Street path is achievable for this age. The alarm bells produce genuine comedy (DING + "oh no!"). The heist theme resonates — this age group likes spy/heist stories. But the 60-second timer is tight for first-timers, and running out of time without reaching the vault is a common and disappointing outcome |
+| 4th–5th | 8/10 | The best age for this game. Motor skills handle the dual cranks well. The three-path difficulty system creates real progression incentive. The speed run leaderboard feeds competitive energy. The mechanical sophistication (cranks, gimbal) earns respect from kids who appreciate engineering. Some will spend 5+ minutes studying the maze layout before their turn, planning their route — this level of strategic engagement is rare at a carnival booth |
 
-### Skill to Luck Spectrum: 10/10 (Pure Skill — Mastery Game)
-**This game has zero luck.** The ball goes where you tilt it. Every trap hole hit is a skill failure. Every successful vault crack is a skill achievement. There are no random elements, no bouncing, no variables beyond the player's hands on the cranks.
+### Skill to Luck Spectrum: 9/10 (Pure Skill — Deep Mastery Curve)
+Zero randomness. The ball goes exactly where you tilt it. Every alarm is a skill failure; every vault crack is a skill triumph. This assessment is accurate and doesn't need deflating.
 
-**Skill dimensions:**
-1. **Dual-hand coordination** — The primary skill. Independently controlling two tilt axes is a genuine motor skill that improves with practice
-2. **Speed vs. precision trade-off** — Tilting more = faster ball movement but harder to control. Finding the optimal tilt angle for each corridor is a micro-skill
-3. **Path memorization** — Experienced players learn the maze layout and pre-plan their tilt sequences, reducing reaction time
-4. **Recovery** — When the ball heads toward a trap, the ability to quickly counter-tilt and save it separates beginners from experts
-5. **Route selection** — Choosing Easy Street vs. Air Duct is a strategic decision based on self-assessment
+The skill curve is genuinely deep: dual-hand coordination, speed/precision trade-offs, path memorization, recovery technique. The three paths create a natural progression from Easy Street to Air Duct.
 
-The skill curve is exceptionally deep. First-timers trigger every alarm. After 5 plays, they're clearing Easy Street. After 20 plays, they're attempting Air Duct speed runs. There's always a faster time to chase.
+Dropping from 10 to 9 because: a game that most first-time players fail (time out without reaching the vault) has a skill-floor problem. High skill ceiling + high skill floor = frustrating for casual carnival players who get one attempt. The mastery curve is great for repeat players but the average carnival kid plays once.
 
 ### Chaos Level: 2/10
-This is the calmest game in the lineup — by design. The experience is meditative: slow, careful crank movements, a ball rolling through corridors, silence punctuated by occasional DING. The chaos comes in micro-bursts: the ball approaches a trap, the player's hands tremble, the crowd holds its breath — DING or silence. Then the slow careful rolling resumes.
+Accurate. This is the calmest game possible. Slow, precise crank movements. A ball rolling through corridors. Silence punctuated by occasional bell dings. The entertainment value for spectators is watching someone else concentrate, which is not inherently exciting. The alarm bells provide brief spikes of comedy but the baseline energy is meditative.
 
-**This is a feature.** The Great Heist is the carnival's "zen zone." It's the game that draws a quiet, focused crowd. Spectators lean in and whisper. The contrast with high-chaos games (Stomp Rockets, Whack Attack) makes the carnival varied and interesting. Not every game needs to be pandemonium.
+### Durability: 7/10
+The maze surface and frame are robust plywood and 2×4. The steel ball bearing is indestructible. No consumables.
 
-### Durability: 9/10
-**Strong points:** The maze surface is a slab of plywood with wood strips glued on — extremely robust. The steel ball bearing is indestructible. The frame is 2×4 lumber. The gimbal rods are steel. There's very little that can break under normal play.
+But the gimbal mechanism has real wear concerns: pillow block bearings need periodic lubrication. Connecting rod linkages develop slop over time as bolt holes elongate from repeated force — the cranks gradually feel less precise. Springs fatigue and lose their centering force. The maze surface polyurethane wears in the ball's most-traveled paths, changing rolling speed over time (Easy Street will wear fastest).
 
-**Wear points:** The gimbal bearings may need periodic lubrication (every few events). The maze surface paint will wear from ball rolling — polyurethane seal is critical. The connecting rod linkages may develop play over time — check bolt tightness between events. Bicycle bells are cheap to replace if the clapper fatigues.
+None of these are catastrophic, but they're ongoing maintenance that a volunteer-run carnival may not perform between events. A gimbal that felt great when first built may feel sloppy by the third event. This is a game that degrades gracefully but noticeably.
 
-**Key advantage:** No consumable parts (unlike glow rings), no elastic fatigue (unlike slingshots), no high-stress components. This game runs all day with zero maintenance.
+### Photogenicity: 5/10
+The visual spectacle is minimal. A plywood table with a ball on it. The blueprint paint scheme is attractive up close but doesn't read from camera distance. The game's tension is internal (the player's focus, the ball's slow progress) — none of which photographs well. A still photo of someone turning cranks while a ball sits in a maze is not compelling.
 
-### Photogenicity: 7/10
-**The challenge:** The visual spectacle is subtle. A ball rolling through a maze doesn't photograph dramatically. The game is best experienced from above (looking down at the maze), but the player's face (concentration, tension, celebration) is best captured from the front.
+Video captures the tension better (the ball approaching a trap, the player's concentration, the DING of failure), but carnival parents take photos, not videos. The game would need conspicuous visual elements (LED strips, dramatic signage, fog effects) to photograph well, none of which are in the base build.
 
-**What works:** The blueprint-themed maze surface is beautiful in its own right — navy with gold vault and red alarms, it looks like a movie prop. The sand timer adds visual interest. A kid with both hands on cranks, leaning over the maze with intense focus, is a compelling portrait.
+The gold vault is a nice visual anchor but it's 3"×3" on a 48"×36" surface — barely visible in photos.
 
-**What hurts:** No bright colors flying through the air, no glowing elements, no spectacular moments of physical action. This is a quiet game photographically. It's the kind of game you VIDEO rather than photograph — the tension of the ball approaching a trap translates to video but not stills.
+### Onboarding Time: 7/10
+The concept (tilt ball through maze to goal) is instantly understood — most kids have played a labyrinth toy or app. But the dual-crank mechanic requires a non-trivial calibration period. Kids need to:
+1. Figure out which crank controls which axis (~5–10 seconds of confused tilting)
+2. Calibrate how far to turn for how much tilt (~10 seconds)
+3. Develop basic dual-hand coordination (~15+ seconds)
 
-**Upgrade:** Add LED strip lighting under the maze surface edges for ambient glow. Blue LEDs under the corridors would make the paths glow through the surface gaps. This would significantly improve photogenicity at dusk.
-
-### Onboarding Time: 8/10 (Near-Instant)
-**10-second explanation:** "Guide the ball through the maze to the vault! Use the cranks to tilt the table. Don't fall in the holes — that's the alarm! You've got 60 seconds. Go!"
-
-The labyrinth concept is immediately understood — most kids have played a small labyrinth toy or at least an app version. The cranks are intuitive ("turn this one for left-right, turn this one for forward-back"). The maze itself teaches through play — your first attempt reveals the layout and the trap positions.
-
-**The learning curve is in the HANDS, not the MIND.** Kids understand what to do instantly. Executing it with smooth dual-crank coordination takes practice. This gap between understanding and execution is what makes it addictive — "I KNOW what to do, I just need to do it BETTER."
-
-Deducting 2 points because the dual-crank mechanic requires a brief calibration period (~10 seconds of "oh wait, this crank does THAT direction") before real play begins.
+That's 30+ seconds of the 60-second timer spent learning the controls, not playing the game. A volunteer explaining "left crank tilts left-right, right crank tilts forward-back" helps but doesn't eliminate the coordination learning curve. This is not "instant" onboarding — it's "understood quickly but executed slowly."
 
 ---
 
@@ -75,31 +77,33 @@ Deducting 2 points because the dual-crank mechanic requires a brief calibration 
 
 | Heuristic | Score |
 |-----------|-------|
-| Overall Entertainment | 9/10 |
-| Memorability | 9/10 |
-| Ease of Construction | 8/10 |
-| Appeal (K–1st) | 7/10 |
-| Appeal (2nd–3rd) | 10/10 |
-| Appeal (4th–5th) | 9/10 |
-| Skill/Luck Balance | 10/10 |
+| Overall Entertainment | 7/10 |
+| Memorability | 7/10 |
+| Ease of Construction | 6/10 |
+| Appeal (K–1st) | 4/10 |
+| Appeal (2nd–3rd) | 7/10 |
+| Appeal (4th–5th) | 8/10 |
+| Skill/Luck Balance | 9/10 |
 | Chaos Level | 2/10 |
-| Durability | 9/10 |
-| Photogenicity | 7/10 |
-| Onboarding Time | 8/10 |
-| **Average** | **8.0/10** |
+| Durability | 7/10 |
+| Photogenicity | 5/10 |
+| Onboarding Time | 7/10 |
+| **Average** | **6.3/10** |
 
 ## Verdict
-The Great Heist scores 8.0/10 — pulled down by low chaos (2/10) and moderate photogenicity (7/10), which are **intentional design choices**, not weaknesses. This is a skill-mastery game. It's the game where kids discover they can get better at something through practice, where the 60-second timer creates genuine pressure, where the sound of silence (no alarms) is more thrilling than any explosion.
+The Great Heist scores 6.3/10. It is a well-designed skill game with a genuinely deep mastery curve and a compelling dexterity mechanism. It is also a poor carnival game.
 
-**Where it excels:** The deepest skill curve in the lineup. The most compelling solo experience. The strongest narrative (heist movies are universally loved). The game that generates "one more try" energy — kids will queue up 3+ times because they KNOW they can beat their time. The leaderboard creates persistent social engagement across the entire carnival.
+The fundamental problem is structural: carnival games need to serve many players quickly with minimal explanation, and the experience needs to be satisfying for first-timers who play once. The Great Heist serves one player at a time, takes 90 seconds per round, requires 30 seconds of control calibration, and most first-timers won't reach the vault. The kids who love this game are the ones who play it 5+ times — and a carnival line doesn't allow that.
 
-**Where it falls short:** Low visual spectacle means it won't draw crowds from across the room — you need to be standing at the table to appreciate the tension. The solo format means lower throughput (one player at a time, ~90 seconds per round including setup). K–1st graders may struggle with dual-crank coordination and need operator assistance.
+**When to build it:** When you have room for a "deep dive" station that draws a specific audience — the patient, focused, mechanically-minded kids. When your carnival has enough other high-energy games that a calm skill station provides welcome variety. When you're willing to accept low throughput (~40 kids/hour) in exchange for a high-quality individual experience.
 
-**The throughput problem:** At ~90 seconds per round, this game serves ~40 kids per hour — less than half the throughput of Kraken Attack or Whack Attack. For high-traffic carnivals, consider building two tables (the gimbal frame is the same, just build two maze surfaces) or implementing a strict 60-second timer where unfired... err, unvaulted runs still end.
+**When NOT to build it:** When throughput matters (large carnivals, short event windows). When your audience is primarily K–2nd grade (the dual-crank mechanic is too challenging). When you don't have a builder who's comfortable debugging a gimbal mechanism. When you need a game that generates crowd energy.
 
-**Biggest upgrade opportunity:** Swappable maze surfaces. Build 2-3 different mazes (The Great Heist, Prison Break, Area 51) on separate ¼" plywood sheets. Swap them between carnival sessions. Same frame, fresh challenge every time. Kids who "mastered" the bank vault come back for the prison break and are beginners again.
+**The throughput killer:** 40 kids/hour is roughly half the throughput of a ring toss or whack-a-mole. At a 200-kid carnival, that's either a 30-minute line or a game that half the kids skip. Building two tables doubles cost and build time but solves the throughput problem — consider this only if the first table proves the concept works.
 
-**Best deployment:** Place The Great Heist in a quieter corner of the carnival where spectators can gather around the table and lean in. Run a whiteboard leaderboard prominently. Pair it with a high-energy game nearby (Whack Attack) for contrast. The "zen zone to chaos zone" transition is a great carnival flow.
+**The age gap:** This game has the widest appeal variance of any concept: 4/10 for K–1st, 8/10 for 4th–5th. If your carnival serves all elementary grades equally, the average appeal is moderate. If you can position it as the "big kid challenge" station, the 4th–5th graders will love it.
+
+**Biggest risk:** The gimbal mechanism. If the cranks feel sloppy, binding, or unresponsive, the entire game fails. Unlike a ring toss (which works even if the paint job is bad), The Great Heist's core experience depends on mechanical precision that may be hard to achieve and harder to maintain. Prototype the gimbal before committing to the full maze build.
 
 ## Head-to-Head Comparison
 
@@ -107,9 +111,9 @@ The Great Heist scores 8.0/10 — pulled down by low chaos (2/10) and moderate p
 |---|---|---|---|
 | **Game Type** | Dexterity/maze | Ring toss | Projectile/combat |
 | **Players per Round** | 1 (solo) | 1 (solo) | 2 (head-to-head) |
-| **Throughput** | ~40/hr | ~80/hr | ~50/hr |
-| **Skill Expression** | Deepest (mastery curve) | High (pure aim) | Very High (aim + strategy) |
-| **Chaos Level** | Zen (2/10) | Low (3/10) | Medium (7/10) |
-| **Build Complexity** | Medium (gimbal) | Easiest | Medium-Hard |
-| **Cost** | $200–240 | $150–180 | $400–450 |
-| **Average Score** | 8.0 | 8.4 | 8.7 |
+| **Throughput** | ~40/hr (worst) | ~80/hr (best) | ~50/hr |
+| **Skill Expression** | Deepest (mastery curve) | High (pure aim) | Uncertain (unproven) |
+| **Build Complexity** | Hardest (gimbal mechanism) | Easiest | Medium |
+| **K–1st Appeal** | Poor (4/10) | Moderate (7/10) | Limited (6/10) |
+| **4th–5th Appeal** | Best (8/10) | Weak (5/10) | Good (8/10) |
+| **Average Score** | 6.3 | 6.9 | 7.1 |
